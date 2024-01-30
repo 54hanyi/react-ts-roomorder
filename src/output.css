@@ -556,6 +556,10 @@ video {
   line-height: 1;
 }
 
+* {
+  transition: background-color 0.3s, color 0.3s;
+}
+
 html {
   box-sizing: border-box;
 }
