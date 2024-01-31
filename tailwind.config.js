@@ -20,7 +20,7 @@ export default {
           80: "#D0B79F",
           60: "#E1D1C2",
           40: "#F1EAE4",
-          Tint: "#FAF7F5",
+          tint: "#FAF7F5",
         },
         success: {
           120: "#299F65",
@@ -73,7 +73,22 @@ export default {
         normal: "150%", // 正文行高
       },
       height: {
-        1080: "68rem",
+        13: "3.25rem",
+        18: "4.5rem",
+        96: "6rem",
+        500: "31.25rem",
+        800: "50rem",
+      },
+      width: {
+        88: "22rem",
+        480: "30rem",
+        648: "40.5rem",
+      },
+      gap: {
+        50: "12.5rem",
+      },
+      borderRadius: {
+        80: "5rem",
       },
     },
   },
