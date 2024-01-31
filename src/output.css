@@ -546,14 +546,24 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.bg-blue-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+.h-1080{
+  height: 68rem;
 }
 
-.text-8xl{
-  font-size: 6rem;
-  line-height: 1;
+.w-full{
+  width: 100%;
+}
+
+.bg-opacity-30{
+  --tw-bg-opacity: 0.3;
+}
+
+.bg-\[url\(\'\/images\/web\/banner\.png\'\)\]{
+  background-image: url('/images/web/banner.png');
+}
+
+.bg-cover{
+  background-size: cover;
 }
 
 * {

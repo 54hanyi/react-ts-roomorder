@@ -72,6 +72,9 @@ export default {
         heading: "120%", // 標題行高
         normal: "150%", // 正文行高
       },
+      height: {
+        1080: "68rem",
+      },
     },
   },
   plugins: [],
