@@ -20,6 +20,7 @@ export default {
           80: "#D0B79F",
           60: "#E1D1C2",
           40: "#F1EAE4",
+          10: "#F7F2EE",
           tint: "#FAF7F5",
         },
         success: {
@@ -76,13 +77,16 @@ export default {
         13: "3.25rem",
         18: "4.5rem",
         96: "6rem",
+        264: "16.5rem",
         500: "31.25rem",
         800: "50rem",
+        880: "55rem",
       },
       width: {
-        88: "22rem",
+        432: "27rem",
         480: "30rem",
         648: "40.5rem",
+        800: "50rem",
       },
       gap: {
         50: "12.5rem",
