@@ -9,7 +9,7 @@ export default function Banner() {
       <div className="relative bg-cover bg-center bg-[url('/images/web/banner.png')] h-800 w-full py-5 px-12">
         <div className="absolute inset-0 bg-black opacity-60"></div>
 
-        <div className="relative flex justify-between items-center z-10">
+        <div className="relative flex justify-between items-center z-100">
           <img src="/images/web/logo.png" alt="logo" className="h-13" />
           <div className="flex items-center gap-8 text-body">
             <button className="text-neutral-0 hover:text-primary-80">客房旅宿</button>
