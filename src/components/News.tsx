@@ -4,7 +4,7 @@ import NewsCard from './NewsCard'
 export default function News() {
   return (
     <>
-      <div className='relative grid grid-cols-12 gap-4 p-14 mb-4 w-full h-960 bg-[#F7F2EE]'>
+      <div className='relative grid grid-cols-12 gap-4 p-14 w-full h-960 bg-[#F7F2EE]'>
         <img
           src="public/images/web/dot.png"
           alt="Top Right Dots"
@@ -26,7 +26,7 @@ export default function News() {
         <img
           src="public/images/web/dot.png"
           alt="Dots Bottom Left"
-          className="absolute bottom-[-4.5rem] left-28 h-36"
+          className="absolute bottom-[-4.5rem] left-32 h-36"
         />
       </div>
     </>

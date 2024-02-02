@@ -1,10 +1,13 @@
 import React from 'react'
-import News1 from '/images/web/News1.png'
-import News2 from '/images/web/News2.png'
-import News3 from '/images/web/News3.png'
 
 export default function NewsCard() {
-  const data = [
+  interface Data {
+    id: number;
+    title: string;
+    image: string;
+    description: string;
+  }
+  const data: Data[] = [
     {
       id: 1,
       title: "秋季旅遊，豪華享受方案",
@@ -41,7 +44,6 @@ export default function NewsCard() {
               {item.title}
             </header>
             <p className="text-left text-body text-neutral-80 whitespace-pre-line">
-              {" "}
               {item.description}
             </p>
           </div>

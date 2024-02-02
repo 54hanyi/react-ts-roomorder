@@ -1,5 +1,5 @@
 // import React from 'react'
-import Line from '../assets/icons/Line.svg'
+import HomeButton from './HomeButton'
 import Rectangle1 from '../assets/icons/Rectangle1.svg'
 import Rectangle234 from '../assets/icons/Rectangle234.svg'
 
@@ -32,10 +32,7 @@ export default function Banner() {
                 <p className="text-display pt-16">高雄</p>
                 <p className="text-display my-4">豪華住宿之選</p>
                 <p className="text-h3 my-4">我們致力於為您提供無與倫比的奢華體驗與優質服務</p>
-                <button className="flex bg-neutral-0 text-black text-h5 rounded-md hover:bg-primary-120 hover:text-white my-6 p-4 w-full h-18 justify-end items-center">
-                  立即訂房
-                  <img src={Line} alt="Line" className="ml-2" />
-                </button>
+                <HomeButton text="立即訂房" width="w-full"/>
               </div>
             </div>
           </div>
