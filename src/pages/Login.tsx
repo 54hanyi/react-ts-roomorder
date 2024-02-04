@@ -1,9 +1,53 @@
 import React from 'react'
-import Line2 from '../assets/icons/Line2.svg'
-import Navbar from '../components/Navbar'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom"
+import { useForm } from 'react-hook-form'
+import waitNavigate from '../utils'
 
+import { userLoginForm } from '../interface/UserInfo'
+import Input from '../components/Input'
+import Line2 from '../assets/icons/Line2.svg'
+import Navbar from '../components/Navbar';
+
+const api = import.meta.env.VITE_API_LINK
 
 export default function Login() {
+  const navigate = useNavigate();
+  const { 
+    register,
+    handleSubmit, 
+    formState: { errors }, 
+  } = useForm({
+    defaultValues: {
+      email:'',
+    },
+    mode: 'onTouched',  // 點過後進行錯誤驗證
+  });
+  const onSubmit = async (data: any) => {
+    const { email, password } = data
+    const userData: userLoginForm = {
+      email,
+      password
+    }
+    try {
+      const response = await axios.post(`https://freyja-yr52.onrender.com/api/v1/user/login`, userData);
+      if (response.status) {
+        alert('登入成功');
+        navigate('/'); 
+      } else {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const msg = error.response && error.response.data ? error.response.data.msg : '此帳號尚未註冊！';
+        alert(msg);
+      } else {
+        alert('發生未知錯誤');
+      }
+    }
+  };
+
   return (
     <>
       <div className="flex flex-col">
@@ -15,27 +59,41 @@ export default function Login() {
             <div className="flex flex-col w-[50%] ">
               <p className='text-title mb-2 text-primary-100'>享樂酒店，誠摯歡迎</p>
               <p className='text-h1 text-white'>立即開始旅程</p>
-              <form action="" className='text-white'>
+              <form action="" onSubmit={handleSubmit(onSubmit)} >
                 <div className='mt-8'>
-                  <label htmlFor="">
-                    電子信箱
-                  </label>
-                  <input
+                  <Input
+                    register={register}
+                    errors={errors}
                     id="email"
+                    labelText="電子信箱"
                     type="email"
-                    className="text-neutral-60 mt-1 w-full px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100"
-                    placeholder='hello@exsample.com'
+                    placeholder="hello@exsample.com"
+                    rules={{
+                      required: {
+                        value: true,
+                        message: '請輸入 Email'
+                      },
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: 'Email 格式不正確'
+                      }
+                    }}
                   />
                 </div>
-                <div className='mt-4'>
-                  <label htmlFor="">
-                    密碼
-                  </label>
-                  <input
+                <div className="mt-4">
+                  <Input
+                    register={register}
+                    errors={errors}
                     id="password"
+                    labelText="密碼"
                     type="password"
-                    className="text-neutral-60 mt-1 w-full px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100"
-                    placeholder='請輸入密碼'
+                    placeholder="請輸入密碼"
+                    rules={{
+                      required: {
+                        value: true,
+                        message: '請輸入密碼'
+                      }
+                    }}
                   />
                 </div>
 
@@ -45,9 +103,9 @@ export default function Login() {
                       type="checkbox" 
                       className='h-3.5 w-3.5 pt-0.5'
                     />
-                    <span className='text-body'>記住帳號</span>
+                    <span className='text-body text-white'>記住帳號</span>
                   </label>
-                  <a href="" className='text-body text-primary-100 underline ml-1 pb-[-1px]'>忘記密碼？</a>
+                  <Link to="/" className='text-body text-primary-100 underline ml-1 pb-[-1px]'>忘記密碼？</Link>
                 </div>
 
                 <button
@@ -56,9 +114,9 @@ export default function Login() {
                 >
                   會員登入
                 </button>
-                <div className="flex text-body mt-4">
+                <div className="flex text-white text-body mt-4">
                   <p>沒有會員嗎？</p>
-                  <a href="" className='text-primary-100 underline ml-1'>前往註冊</a>
+                  <Link to="/signup" className='text-primary-100 underline ml-1'>前往註冊</Link>
                 </div>
               </form>
             </div>

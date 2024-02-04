@@ -1,4 +1,6 @@
 // import React from 'react'
+import { NavLink } from 'react-router-dom'
+
 import HomeButton from './HomeButton'
 import Rectangle1 from '../assets/icons/Rectangle1.svg'
 import Rectangle234 from '../assets/icons/Rectangle234.svg'
@@ -10,11 +12,19 @@ export default function Banner() {
         <div className="absolute inset-0 bg-black opacity-60"></div>
 
         <div className="relative flex justify-between items-center z-100">
-          <img src="/images/web/logo.png" alt="logo" className="h-13" />
+          <NavLink to='/'>
+            <img src="/images/web/logo.png" alt="logo" className="h-13" />
+          </NavLink>
           <div className="flex items-center gap-8 text-body">
-            <button className="text-neutral-0 hover:text-primary-80">客房旅宿</button>
-            <button className="text-neutral-0 hover:text-primary-80">會員登入</button>
-            <button className="text-neutral-0 bg-primary-100 p-4 rounded-lg hover:bg-primary-120">立即訂房</button>
+            <NavLink to='/rooms'>
+              <button className="text-neutral-0 hover:text-primary-80">客房旅宿</button>
+            </NavLink>
+            <NavLink to='/login'>
+              <button className="text-neutral-0 hover:text-primary-80">會員登入</button>
+            </NavLink>
+            <NavLink to='/rooms'>
+              <button className="text-neutral-0 bg-primary-100 p-4 rounded-lg hover:bg-primary-120">立即訂房</button>
+            </NavLink>
           </div>
         </div>
 
@@ -32,7 +42,9 @@ export default function Banner() {
                 <p className="text-display pt-16">高雄</p>
                 <p className="text-display my-4">豪華住宿之選</p>
                 <p className="text-h3 my-4">我們致力於為您提供無與倫比的奢華體驗與優質服務</p>
-                <HomeButton text="立即訂房" width="w-full"/>
+                <NavLink to='/rooms'>
+                  <HomeButton text="立即訂房" width="w-full"/>
+                </NavLink>
               </div>
             </div>
           </div>

@@ -1,8 +1,52 @@
 import React from 'react'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form';
+import { useContext, createContext } from 'react'
+import { useNavigate } from "react-router-dom"
+import Input from '../components/Input'
+
+import { RegisterForm1 } from '../interface/UserInfo'
 import Line2 from '../assets/icons/Line2.svg'
 import Navbar from '../components/Navbar'
 
+const api = import.meta.env.VITE_API_LINK
+
+export const UserContext = createContext({
+  email: '',
+  password: ''
+});
+
 export default function SignUp() {
+  const Context = useContext(UserContext);
+  const navigate = useNavigate()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterForm1>({
+    defaultValues: {
+      email: '',
+    },
+    mode: 'onTouched',
+  })
+  const onSubmit = async (data: RegisterForm1) => {
+    const { email, password, confirmPassword } = data
+    const emailVerify = await axios.post(
+      `${api}api/v1/verify/email`, {email}
+    )
+    if (emailVerify.data.result.isEmailExists) {
+      alert('此信箱已註冊過')
+      return
+    }
+    if (password !== confirmPassword) {
+      alert('密碼不一致')
+      return
+    }
+    Context.email = email
+    Context.password = password
+    navigate('/signup2')
+  }
   return (
     <>
       <div className="flex flex-col">
@@ -19,38 +63,65 @@ export default function SignUp() {
                 <img src="/images/web/stepline.png" alt="" className='h-[1px] w-48'/>
                 <img src="/images/web/step2.png" alt="" className='h-10 w-20'/>
               </div>
-              <form action="" className='text-white'>
+              <form action="" className='text-neutral-60' onSubmit={handleSubmit(onSubmit)}>
                 <div className='mt-8'>
-                  <label htmlFor="email">
-                    電子信箱
-                  </label>
-                  <input
+                  <Input
+                    register={register}
+                    errors={errors}
                     id="email"
+                    labelText="電子信箱"
                     type="email"
-                    className="text-neutral-60 mt-1 w-full px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100"
-                    placeholder='hello@exsample.com'
+                    placeholder="hello@exsample.com"
+                    rules={{
+                      required: {
+                        value: true,
+                        message: '請輸入 Email'
+                      },
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: 'Email 格式不正確'
+                      }
+                    }}
                   />
-                </div>
-                <div className='mt-4'>
-                  <label htmlFor="password">
-                    密碼
-                  </label>
-                  <input
+                  <Input
+                    register={register}
+                    errors={errors}
                     id="password"
+                    labelText="密碼"
                     type="password"
-                    className="text-neutral-60 mt-1 w-full px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100"
-                    placeholder='請輸入密碼'
+                    placeholder="請輸入密碼"
+                    rules={{
+                      required: {
+                        value: true,
+                        message: '請輸入密碼'
+                      },
+                      minLength: {
+                        value: 8,
+                        message: '密碼至少需要 8 個字'
+                      },
+                      pattern: {
+                        value: /^(?=.*[a-zA-Z])/,
+                        message: '密碼需包含至少 1 個字母'
+                      }
+                    }}
                   />
-                </div>
-                <div className='mt-4'>
-                  <label htmlFor="confirm">
-                    確認密碼
-                  </label>
-                  <input
-                    id="confirm-password"
+                  <Input
+                    register={register}
+                    errors={errors}
+                    id="confirmPassword"
+                    labelText="確認密碼"
                     type="password"
-                    className="text-neutral-60 mt-1 w-full px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100"
-                    placeholder='請再次輸入密碼'
+                    placeholder="請再次輸入密碼"
+                    rules={{
+                      required: {
+                        value: true,
+                        message: '請再次輸入密碼'
+                      },
+                      minLength: {
+                        value: 8,
+                        message: '密碼至少需要 8 個字'
+                      }
+                    }}
                   />
                 </div>
 
@@ -60,9 +131,10 @@ export default function SignUp() {
                 >
                   下一步
                 </button>
+
                 <div className="flex text-body mt-4">
                   <p>已經有會員了嗎？</p>
-                  <a href="" className='text-primary-100 underline ml-1'>立即登入</a>
+                  <Link to="/login" className='text-primary-100 underline ml-1'>立即登入</Link>
                 </div>
               </form>
             </div>

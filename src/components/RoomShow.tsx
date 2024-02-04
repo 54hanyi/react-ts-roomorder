@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import HomeButton from './HomeButton'
 import Line2 from '../assets/icons/Line2.svg'
 import BG from '../assets/icons/BG.svg'
@@ -31,7 +33,9 @@ export default function RoomShow() {
               <p className="text-h2 text-white mb-4">尊爵商人房</p>
               <p className="text-body text-white mb-4">台北市中心位置，距离地铁站仅五分钟步行距离。</p>
               <p className="text-h3 text-white font-bold">NT$ 10,000</p>
-              <HomeButton text="查看更多" width="w-[60%]"/>
+              <Link to='/rooms'>
+                <HomeButton text="查看更多" width="w-[60%]"/>    
+              </Link>
             </div>
           </div>
         </div>  

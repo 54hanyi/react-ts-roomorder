@@ -1,8 +1,86 @@
-import React from 'react'
-import Line2 from '../assets/icons/Line2.svg'
-import Navbar from '../components/Navbar'
+import { useContext, useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+import waitNavigate from '../utils';
+import cityData from "../cityData.json";
+import { UserContext } from './SignUp';
+import Input from '../components/Input';
+import { RegisterForm2 } from '../interface/UserInfo';
+import Line2 from '../assets/icons/Line2.svg';
+import Navbar from '../components/Navbar';
+
+const api = import.meta.env.VITE_API_LINK;
+const token = "hexschool";
+
+type SelectList = string[]
 
 export default function SignUp2() {
+  const Context = useContext(UserContext);
+  const navigate = useNavigate();
+  const [county, setCounty] = useState<string>('臺北市');
+  // const [selectedDistricts, setSelectedDistricts] = useState<SelectList>([]);
+
+  const countyData = cityData.find((c) => c.name === county)?.districts || [];
+  // 當 county 更新時，使用 useEffect 來設置相對應的區域
+  // useEffect(() => {
+  //   setSelectedDistricts(countyData?.districts || []);
+  // }, [county]);
+
+  // 生成年份、日期和月份列表
+  const yearList: SelectList = Array.from({ length: 80 }, (_, index) => (1944 + index).toString());
+  const dateList: SelectList = Array.from({ length: 31 }, (_, index) => (index + 1).toString());
+  const monthList: SelectList = Array.from({ length: 12 }, (_, index) => (index + 1).toString());
+
+  // 事件處理函數，更新 county state
+  const getCountyValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCounty(e.target.value);
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      year: '1998',
+      month: '4',
+      date: '1',
+      districts: '100',
+    },
+    mode: 'onTouched',
+  });
+  const onSubmit = async (data: any) => {
+    const { address, districts, phone, name, year, month, date } = data;
+    const userData: RegisterForm2 = {
+      name,
+      email: Context.email,
+      password: Context.password,
+      phone,
+      birthday: `${year}/${month}/${date}`,
+      address: {
+        zipcode: districts,
+        detail: address
+      }
+    };
+    try {
+      const response = await axios.post(`${api}api/v1/user/signup`, userData);
+      if (response.data.status) {
+        alert('註冊成功，請重新登入');
+        navigate('/login', { replace: true });
+      } else {
+        alert(response.data.message || '註冊失敗，請重試');
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        alert(error.response?.data.message || '註冊失敗，請重試');
+      } else {
+        alert('註冊失敗，請重試');
+      }
+    }
+  };
+
   return (
     <>
       <div className="flex flex-col">
@@ -18,78 +96,145 @@ export default function SignUp2() {
                 <img src="/images/web/stepline.png" alt="" className='h-[2px] w-48'/>
                 <img src="/images/web/step2-2.png" alt="" className='h-10 w-20'/>
               </div>
-              <form action="" className='text-white'>
+              <form action="" className='text-neutral-60' onSubmit={handleSubmit(onSubmit)}>
                 <div className='mt-6'>
-                  <label htmlFor="name">
-                    姓名
-                  </label>
-                  <input
+                  <Input
+                    register={register}
+                    errors={errors}
                     id="name"
+                    labelText="姓名"
                     type="text"
-                    className="text-neutral-60 mt-1 w-full px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100"
-                    placeholder='請輸入姓名'
+                    placeholder="請輸入姓名"
+                    rules={{
+                      required: {
+                        value: true,
+                        message: '請輸入姓名'
+                      },
+                      minLength: {
+                        value: 2,
+                        message: '姓名至少需要 2 個字'
+                      }
+                    }}
                   />
-                </div>
-                <div className='mt-3'>
-                  <label htmlFor="phoneNumber">
-                    手機號碼
-                  </label>
-                  <input
-                    id="tel"
+                  <Input
+                    register={register}
+                    errors={errors}
+                    id="phone"
+                    labelText="手機號碼"
                     type="phone"
-                    className="text-neutral-60 mt-1 w-full px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100"
-                    placeholder='請輸入手機號碼'
+                    placeholder="請輸入手機號碼"
+                    rules={{
+                      required: {
+                        value: true,
+                        message: '請輸入手機號碼'
+                      },
+                      pattern: {
+                        value: /^09\d{8}$/,
+                        message: '手機號碼格式不正確'
+                      }
+                    }}
                   />
-                </div>
-                <div className="mt-3">
-                  <label htmlFor="birthday">
-                    生日
-                  </label>
-                  <div className="flex gap-3 mt-1 text-neutral-60">
-                    <select id="year" className="block py-2 px-3 appearance-none w-full border border-[#ECECEC] rounded shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100">
-                      <option>1998</option>
-                      <option>1999</option>
-                    </select>
-                    <select id="month" className="block py-2 px-3 appearance-none w-full border border-[#ECECEC] rounded shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100">
-                      <option>04</option>
-                      <option>05</option>
-                    </select>
-                    <select id="day" className="block py-2 px-3 appearance-none w-full border border-[#ECECEC] rounded shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100">
-                      <option>01</option>
-                      <option>02</option>
-                    </select>
+                  <div className='my-1'>
+                    <p className='text-white'>生日</p>
+                    <div className='flex justify-between gap-3'>
+                      <div className='w-full'>
+                        <select id='year' className='text-neutral-60 w-full mt-1 px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100'
+                        {...register('year')}
+                        >
+                          {
+                            yearList.map(i => {
+                              return (
+                                <option key={i} value={i}>{i + ' 年'}</option>
+                              )
+                            })
+                          }
+                        </select>
+                      </div>
+                      <div className='w-full'>
+                        <select id='month' className='text-neutral-60 w-full mt-1 px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100'
+                        {...register('month')}>
+                          {
+                            monthList.map(i => {
+                              return (
+                                <option key={i} value={i}>{i + ' 月'}</option>
+                              )
+                            })
+                          }
+                        </select>
+                      </div>
+                      <div className='w-full'>
+                        <select id='date' className='text-neutral-60 w-full mt-1 px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100'
+                        {...register('date')}>
+                          {
+                            dateList.map(i => {
+                              return (
+                                <option key={i} value={i}>{i + ' 日'}</option>
+                              )
+                            })
+                          }
+                        </select>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className='mt-3 mb-1'>
-                  <label htmlFor="address">
-                    地址
-                  </label>
-                  <div className="flex gap-3 mt-1 text-neutral-60">
-                    <select id="city" className="block py-2 px-3 appearance-none w-full border border-[#ECECEC] rounded shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100">
-                      <option>台北市</option>
-                      <option>高雄市</option>
-                    </select>
-                    <select id="" className="block py-2 px-3 appearance-none w-full border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100">
-                      <option>內湖區</option>
-                      <option>前金區</option>
-                    </select>
+                  <p className='text-white'>地址</p>
+                  <div className='flex justify-between gap-3'>
+                    <div className='w-full'>
+                      <select 
+                        id='county' 
+                        className='text-neutral-60 w-full mt-1 px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100' 
+                        defaultValue={county} 
+                        onChange={getCountyValue}
+                      >
+                        {
+                          cityData.map(i => {
+                            return (
+                              <option key={i.name} value={i.name}>{i.name}</option>
+                            )
+                          })
+                        }
+                      </select>
+                    </div>
+                    <div className='w-full'>
+                      <select 
+                        id='districts' 
+                        className='text-neutral-60 w-full mt-1 px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100' 
+                        {...register('districts')}
+                      >
+                        {
+                          countyData.map(i => {
+                            return (
+                              <option key={i.zip} value={i.zip}>{i.name}</option>
+                            )
+                          })
+                        }
+                      </select>
+                    </div>
                   </div>
-                  <input
+                  <Input
+                    register={register}
+                    errors={errors}
                     id="address"
+                    labelText="詳細地址"
                     type="text"
-                    className="text-neutral-60 mt-3 w-full px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100"
-                    placeholder='請輸入詳細地址'
+                    placeholder="請輸入詳細地址"
+                    rules={{
+                      required: {
+                        value: true,
+                        message: '請輸入詳細地址'
+                      }
+                    }}
                   />
-                </div>
 
-                <div className='flex justify-between items-center mt-2'>
-                  <label htmlFor="" className='flex items-center space-x-2'>
-                    <input 
-                      type="checkbox" 
-                      className='h-3.5 w-3.5 pt-0.5'
-                    />
-                    <span className='text-body'>我已閱讀並同意本網站個資使用規範</span>
-                  </label>
+                  <div className='flex justify-between items-center mt-2'>
+                    <label htmlFor="" className='flex items-center space-x-2'>
+                      <input 
+                        type="checkbox" 
+                        required
+                        className='h-3.5 w-3.5 pt-0.5'
+                      />
+                      <span className='text-body'>我已閱讀並同意本網站個資使用規範</span>
+                    </label>
+                  </div>
                 </div>
 
                 <button
