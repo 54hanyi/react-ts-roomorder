@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import DecoLine from '../assets/icons/DecoLine.svg'
 
 export default function AboutUs() {

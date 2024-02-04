@@ -1,9 +1,8 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import waitNavigate from '../utils';
 import cityData from "../cityData.json";
 import { UserContext } from './SignUp';
 import Input from '../components/Input';
@@ -12,7 +11,6 @@ import Line2 from '../assets/icons/Line2.svg';
 import Navbar from '../components/Navbar';
 
 const api = import.meta.env.VITE_API_LINK;
-const token = "hexschool";
 
 type SelectList = string[]
 

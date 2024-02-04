@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom"
@@ -30,7 +30,7 @@ export default function Login() {
       password
     }
     try {
-      const response = await axios.post(`https://freyja-yr52.onrender.com/api/v1/user/login`, userData);
+      const response = await axios.post(`${api}api/v1/user/login`, userData);
       if (response.status) {
         alert('登入成功');
         navigate('/'); 

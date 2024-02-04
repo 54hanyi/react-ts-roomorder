@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import NewsCard from './NewsCard'
 
 export default function News() {
