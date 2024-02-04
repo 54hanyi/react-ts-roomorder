@@ -29,7 +29,7 @@ export default function Banner() {
         </div>
 
         <div className="relative flex items-center justify-center z-10 gap-30 mt-20">
-          <div className="flex-1">
+          <div className="flex-1 hidden sm:block">
             <div className="text-primary-100 text-h3 space-y-2 border-b border-[#BE9C7C] w-480 h-96">
                 <p>享樂酒店</p>
                 <p>Enjoyment Luxury Hotel</p>
