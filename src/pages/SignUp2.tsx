@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -52,17 +52,29 @@ export default function SignUp2() {
     },
     mode: 'onTouched',
   });
-  const onSubmit = async (data: any) => {
+
+  interface FormValues {
+    name?: string;  //  可選屬性避免undefined
+    phone?: string;
+    year: string;
+    month: string;
+    date: string;
+    districts: string;
+    address?: string;
+    agreement?: boolean;
+  }
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const { address, districts, phone, name, year, month, date } = data;
     const userData: RegisterForm2 = {
-      name,
+      name: name || ''  , // 默认为空字符串
       email: Context.email,
       password: Context.password,
-      phone,
+      phone: phone || '' ,
       birthday: `${year}/${month}/${date}`,
       address: {
-        zipcode: districts,
-        detail: address
+        zipcode: districts || '',
+        detail: address || ''
       }
     };
     try {

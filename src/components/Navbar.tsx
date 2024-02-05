@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import logo from '../../public/images/web/logo.png'
-
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,7 +12,7 @@ export default function Navbar() {
     <div className="relative bg-[#140F0A] z-10">
       <div className="flex justify-between items-center h-[6rem]">
         <NavLink to='/'>
-          <img src={logo} alt="logo" className="h-13 pl-16" />
+          <img src="./images/web/logo.png" alt="logo" className="h-13 pl-16" />
         </NavLink>
         <div className="hidden sm:flex items-center gap-8 text-body pr-16">
           <NavLink to='/rooms'>

@@ -1,12 +1,6 @@
-import food1 from '../../public/images/web/food1.png'
-import food2 from '../../public/images/web/food2.png'
-import food3 from '../../public/images/web/food3.png'
-import food4 from '../../public/images/web/food4.png'
-import food5 from '../../public/images/web/food5.png'
-
 export default function FoodCards() {
   interface FoodList {
-    image: any;
+    image: string;
     name: string;
     date: string;
     time: string;
@@ -14,7 +8,7 @@ export default function FoodCards() {
   }
   const foodList: FoodList[] = [
     {
-      image: {food1},
+      image: "./images/web/food1.png",
       name: "海霸",
       date: "SUN-MON",
       time: "11:00 - 20:30",
@@ -22,7 +16,7 @@ export default function FoodCards() {
         "以新鮮海產料理聞名，我們的專業廚師選用高雄當地的海鮮，每一道菜都充滿海洋的鮮美與清甜。無論是烤魚、蒸蝦還是煮蛤蜊，都能讓您品嚐到最新鮮的海洋風味。",
     },
     {
-      image: {food2},
+      image: "./images/web/food2.png",
       name: "日食",
       date: "SUN-MON",
       time: "17:00 - 22:00",
@@ -30,7 +24,7 @@ export default function FoodCards() {
         "為您提供優質的牛排，每一塊肉都來自頂級的牛肉，經過專業廚師的巧手烹調，口感豐滿、風味絕佳。搭配我們的特製醬料，讓您的味蕾享受一場美味的盛宴。",
     },
     {
-      image: {food3},
+      image: "./images/web/food3.png",
       name: "山臻",
       date: "SUN-MON",
       time: "11:00 - 20:30",
@@ -38,7 +32,7 @@ export default function FoodCards() {
         "帶您進入一次辣味與鮮香兼具的川菜美食之旅。我們的廚師掌握正宗的川菜烹調技巧，從麻辣鍋到口水雞，每一道菜都有其獨特的風味，讓您回味無窮。",
     },
     {
-      image: {food4},
+      image: "./images/web/food4.png",
       name: "月永",
       date: "SUN-MON",
       time: "11:00 - 20:00",
@@ -46,7 +40,7 @@ export default function FoodCards() {
         "從鮮美的海鮮、經典的牛排，到各國的特色美食，我們都一應俱全。在這裡，您可以品嚐到世界各地的美食，每一道菜都由專業廚師用心製作，讓您在享受美食的同時，也能感受到我們的熱情與用心。",
     },
     {
-      image: {food5},
+      image: "./images/web/food5.png",
       name: "天潮",
       date: "SUN-MON",
       time: "14:00 - 19:30",

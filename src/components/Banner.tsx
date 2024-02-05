@@ -5,7 +5,6 @@ import HomeButton from './HomeButton'
 import Rectangle1 from '../assets/icons/Rectangle1.svg'
 import Rectangle234 from '../assets/icons/Rectangle234.svg'
 
-import logo from '../../public/images/web/logo.png'
 
 export default function Banner() {
   return (
@@ -15,7 +14,7 @@ export default function Banner() {
 
         <div className="relative flex justify-between items-center z-100">
           <NavLink to='/'>
-            <img src={logo} alt="logo" className="h-13" />
+            <img src="./images/web/logo.png" alt="logo" className="h-13" />
           </NavLink>
           <div className="flex items-center gap-8 text-body">
             <NavLink to='/rooms'>

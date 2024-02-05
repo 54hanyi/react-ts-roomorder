@@ -1,6 +1,5 @@
 // import React from 'react'
 import NewsCard from './NewsCard'
-import dots from '../../public/images/web/dot.png'
 
 
 export default function News() {
@@ -8,7 +7,7 @@ export default function News() {
     <>
       <div className='relative grid grid-cols-12 gap-4 p-14 w-full h-960 bg-[#F7F2EE]'>
         <img
-          src={dots}
+          src="./images/web/dot.png"
           alt="Top Right Dots"
           className="absolute top-10 right-28 h-36"
         />
@@ -26,7 +25,7 @@ export default function News() {
           <NewsCard />
         </div>
         <img
-          src={dots}
+          src="./images/web/dot.png"
           alt="Dots Bottom Left"
           className="absolute bottom-[-4.5rem] left-32 h-36"
         />

@@ -9,10 +9,6 @@ import Input from '../components/Input'
 import { RegisterForm1 } from '../interface/UserInfo'
 import Line2 from '../assets/icons/Line2.svg'
 import Navbar from '../components/Navbar'
-import step1 from '../../public/images/web/step1.png'
-import stepline from '../../public/images/web/stepline.png'
-import step2 from '../../public/images/web/step2.png'
-
 const api = import.meta.env.VITE_API_LINK
 
 export const UserContext = createContext({
@@ -62,9 +58,9 @@ export default function SignUp() {
               <p className='text-title mb-2 text-primary-100'>享樂酒店，誠摯歡迎</p>
               <p className='text-h1 text-white'>立即註冊</p>
               <div className='flex gap-1 justify-center items-center pt-6'>
-                <img src={step1} alt="" className='h-10 w-20'/>
-                <img src={stepline} alt="" className='h-[1px] w-48'/>
-                <img src={step2} alt="" className='h-10 w-20'/>
+                <img src="./images/web/step1.png" alt="" className='h-10 w-20'/>
+                <img src="./images/web/stepline.png" alt="" className='h-[1px] w-48'/>
+                <img src="./images/web/step2.png" alt="" className='h-10 w-20'/>
               </div>
               <form action="" className='text-neutral-60' onSubmit={handleSubmit(onSubmit)}>
                 <div className='mt-8'>

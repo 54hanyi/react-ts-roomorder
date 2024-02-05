@@ -23,11 +23,15 @@ export default function Login() {
     },
     mode: 'onTouched',  // 點過後進行錯誤驗證
   });
-  const onSubmit = async (data: any) => {
+  interface LoginFormValues {
+    email: string,
+    password?: string,
+  }
+  const onSubmit = async (data: LoginFormValues) => {
     const { email, password } = data
     const userData: userLoginForm = {
       email,
-      password
+      password: password || '',
     }
     try {
       const response = await axios.post(`${api}api/v1/user/login`, userData);

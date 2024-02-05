@@ -1,6 +1,8 @@
+
 interface InputProps {
   register: any;
-  errors: any;
+  // 確保每個錯誤鍵都包含一個 message 屬性
+  errors: any;  
   id: string;
   labelText: string;
   type: string;
@@ -23,7 +25,7 @@ const Input: React.FC<InputProps>= ({ register, errors, id, labelText, type, rul
       />
       <div className='text-primary-100'> 
         {errors?.[id] && (
-          <div>{errors?.[id]?.message}</div>
+          <div>{errors[id]?.message}</div>
         )}
       </div>
     </div>

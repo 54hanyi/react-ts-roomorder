@@ -8,10 +8,10 @@ export default function Food() {
     <>
       <div className="bg-[#F7F2EE] h-800 w-full">
         <div className="relative">
-          <img src="/images/web/line.png" alt="" className='absolute top-10 h-800' />
+          <img src="./images/web/line.png" alt="" className='absolute top-10 h-800' />
         </div>
         <div className="relative">
-          <img src="/images/web/dot.png" alt="" className='absolute right-14 top-[-5rem] h-[10rem]' />
+          <img src="./images/web/dot.png" alt="" className='absolute right-14 top-[-5rem] h-[10rem]' />
         </div>
 
         <div className="flex justify-start items-start pt-28 pl-48">
