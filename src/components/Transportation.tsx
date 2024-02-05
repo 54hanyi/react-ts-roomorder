@@ -4,6 +4,7 @@ import Line3 from '../assets/icons/Line3.svg'
 import car from '../../public/images/web/car.png'
 import train from '../../public/images/web/train.png'
 import luxurycar from '../../public/images/web/luxurycar.png'
+import map from '../../public/images/web/map.png'
 
 
 
