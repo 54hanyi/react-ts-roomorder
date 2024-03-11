@@ -3,7 +3,7 @@
 export default function Footer() {
   return (
     <>
-      <div className="relative bg-[#140F0A] h-[25rem] w-full flex">
+      <div className="relative bg-[#140F0A] h-[22rem] w-full flex">
         <div className="absolute top-20 left-48">
             <img src="./images/web/logo.png" alt="logo" className="h-16" />
             <div className='flex mt-6 gap-5'>

@@ -6,7 +6,7 @@ export default function Transportation() {
 
   return (
     <>
-      <div className="relative bg-[#140F0A] h-1056 w-full">
+      <div className="relative bg-[#140F0A] h-1056 w-full z-10">
         <div className="pt-28 pl-48">
           <div className='relative flex flex-col items-start text-h1 text-primary-100'>
             <p>交通</p>

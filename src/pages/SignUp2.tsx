@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import cityData from "../cityData.json";
+import cityData from "../data/cityData.json";
 import { UserContext } from './SignUp';
 import Input from '../components/Input';
 import Navbar from '../components/Navbar';
@@ -101,8 +101,8 @@ export default function SignUp2() {
         <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
           <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
           <div className="relative sm:w-[50%] w-full flex items-center justify-center">
-            <img src={Line2} alt="Line2" className='absolute top-14 right-0 w-full'/>
-            <div className="flex flex-col w-[50%] ">
+            <img src={Line2} alt="Line2" className='absolute top-10 right-0 w-full'/>
+            <div className="flex flex-col w-[50%] h-[80%] ">
               <p className='text-h1 text-white'>立即註冊</p>
               <div className='flex gap-1 justify-center items-center pt-4'>
                 <img src={step1} alt="" className='h-10 w-20'/>
