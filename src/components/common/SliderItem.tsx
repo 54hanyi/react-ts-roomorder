@@ -1,5 +1,5 @@
 import React from 'react';
-import { SliderItemProps } from '../types/slider.type'; 
+import { SliderItemProps } from '../../types/slider.type'; 
 
 
 const SliderItem: React.FC<SliderItemProps> = ({ Item, imgData }) => {

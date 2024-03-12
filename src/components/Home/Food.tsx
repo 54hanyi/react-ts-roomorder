@@ -1,9 +1,8 @@
 // import React from 'react'
 import DecoLine2 from '../assets/icons/DecoLine2.svg'
-import SliderList from './SliderList';
-import { foodImgList } from '../data/foodImgList';
-import { foodList } from '../data/foodList'; 
-// import FoodCards from './FoodCards';
+import SliderList from '../common/SliderList';
+import { foodImgList } from '../../data/foodImgList';
+import { foodList } from '../../data/foodList'; 
 
 
 export default function Food() {
@@ -23,7 +22,6 @@ export default function Food() {
             <p>佳餚</p>
             <p>美饌</p>
             <img src={DecoLine2} alt="Line" className="absolute top-12 left-28 w-48" />
-            {/* <FoodCards/> */}
           </div>
           <div className='flex py-10 space-x-4 h-[36rem]'>
             <SliderList sliderList={foodList} sliderImgList={foodImgList} />

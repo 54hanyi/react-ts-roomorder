@@ -1,6 +1,6 @@
 // import React from 'react'
-import Footer from '../components/Footer';
-import RoomBanner from '../components/RoomBanner';
+import Footer from '../components/common/Footer';
+import RoomBanner from '../components/room/RoomBanner';
 // import RoomChoose from '../components/RoomChoose';
 
 export default function Rooms() {

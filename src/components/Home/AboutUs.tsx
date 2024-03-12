@@ -4,7 +4,7 @@ import DecoLine from '../assets/icons/DecoLine.svg'
 export default function AboutUs() {
   return (
     <>
-      <div className="bg-black pt-[4rem] h-800 w-full">
+      <div className="bg-black pt-[4rem] h-832 w-full">
         <div className="relative bg-[url('/images/web/about.png')] bg-contain bg-no-repeat bg-center h-576 w-full">
 
           <div className="absolute bg-gradient-to-b from-neutral-120/80 to-primary-100/80 rounded-br-none rounded-[4rem] border-white border-l border-b right-64 top-28 w-752 h-500">

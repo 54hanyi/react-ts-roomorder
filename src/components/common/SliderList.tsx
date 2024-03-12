@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 import SliderItem from './SliderItem';
-import { SliderListProps } from '../types/slider.type'; 
+import { SliderListProps } from '../../types/slider.type'; 
 
 
 const SliderList: React.FC<SliderListProps> = ({ sliderList, sliderImgList }) => {

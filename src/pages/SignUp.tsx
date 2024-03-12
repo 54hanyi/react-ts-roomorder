@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { useContext, createContext } from 'react'
 import { useNavigate } from "react-router-dom"
-import Input from '../components/Input'
+import Input from '../components/common/Input'
 
 import { RegisterForm1 } from '../interface/UserInfo'
 import Line2 from '../assets/icons/Line2.svg'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/common/Navbar'
 const api = import.meta.env.VITE_API_LINK
 
 export const UserContext = createContext({

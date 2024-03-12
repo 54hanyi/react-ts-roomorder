@@ -780,11 +780,6 @@ video {
   margin-bottom: 1.5rem;
 }
 
-.my-8{
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .mb-2{
   margin-bottom: 0.5rem;
 }
@@ -847,14 +842,6 @@ video {
 
 .mt-8{
   margin-top: 2rem;
-}
-
-.mb-\[1\.5rem\]{
-  margin-bottom: 1.5rem;
-}
-
-.mb-\[1rem\]{
-  margin-bottom: 1rem;
 }
 
 .block{
@@ -1006,8 +993,8 @@ video {
   height: 100vh;
 }
 
-.h-20{
-  height: 5rem;
+.h-832{
+  height: 52rem;
 }
 
 .max-h-\[44rem\]{
@@ -1174,16 +1161,12 @@ video {
   gap: 2rem;
 }
 
-.gap-\[24px\]{
-  gap: 24px;
-}
-
-.gap-\[1\.5rem\]{
-  gap: 1.5rem;
-}
-
 .gap-\[1rem\]{
   gap: 1rem;
+}
+
+.gap-\[24px\]{
+  gap: 24px;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -1541,6 +1524,12 @@ video {
   font-weight: 200;
 }
 
+.text-body2{
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
 .text-display{
   font-size: 100px;
   line-height: 1.2;
@@ -1576,22 +1565,16 @@ video {
   line-height: 1.25rem;
 }
 
-.text-title{
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 700;
-}
-
 .text-subtitle{
   font-size: 14px;
   line-height: 1.2;
   font-weight: 700;
 }
 
-.text-body2{
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 400;
+.text-title{
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 .font-bold{
@@ -1767,16 +1750,16 @@ body {
     width: 416px;
   }
 
-  .md\:text-title{
-    font-size: 16px;
-    line-height: 1.2;
-    font-weight: 700;
-  }
-
   .md\:text-body{
     font-size: 16px;
     line-height: 1.5;
     font-weight: 200;
+  }
+
+  .md\:text-title{
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
   }
 }
 

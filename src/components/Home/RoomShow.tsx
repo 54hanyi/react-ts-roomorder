@@ -1,7 +1,7 @@
 // import React from 'react'
 import { Link } from 'react-router-dom'
 
-import HomeButton from './HomeButton'
+import HomeButton from '../HomeButton'
 import Line2 from '../assets/icons/Line2.svg'
 import BG from '../assets/icons/BG.svg'
 import Rectangle1 from '../assets/icons/Rectangle1.svg'
