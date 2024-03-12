@@ -1,8 +1,8 @@
-// import React from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import Rectangle1 from '../assets/icons/Rectangle1.svg'
-import Rectangle234 from '../assets/icons/Rectangle234.svg'
+import Rectangle1 from '../../assets/icons/Rectangle1.svg'
+import Rectangle234 from '../../assets/icons/Rectangle234.svg'
 
 
 export default function Banner() {

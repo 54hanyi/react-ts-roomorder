@@ -1,5 +1,5 @@
 // import React from 'react'
-import DecoLine2 from '../assets/icons/DecoLine2.svg'
+import DecoLine2 from '../../assets/icons/DecoLine2.svg'
 import SliderList from '../common/SliderList';
 import { foodImgList } from '../../data/foodImgList';
 import { foodList } from '../../data/foodList'; 
