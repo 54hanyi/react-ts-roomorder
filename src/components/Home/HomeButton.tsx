@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Line from '../assets/icons/Line.svg'
+import Line from '../../assets/icons/Line.svg'
 
 interface HomeButtonProps {
   text: string; 

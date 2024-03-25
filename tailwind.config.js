@@ -58,7 +58,7 @@ export default {
         h3: ["32px", { lineHeight: "1.2", fontWeight: "700" }], // H3 Heading
         h4: ["28px", { lineHeight: "1.2", fontWeight: "700" }], // H4 Heading
         h5: ["24px", { lineHeight: "1.2", fontWeight: "700" }], // H5 Heading
-        h6: ["20px", { lineHeight: "1.2", fontWeight: "700" }], // H6 Heading
+        h6: ["20px", { lineHeight: "1.2", fontWeight: "400" }], // H6 Heading
         title: ["16px", { lineHeight: "1.2", fontWeight: "700" }], // Title
         subtitle: ["14px", { lineHeight: "1.2", fontWeight: "700" }], // Subtitle
         body: ["16px", { lineHeight: "1.5", fontWeight: "200" }], // Body text

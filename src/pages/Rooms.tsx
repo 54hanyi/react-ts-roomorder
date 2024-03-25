@@ -1,5 +1,5 @@
 // import React from 'react'
-import Footer from '../components/common/Footer';
+import Footer from '../components/Common/Footer';
 import RoomBanner from '../components/room/RoomBanner';
 // import RoomChoose from '../components/RoomChoose';
 

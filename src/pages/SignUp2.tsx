@@ -5,8 +5,8 @@ import axios from 'axios';
 
 import cityData from "../data/cityData.json";
 import { UserContext } from './SignUp';
-import Input from '../components/common/Input';
-import Navbar from '../components/common/Navbar';
+import Input from '../components/Common/Input';
+import Navbar from '../components/Common/Navbar';
 import { RegisterForm2 } from '../interface/UserInfo';
 import Line2 from '../assets/icons/Line2.svg';
 import step1 from '../../public/images/web/step1-2.png'

@@ -5,7 +5,7 @@ import AboutUs from '../components/Home/AboutUs'
 import RoomShow from '../components/Home/RoomShow'
 import Food from '../components/Home/Food' 
 import Transportation from '../components/Home/Transportation' 
-import Footer from '../components/common/Footer' 
+import Footer from '../components/Common/Footer' 
 
 
 

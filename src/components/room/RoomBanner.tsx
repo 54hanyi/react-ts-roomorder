@@ -13,7 +13,7 @@ export default function Banner() {
 
         <div className="relative flex justify-between items-center z-100">
           <NavLink to='/'>
-            <img src="./images/web/logo.png" alt="logo" className="h-13" />
+            <img src="/images/web/logo.png" alt="logo" className="h-13" />
           </NavLink>
           <div className="flex items-center gap-8 text-body">
             <NavLink to='/rooms'>
@@ -21,7 +21,7 @@ export default function Banner() {
             </NavLink>
             <NavLink to='/login'>
               <div className='flex gap-1'>
-                <img src="./images/web/user.png" alt="user" />
+                <img src="/images/web/user.png" alt="user" />
                 <button className="text-neutral-0 hover:text-primary-80">J喜卡</button>
               </div>
             </NavLink>

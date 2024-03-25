@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom"
 import { useForm } from 'react-hook-form'
 
 import { userLoginForm } from '../interface/UserInfo'
-import Input from '../components/common/Input'
+import Input from '../components/Common/Input'
 import Line2 from '../assets/icons/Line2.svg'
-import Navbar from '../components/common/Navbar';
+import Navbar from '../components/Common/Navbar';
 
 const api = import.meta.env.VITE_API_LINK
 

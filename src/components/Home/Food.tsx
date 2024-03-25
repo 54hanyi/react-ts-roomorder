@@ -1,6 +1,6 @@
 // import React from 'react'
 import DecoLine2 from '../../assets/icons/DecoLine2.svg'
-import SliderList from '../common/SliderList';
+import SliderList from '../Common/SliderList';
 import { foodImgList } from '../../data/foodImgList';
 import { foodList } from '../../data/foodList'; 
 
@@ -11,10 +11,10 @@ export default function Food() {
     <>
       <div className="bg-[#F7F2EE] h-880 w-full">
         <div className="relative z-20">
-          <img src="./images/web/line.png" alt="" className='absolute top-20 h-880' />
+          <img src="/images/web/line.png" alt="" className='absolute top-20 h-880' />
         </div>
         <div className="relative">
-          <img src="./images/web/dot.png" alt="" className='absolute right-14 top-[-5rem] h-[10rem]' />
+          <img src="/images/web/dot.png" alt="" className='absolute right-14 top-[-5rem] h-[10rem]' />
         </div>
 
         <div className="pt-28 pl-48 flex flex-col">
