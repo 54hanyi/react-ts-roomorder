@@ -33,7 +33,7 @@ export default function NewsCard() {
   return (
     <div>
       {data.map((item, index) => (
-        <div key={index} className="flex flex-row gap-2 mb-6 w-800">
+        <div key={index} className="flex flex-row gap-2 mb-6 w-[52rem]">
           <img
             className="w-[426px] h-[264px] rounded-md object-cover"
             src={item.image}
@@ -43,7 +43,7 @@ export default function NewsCard() {
             <header className="text-left text-h3 font-bold pb-4">
               {item.title}
             </header>
-            <p className="text-left text-body text-neutral-80 whitespace-pre-line">
+            <p className="text-left text-h6 text-neutral-80 whitespace-pre-line">
               {item.description}
             </p>
           </div>

@@ -8,7 +8,7 @@ import Input from '../components/Common/Input'
 
 import { RegisterForm1 } from '../interface/UserInfo'
 import Line2 from '../assets/icons/Line2.svg'
-import Navbar from '../components/Common/Navbar'
+import Navbar from '../components/Layout/Navbar'
 const api = import.meta.env.VITE_API_LINK
 
 export const UserContext = createContext({
