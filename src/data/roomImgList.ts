@@ -3,7 +3,8 @@ import { ImageItem } from "../types/image.type";
 type ImageList = {
   [k: string]: ImageItem[];
 };
-const room2: ImageItem[] = [
+
+export const room2: ImageItem[] = [
   {
     web: "/images/web/room2-1.png",
     mobile: "/images/mobile/room2-1.png",
@@ -25,7 +26,7 @@ const room2: ImageItem[] = [
     mobile: "/images/mobile/room2-5.png",
   },
 ];
-const room3: ImageItem[] = [
+export const room3: ImageItem[] = [
   {
     web: "/images/web/room3-1.png",
     mobile: "/images/mobile/room3-1.png",
@@ -47,7 +48,7 @@ const room3: ImageItem[] = [
     mobile: "/images/mobile/room3-5.png",
   },
 ];
-const room4: ImageItem[] = [
+export const room4: ImageItem[] = [
   {
     web: "/images/web/room4-1.png",
     mobile: "/images/mobile/room4-1.png",
@@ -69,7 +70,7 @@ const room4: ImageItem[] = [
     mobile: "/images/mobile/room4-5.png",
   },
 ];
-const room5: ImageItem[] = [
+export const room5: ImageItem[] = [
   {
     web: "/images/web/room5-1.png",
     mobile: "/images/mobile/room5-1.png",

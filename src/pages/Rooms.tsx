@@ -1,14 +1,18 @@
 // import React from 'react'
 import Footer from '../components/Layout/Footer';
-import RoomBanner from '../components/Room/RoomBanner';
-// import RoomChoose from '../components/RoomChoose';
+import BannerContent from '../components/Room/BannerContent';
+import RoomChoose from '../components/Room/RoomChoose';
+import Banner from '../components/Layout/Banner'
+
 
 export default function Rooms() {
   return (
     <>
       <div className="flex flex-col">               
-        <RoomBanner />
-        {/* <RoomChoose /> */}
+        <Banner>
+          <BannerContent />
+        </Banner>
+        <RoomChoose />
         <Footer />
       </div>
     </>

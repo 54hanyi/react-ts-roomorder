@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 const BannerContent = () => {
   return (
@@ -80,20 +81,22 @@ const BannerContent = () => {
             >
               我們致力於為您提供無與倫比的奢華體驗與優質服務
             </p>
-            <button
-              type="button"
-              className={clsx(
-                "w-[85%] h-[4rem] lg:h-[6rem]",
-                "flex justify-end items-center",
-                "bg-neutral-0",
-                "text-title md:text-[1.5rem] font-bold",
-                "p-[2.5rem] rounded-[8px]",
-                "hover:bg-primary-100 group"
-              )}
-            >
-              <p className="mr-[1rem] group-hover:text-neutral-0">立即訂房</p>
-              <div className="w-[5rem] md:w-[9.2rem] h-[1px] bg-neutral-100 group-hover:bg-neutral-0 group-hover:w-[30%]"></div>
-            </button>
+            <Link to="/rooms">
+              <button
+                type="button"
+                className={clsx(
+                  "w-[85%] h-[4rem] lg:h-[6rem]",
+                  "flex justify-end items-center",
+                  "bg-neutral-0",
+                  "text-title md:text-[1.5rem] font-bold",
+                  "p-[2.5rem] rounded-[8px]",
+                  "hover:bg-primary-100 group"
+                )}
+              >
+                <p className="mr-[1rem] group-hover:text-neutral-0">立即訂房</p>
+                <div className="w-[5rem] md:w-[9.2rem] h-[1px] bg-neutral-100 group-hover:bg-neutral-0 group-hover:w-[22%]"></div>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

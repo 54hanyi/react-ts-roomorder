@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <>
       <div className="relative bg-[#140F0A] h-[22rem] w-full flex">
-        <div className="absolute top-20 left-48">
+        <div className="absolute top-20 left-60">
             <img src="/images/web/logo.png" alt="logo" className="h-16" />
             <div className='flex mt-6 gap-5'>
               <img src="/images/web/LineImg.png" alt="logo" className="h-9 " />
@@ -13,7 +13,7 @@ export default function Footer() {
             <p className='text-white text-body pt-16'>806087 台灣高雄市新興區八角壓路87號</p>
         </div>
 
-        <div className="absolute top-[5.4rem] right-48 text-white">
+        <div className="absolute top-[5.4rem] right-60 text-white">
           <div className='flex gap-20'>
             <div className='text-body'>
               <p className=''>TEL</p>

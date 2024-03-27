@@ -5,10 +5,11 @@ type IconProps = {
   name: string;
   svgClass?: string;
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
-const IconButton = ({name, svgClass, className, onClick}: IconProps) => {
+const IconButton = ({ name, svgClass, className, onClick, disabled }: IconProps) => {
   return (
     <>
       <button
@@ -16,6 +17,7 @@ const IconButton = ({name, svgClass, className, onClick}: IconProps) => {
         // 若有新的className可以在基礎上外加
         className={clsx(className, "flex items-center justify-center")}
         onClick={onClick}
+        disabled={disabled}
       >
         <SvgIcon name={name} svgClass={svgClass} />
       </button>
