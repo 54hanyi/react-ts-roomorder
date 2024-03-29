@@ -49,7 +49,7 @@ const RoomCard = ({ imageList, roomList }: RoomCardProps) => {
         <div className="absolute top-0 bottom-0 left-0 flex items-center pl-6">
           <IconButton
             name="ic_ArrowLeft"
-            svgClass="w-[2rem] h-[2rem] text-primary-100 group-hover:text-primary-120"
+            svgClass="w-[2rem] h-[2rem] text-primary-100 rounded-full group-hover:bg-primary-40"
             className="group"
             onClick={() => setRoom("pre")}
           />
@@ -57,7 +57,7 @@ const RoomCard = ({ imageList, roomList }: RoomCardProps) => {
         <div className="absolute top-0 bottom-0 right-[26rem] flex items-center pr-6">
           <IconButton
             name="ic_ArrowRight"
-            svgClass="w-[2rem] h-[2rem] text-primary-100 group-hover:text-primary-120"
+            svgClass="w-[2rem] h-[2rem] text-primary-100 rounded-full group-hover:bg-primary-40"
             className="group"
             onClick={() => setRoom("next")}
           />
@@ -97,11 +97,11 @@ const RoomCard = ({ imageList, roomList }: RoomCardProps) => {
           <div className="w-full h-[2px] mt-8 mb-12 bg-neutral-100" style={{ background: "linear-gradient(90deg, #BE9C7C, #FFFFFF)" }}></div>
           <div className="flex justify-between">
             <p className="text-h5 text-primary-100">{roomList.price}</p>
-            <Link to="/rooms">
+            <Link to={roomList.to}>
               <IconButton
                 name="ic_ArrowRight"
-                svgClass="w-[1.5rem] h-[1.5rem] text-primary-100 group-hover:text-primary-120"
-                className="group"
+                svgClass="w-[1.5rem] h-[1.5rem] text-primary-100 rounded-full"
+                className="group hover:scale-[1.8]"
               />
             </Link>
           </div>

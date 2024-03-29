@@ -15,7 +15,7 @@ const RoomChoose = () => {
           <RoomCard roomList={roomList[1]} imageList={room3} />
           <RoomCard roomList={roomList[2]} imageList={room4} />
           <RoomCard roomList={roomList[3]} imageList={room5} />
-          <RoomCard roomList={roomList[4]} imageList={room5} />
+          <RoomCard roomList={roomList[4]} imageList={room3} />
         </div>
       </div>
     </>

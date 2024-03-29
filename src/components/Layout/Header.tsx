@@ -35,11 +35,11 @@ const Header = () => {
 
   return (
     <>
-      <header className="w-full h-[4rem] md:h-[7rem] flex items-center justify-between py-[1rem] px-[0.75rem] md:px-[4rem] md:py-0">
+      <header className="w-full h-[4rem] md:h-[6rem] flex items-center justify-between py-[1rem] px-[0.75rem] md:px-[4rem] md:py-4">
         <Link to="/">
-          <img src={logo_white} className="w-[6rem] h-[2rem] md:w-[14rem] md:h-[4rem]" />
+          <img src={logo_white} className="w-[6rem] h-[2rem] md:w-[10rem] md:h-[3.25rem]" />
         </Link>
-        <ul className="text-h6 gap-[1rem] hidden md:flex">
+        <ul className="text-body gap-[1rem] hidden md:flex">
           {buttons.map((button) => {
             return (
               <li key={button.title}>

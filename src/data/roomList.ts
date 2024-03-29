@@ -6,6 +6,7 @@ export type RoomItem = {
   size: number;
   bed: number;
   people: number;
+  to: string;
 };
 
 export const roomList: RoomItem[] = [
@@ -18,6 +19,7 @@ export const roomList: RoomItem[] = [
     size: 20,
     bed: 1,
     people: 1,
+    to: "/roomdetail1",
   },
   {
     title: "尊爵雙人房",
@@ -28,6 +30,7 @@ export const roomList: RoomItem[] = [
     size: 24,
     bed: 1,
     people: 2,
+    to: "/roomdetail2",
   },
   {
     title: "景觀雙人房",
@@ -37,6 +40,7 @@ export const roomList: RoomItem[] = [
     size: 26,
     bed: 1,
     people: 2,
+    to: "/roomdetail3",
   },
   {
     title: "豪華雅緻房",
@@ -47,6 +51,7 @@ export const roomList: RoomItem[] = [
     size: 28,
     bed: 1,
     people: 4,
+    to: "/roomdetail4",
   },
   {
     title: "景觀尊榮家庭房",
@@ -57,5 +62,6 @@ export const roomList: RoomItem[] = [
     size: 32,
     bed: 3,
     people: 6,
+    to: "/roomdetail5",
   },
 ];
