@@ -3,7 +3,7 @@ import { useState } from "react";
 import Navbar from "../components/Layout/Navbar";
 import Footer from "../components/Layout/Footer";
 import IconButton from "../components/Common/IconButton";
-
+import { roomList } from "../data/roomList";
 import Deco from "../assets/icons/ic_Deco.svg";
 
 
@@ -65,8 +65,8 @@ const RoomDetail1 = () => {
           <div className="flex my-16 py-8 gap-20 justify-center">
             <div className="flex flex-col gap-10 w-[45%]">
               <div className="my-3">
-                <p className="text-h1 mb-2">尊爵雙人房</p>
-                <p className="text-body">享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。</p>
+                <p className="text-h1 mb-2">{roomList[0].title}</p>
+                <p className="text-body">{roomList[0].content}</p>
               </div>
 
               <div className="flex flex-col gap-6">
@@ -82,7 +82,7 @@ const RoomDetail1 = () => {
                       className="mb-2"
                       disabled={true}
                     />
-                    <p className="text-body font-bold">24 坪</p>
+                    <p className="text-body font-bold">{roomList[0].size} 坪</p>
                   </div>
                   <div className="border-none bg-white border rounded-[0.6rem] w-20 h-20 pl-3 pt-4">
                     <IconButton
@@ -91,7 +91,7 @@ const RoomDetail1 = () => {
                       className="mb-2"
                       disabled={true}
                     />
-                    <p className="text-body font-bold">1 張大床</p>
+                    <p className="text-body font-bold">{roomList[0].bed} 張大床</p>
                   </div>
                   <div className="border-none bg-white border rounded-[0.6rem] w-20 h-20 pl-3 pt-4">
                     <IconButton
@@ -100,7 +100,7 @@ const RoomDetail1 = () => {
                       className="mb-2"
                       disabled={true}
                     />
-                    <p className="text-body font-bold">1 人</p>
+                    <p className="text-body font-bold">{roomList[0].people} 人</p>
                   </div>
                 </div>
               </div>
@@ -391,12 +391,26 @@ const RoomDetail1 = () => {
                 <div className="mt-6">
                   <div className="flex gap-2">
                     <div className="border border-black w-[50%] rounded-[0.5rem] px-2 py-3 h-16">
-                      <p className="text-body text-neutral-80">入住</p>
-                      <p className="text-body">2024 / 04 / 01</p>
+                      <label htmlFor="check-in" className="block text-body font-medium text-neutral-80">
+                        入住
+                      </label>
+                      <input
+                        type="date"
+                        id="check-in"
+                        name="check-in"
+                        className="mt-1 block w-full border-0 p-0 text-black placeholder-neutral-80 focus:ring-0 sm:text-sm rounded-lg"
+                      />
                     </div>
                     <div className="border border-black w-[50%] rounded-[0.5rem] px-2 py-3 h-16">
-                      <p className="text-body text-neutral-80">退房</p>
-                      <p className="text-body">2024 / 04 / 01</p>
+                      <label htmlFor="check-out" className="block text-body font-medium text-neutral-80">
+                        退房
+                      </label>
+                      <input
+                        type="date"
+                        id="check-out"
+                        name="check-out"
+                        className="mt-1 block w-full border-0 p-0 text-black placeholder-neutral-80 focus:ring-0 sm:text-sm rounded-md"
+                      />
                     </div>
                   </div>
                   <div className="w-full flex mt-6 justify-between items-center">

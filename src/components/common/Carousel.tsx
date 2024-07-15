@@ -18,13 +18,13 @@ const Carousel = ({ imageList, children, onNextRoom, onRoomChange, currentImgInd
     if (currentImgIndex !== undefined && currentImgIndex !== current) {
       setCurrent(currentImgIndex);
     }
-  }, [currentImgIndex]);
+  }, [current, currentImgIndex]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       const nextIndex = current + 1 === imageList.length ? 0 : current + 1;
       setCurrent(nextIndex);
-      onNextRoom && onNextRoom(); // 检查 onNextRoom 是否存在，如果存在則調用
+      onNextRoom && onNextRoom();
     }, 3000);
 
     return () => clearInterval(timer);

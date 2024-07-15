@@ -13,7 +13,7 @@ export const roomList: RoomItem[] = [
   {
     title: "尊爵單人房",
     content:
-      "享受高級的住宿體驗，尊爵單人房提供給您舒適寬敞的空間和精緻的裝潢。",
+      "享受一個人的高級住宿體驗，尊爵單人房提供給您舒適寬敞的空間和精緻的裝潢。",
     price: "NT$ 8,000",
     imgListName: "room2",
     size: 20,

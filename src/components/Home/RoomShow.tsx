@@ -37,7 +37,12 @@ export default function RoomShow() {
     <>
       <div className="flex flex-col md:flex-row md:items-end gap-[2rem] md:gap-[5rem] py-[5rem] px-[0.75rem] sm:px-[5rem] bg-neutral-100">
         <div className="w-full md:w-[37.5rem] lg:w-[50rem] h-[18.75rem] sm:h-[30rem] lg:h-[43rem] rounded-r-[0.5rem] overflow-hidden">
-          <Carousel imageList={roomImgList[roomList[currentRoom].imgListName]} onNextRoom={nextRoom} onRoomChange={setCurrentRoomIndex} />
+          <Carousel 
+            imageList={roomImgList[roomList[currentRoom].imgListName]} 
+            onNextRoom={nextRoom} 
+            onRoomChange={setCurrentRoomIndex} 
+            currentImgIndex={currentRoom}
+          />
         </div>
         <div className="text-neutral-0 pr-[5rem] md:w-[40rem]">
           <h2 className="text-h4 sm:h2 mb-[1rem]">{roomList[currentRoom].title}</h2>

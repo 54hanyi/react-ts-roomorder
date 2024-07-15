@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
 import Home from './pages/Home';
@@ -13,10 +12,13 @@ import RoomDetail3 from './pages/RoomDetail3';
 import RoomDetail4 from './pages/RoomDetail4';
 import RoomDetail5 from './pages/RoomDetail5';
 
+import ScrollToTop from './components/Layout/ScrollToTop';
+
 function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

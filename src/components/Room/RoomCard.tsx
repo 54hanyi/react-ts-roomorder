@@ -21,13 +21,11 @@ const RoomCard = ({ imageList, roomList }: RoomCardProps) => {
         setcurrentImgIndex(
           currentImgIndex + 1 === imageList.length ? 0 : currentImgIndex + 1
         );
-        // console.log("test123")
         break;
       case "pre":
         setcurrentImgIndex(
           currentImgIndex - 1 < 0 ? imageList.length - 1 : currentImgIndex - 1
         );
-        // console.log("test456")
         break;
     }
   };
@@ -54,7 +52,7 @@ const RoomCard = ({ imageList, roomList }: RoomCardProps) => {
             onClick={() => setRoom("pre")}
           />
         </div>
-        <div className="absolute top-0 bottom-0 right-[26rem] flex items-center pr-6">
+        <div className="absolute top-0 bottom-0 right-[24rem] flex items-center ">
           <IconButton
             name="ic_ArrowRight"
             svgClass="w-[2rem] h-[2rem] text-primary-100 rounded-full group-hover:bg-primary-40"
