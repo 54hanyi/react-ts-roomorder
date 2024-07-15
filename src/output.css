@@ -1553,6 +1553,10 @@ video {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
+.bg-\[url\(\"\/images\/web\/register\.png\"\)\]{
+  background-image: url("/images/web/register.png");
+}
+
 .from-neutral-120\/80{
   --tw-gradient-from: rgb(20 15 10 / 0.8) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(20 15 10 / 0) var(--tw-gradient-to-position);

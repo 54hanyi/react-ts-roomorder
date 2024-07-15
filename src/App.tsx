@@ -11,6 +11,8 @@ import RoomDetail2 from './pages/RoomDetail2';
 import RoomDetail3 from './pages/RoomDetail3';
 import RoomDetail4 from './pages/RoomDetail4';
 import RoomDetail5 from './pages/RoomDetail5';
+import GetCode from './pages/GetCode';
+import ResetPassword from './pages/ResetPassword';
 
 import ScrollToTop from './components/Layout/ScrollToTop';
 
@@ -30,6 +32,8 @@ function App() {
         <Route path="/roomdetail3" element={<RoomDetail3 />} />
         <Route path="/roomdetail4" element={<RoomDetail4 />} />
         <Route path="/roomdetail5" element={<RoomDetail5 />} />
+        <Route path="/get-code" element={<GetCode />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </>
   )

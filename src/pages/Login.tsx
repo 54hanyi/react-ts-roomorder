@@ -1,15 +1,13 @@
-// import React from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
-import { useNavigate } from "react-router-dom"
-import { useForm } from 'react-hook-form'
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
-import { userLoginForm } from '../interface/UserInfo'
-import Input from '../components/Common/Input'
-import Line2 from '../assets/icons/Line2.svg'
+import { userLoginForm } from '../interface/UserInfo';
+import Input from '../components/Common/Input';
+import Line2 from '../assets/icons/Line2.svg';
 import Navbar from '../components/Layout/Navbar';
 
-const api = import.meta.env.VITE_API_LINK
+const api = import.meta.env.VITE_API_LINK;
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,20 +17,19 @@ export default function Login() {
     formState: { errors }, 
   } = useForm({
     defaultValues: {
-      email:'',
+      email: '',
     },
-    mode: 'onTouched',  // 點過後進行錯誤驗證
+    mode: 'onTouched',
   });
+  
   interface LoginFormValues {
-    email: string,
-    password?: string,
+    email: string;
+    password?: string;
   }
+
   const onSubmit = async (data: LoginFormValues) => {
-    const { email, password } = data
-    const userData: userLoginForm = {
-      email,
-      password: password || '',
-    }
+    const { email, password } = data;
+    const userData: userLoginForm = { email, password: password || '' };
     try {
       const response = await axios.post(`${api}api/v1/user/login`, userData);
       if (response.status) {
@@ -51,6 +48,10 @@ export default function Login() {
     }
   };
 
+  const handleForgotPassword = () => {
+    navigate('/get-code');
+  };
+
   return (
     <>
       <div className="flex flex-col">
@@ -59,10 +60,10 @@ export default function Login() {
           <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
           <div className="relative sm:w-[50%] w-full flex items-center justify-center">
             <img src={Line2} alt="Line2" className='absolute top-14 right-0 w-full'/>
-            <div className="flex flex-col w-[50%] ">
+            <div className="flex flex-col w-[50%]">
               <p className='text-title mb-2 text-primary-100'>享樂酒店，誠摯歡迎</p>
               <p className='sm:text-h1 text-h2 text-white'>立即開始旅程</p>
-              <form action="" onSubmit={handleSubmit(onSubmit)} >
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='mt-8'>
                   <Input
                     register={register}
@@ -72,14 +73,8 @@ export default function Login() {
                     type="email"
                     placeholder="hello@exsample.com"
                     rules={{
-                      required: {
-                        value: true,
-                        message: '請輸入 Email'
-                      },
-                      pattern: {
-                        value: /^\S+@\S+$/i,
-                        message: 'Email 格式不正確'
-                      }
+                      required: { value: true, message: '請輸入 Email' },
+                      pattern: { value: /^\S+@\S+$/i, message: 'Email 格式不正確' }
                     }}
                   />
                 </div>
@@ -91,24 +86,22 @@ export default function Login() {
                     labelText="密碼"
                     type="password"
                     placeholder="請輸入密碼"
-                    rules={{
-                      required: {
-                        value: true,
-                        message: '請輸入密碼'
-                      }
-                    }}
+                    rules={{ required: { value: true, message: '請輸入密碼' } }}
                   />
                 </div>
 
                 <div className='flex justify-between items-center mt-2'>
                   <label htmlFor="" className='flex items-center space-x-2'>
-                    <input 
-                      type="checkbox" 
-                      className='h-3.5 w-3.5 pt-0.5'
-                    />
+                    <input type="checkbox" className='h-3.5 w-3.5 pt-0.5'/>
                     <span className='text-body text-white'>記住帳號</span>
                   </label>
-                  <Link to="/" className='text-body text-primary-100 underline ml-1 pb-[-1px]'>忘記密碼？</Link>
+                  <button
+                    type="button"
+                    className='text-body text-primary-100 underline ml-1 pb-[-1px]'
+                    onClick={handleForgotPassword}
+                  >
+                    忘記密碼？
+                  </button>
                 </div>
 
                 <button
@@ -127,5 +120,5 @@ export default function Login() {
         </div>
       </div>
     </>
-  )
+  );
 }
