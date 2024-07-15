@@ -33,29 +33,29 @@ const RoomDetail4 = () => {
           <div className="flex gap-2">
             <div className="flex w-[55%]">
               <img
-                src="/images/web/room2-1.png"
+                src="/images/web/room4-1.png"
                 alt="Room View"
                 className="w-full h-auto object-cover rounded-lg"
               />
             </div>
             <div className="grid grid-rows-2 grid-flow-col gap-2 w-[45%]">
               <img
-                src="/images/web/room2-2.png"
+                src="/images/web/room4-2.png"
                 alt="Room View"
                 className="w-full h-full object-cover rounded-lg col-span-2"
               />
               <img
-                src="/images/web/room2-3.png"
+                src="/images/web/room4-3.png"
                 alt="Room View"
                 className="w-full h-full object-cover rounded-lg col-span-2"
               />
               <img
-                src="/images/web/room2-4.png"
+                src="/images/web/room4-4.png"
                 alt="Room View"
                 className="w-full h-full object-cover rounded-lg col-span-2"
               />
               <img
-                src="/images/web/room2-5.png"
+                src="/images/web/room4-5.png"
                 alt="Room View"
                 className="w-full h-full object-cover rounded-lg col-span-2"
               />
@@ -385,8 +385,8 @@ const RoomDetail4 = () => {
                   <p className="text-h5">預訂房型</p>
                 </div>
                 <div className="mt-6 text-neutral-80">
-                  <p className="text-h2 mb-2">尊爵雙人房</p>
-                  <p className="text-body">享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。</p>
+                  <p className="text-h2 mb-2">{roomList[3].title}</p>
+                  <p className="text-body">{roomList[3].content}</p>
                 </div>
                 <div className="mt-6">
                   <div className="flex gap-2">

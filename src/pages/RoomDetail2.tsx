@@ -385,8 +385,8 @@ const RoomDetail2 = () => {
                   <p className="text-h5">預訂房型</p>
                 </div>
                 <div className="mt-6 text-neutral-80">
-                  <p className="text-h2 mb-2">尊爵雙人房</p>
-                  <p className="text-body">享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。</p>
+                  <p className="text-h2 mb-2">{roomList[1].title}</p>
+                  <p className="text-body">{roomList[1].content}</p>
                 </div>
                 <div className="mt-6">
                   <div className="flex gap-2">
