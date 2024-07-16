@@ -1,15 +1,16 @@
+import { ImageItem } from "../../types/image";
 import { ReactNode, useState, useEffect } from "react";
 import clsx from "clsx";
 
 interface CarouselProps {
-  imageList: string[];
+  imageList: ImageItem[];
   children?: ReactNode;
   onNextRoom?: () => void;
   onRoomChange?: (index: number) => void;
   currentImgIndex?: number;
 }
 
-const Carousel = ({ imageList, children, onNextRoom, onRoomChange, currentImgIndex }: CarouselProps) => {
+const CarouselLocal = ({ imageList, children, onNextRoom, onRoomChange, currentImgIndex }: CarouselProps) => {
   const [, setTime] = useState(0);
   const [current, setCurrent] = useState(0);
 
@@ -27,9 +28,13 @@ const Carousel = ({ imageList, children, onNextRoom, onRoomChange, currentImgInd
     }, 3000);
 
     return () => clearInterval(timer);
+    
   }, [current, imageList.length, onNextRoom]);
 
-  const handleClick = (index: number) => {
+
+  const handleClick = (item:ImageItem, index: number) => {
+    console.log(item);
+    
     setCurrent(index);
     onRoomChange && onRoomChange(index);
     setTime(0);
@@ -38,24 +43,30 @@ const Carousel = ({ imageList, children, onNextRoom, onRoomChange, currentImgInd
   return (
     <>
       <div className="relative w-full h-full">
-        <img src={imageList[current]} className="w-full h-full object-cover" />
+        <picture>
+          <source
+            media="(max-width: 750px)"
+            srcSet={imageList[current].mobile}
+          />
+          <img src={imageList[current].web} className="w-full h-full object-cover" />
+        </picture>
         <div className="w-full h-full absolute top-0"></div>
         {children}
         <div className="flex absolute bottom-[2rem] w-full justify-center">
-          {imageList.map((_, index) => (
+          {imageList.map((item, index) => (
             <button
               key={index}
               className={clsx(
                 "w-[2rem] h-[4px] mr-[0.5rem] last:mr-0 rounded-full",
                 `${index === current ? "w-[4rem] bg-primary-100" : "w-[2rem] bg-primary-40"}`
               )}
-              onClick={() => handleClick(index)}
+              onClick={() => handleClick(item, index)}
             />
           ))}
         </div>
       </div>
     </>
-  );
+  )
 };
 
-export default Carousel;
+export default CarouselLocal;

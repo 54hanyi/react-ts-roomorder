@@ -19,7 +19,7 @@ const GetCode = () => {
   });
 
   const onSubmit = async (data: GetCodeFormValues) => {
-    const apiUrl = `${api}api/v1/verify/generateEmailCode`; 
+    const apiUrl = `${api}/api/v1/verify/generateEmailCode`; 
     console.log('API URL:', apiUrl); 
     try {
       const response = await axios.post(apiUrl, { email: data.email });

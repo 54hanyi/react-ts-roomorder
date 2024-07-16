@@ -1,9 +1,25 @@
+import { useState, useEffect } from 'react';
 import RoomCard from "./RoomCard";
-import { room2, room3, room4, room5 } from "../../data/roomImgList";
-import { roomList } from "../../data/roomList";
+// import { room2, room3, room4, room5 } from "../../data/roomImgList";
+import { fetchRoomList } from "../../assets/api";
+import { RoomItem } from "../../types/room";
 
 const RoomChoose = () => {
+  const [roomList, setRoomList] = useState<RoomItem[]>([]);
 
+  useEffect(() => {
+    const getRoomList = async () => {
+      try {
+        const data = await fetchRoomList();
+        console.log("Fetched room list: ", data.result);
+        setRoomList(data.result);
+      } catch (error) {
+        console.error('Failed to fetch room list:', error);
+      }
+    };
+
+    getRoomList();
+  }, []);
 
   return (
     <>
@@ -11,11 +27,9 @@ const RoomChoose = () => {
         <div className="flex flex-col ">
           <div className="text-h5 text-primart-0 mb-6">房型選擇</div>
           <div className="text-h1 text-primary-100 mb-12">各種房型，任您挑選</div>
-          <RoomCard roomList={roomList[0]} imageList={room2} />
-          <RoomCard roomList={roomList[1]} imageList={room3} />
-          <RoomCard roomList={roomList[2]} imageList={room4} />
-          <RoomCard roomList={roomList[3]} imageList={room5} />
-          <RoomCard roomList={roomList[4]} imageList={room3} />
+          {roomList.map((room) => (
+            <RoomCard key={room._id} roomList={room} imageList={room.imageUrlList} />
+          ))}
         </div>
       </div>
     </>

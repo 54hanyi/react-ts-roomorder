@@ -7,7 +7,7 @@ import cityData from "../data/cityData.json";
 import { UserContext } from './SignUp';
 import Input from '../components/Common/Input';
 import Navbar from '../components/Layout/Navbar';
-import { RegisterForm2 } from '../interface/UserInfo';
+import { RegisterForm2 } from '../types/UserInfo';
 import Line2 from '../assets/icons/Line2.svg';
 
 const api = import.meta.env.VITE_API_LINK;
@@ -75,7 +75,7 @@ export default function SignUp2() {
       }
     };
     try {
-      const response = await axios.post(`${api}api/v1/user/signup`, userData);
+      const response = await axios.post(`${api}/api/v1/user/signup`, userData);
       if (response.data.status) {
         alert('註冊成功，請重新登入');
         navigate('/login', { replace: true });

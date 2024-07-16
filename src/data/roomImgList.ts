@@ -1,4 +1,4 @@
-import { ImageItem } from "../types/image.type";
+import { ImageItem } from "../types/image";
 
 type ImageList = {
   [k: string]: ImageItem[];

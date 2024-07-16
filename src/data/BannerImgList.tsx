@@ -4,7 +4,7 @@ import web_img_3 from "/images/web/room2-1.png";
 import web_img_4 from "/images/web/room3-1.png";
 import web_img_5 from "/images/web/room4-1.png";
 import mobile_img_1 from "/images/mobile/banner.png";
-import { ImageItem } from "../types/image.type";
+import { ImageItem } from "../types/image";
 
 export const bannerImgList: ImageItem[] = [
   {

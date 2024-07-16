@@ -5,11 +5,6 @@ export interface SliderItemType {
   imgId: number;
 }
 
-export interface ImageItem {
-  web: string;
-  mobile: string;
-}
-
 export interface SliderItemProps {
   Item: SliderItemType;
   imgData: ImageItem;

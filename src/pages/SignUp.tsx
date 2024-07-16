@@ -6,9 +6,10 @@ import { useContext, createContext } from 'react'
 import { useNavigate } from "react-router-dom"
 import Input from '../components/Common/Input'
 
-import { RegisterForm1 } from '../interface/UserInfo'
+import { RegisterForm1 } from '../types/UserInfo'
 import Line2 from '../assets/icons/Line2.svg'
 import Navbar from '../components/Layout/Navbar'
+
 const api = import.meta.env.VITE_API_LINK
 
 export const UserContext = createContext({
@@ -32,7 +33,7 @@ export default function SignUp() {
   const onSubmit = async (data: RegisterForm1) => {
     const { email, password, confirmPassword } = data
     const emailVerify = await axios.post(
-      `${api}api/v1/verify/email`, {email}
+      `${api}/api/v1/verify/email`, {email}
     )
     if (emailVerify.data.result.isEmailExists) {
       alert('此信箱已註冊過')

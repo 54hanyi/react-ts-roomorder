@@ -8,7 +8,7 @@ import m_food2 from "/images/mobile/food2.png";
 import m_food3 from "/images/mobile/food3.png";
 import m_food4 from "/images/mobile/food4.png";
 import m_food5 from "/images/mobile/food5.png";
-import { ImageItem } from "../types/image.type";
+import { ImageItem } from "../types/image";
 
 export const foodImgList: ImageItem[] = [
   {

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-import { userLoginForm } from '../interface/UserInfo';
+import { userLoginForm } from '../types/UserInfo';
 import Input from '../components/Common/Input';
 import Line2 from '../assets/icons/Line2.svg';
 import Navbar from '../components/Layout/Navbar';
@@ -31,7 +31,7 @@ export default function Login() {
     const { email, password } = data;
     const userData: userLoginForm = { email, password: password || '' };
     try {
-      const response = await axios.post(`${api}api/v1/user/login`, userData);
+      const response = await axios.post(`${api}/api/v1/user/login`, userData);
       if (response.status) {
         alert('登入成功');
         navigate('/'); 

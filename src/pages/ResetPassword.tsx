@@ -26,7 +26,7 @@ const ResetPassword = () => {
 
   const onSubmit = async (data: ResetPasswordFormValues) => {
     try {
-      const response = await axios.post(`${api}api/v1/user/forgot`, { email: data.email, code: data.code, newPassword: data.password });
+      const response = await axios.post(`${api}/api/v1/user/forgot`, { email: data.email, code: data.code, newPassword: data.password });
       if (response.data.status) {
         alert('新密碼設置成功');
         navigate('/login');
