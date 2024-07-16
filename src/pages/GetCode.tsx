@@ -13,7 +13,7 @@ interface GetCodeFormValues {
 
 const GetCode = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, setError, formState: { errors, isDirty, isValid } } = useForm<GetCodeFormValues>({
+  const { register, handleSubmit, setError, formState: { errors } } = useForm<GetCodeFormValues>({
     defaultValues: { email: '' },
     mode: 'onTouched',
   });
@@ -62,8 +62,7 @@ const GetCode = () => {
               </div>
               <button
                 type="submit"
-                className="w-full h-[3rem] mt-8 px-4 py-2 text-body font-medium text-neutral-60 bg-neutral-40 rounded-md focus:outline-none focus:ring-primary-100 hover:bg-primary-100 hover:text白"
-                disabled={!isDirty || !isValid}
+                className="w-full h-[3rem] mt-8 px-4 py-2 text-body font-medium text-neutral-60 bg-neutral-40 rounded-md focus:outline-none focus:ring-primary-100 hover:bg-primary-100 hover:text-white"
               >
                 取得驗證碼
               </button>

@@ -9,9 +9,6 @@ import Input from '../components/Common/Input';
 import Navbar from '../components/Layout/Navbar';
 import { RegisterForm2 } from '../interface/UserInfo';
 import Line2 from '../assets/icons/Line2.svg';
-import step1 from '../../public/images/web/step1-2.png'
-import stepline from '../../public/images/web/stepline.png'
-import step2 from '../../public/images/web/step2-2.png'
 
 const api = import.meta.env.VITE_API_LINK;
 
@@ -105,9 +102,9 @@ export default function SignUp2() {
             <div className="flex flex-col w-[50%] h-[80%] ">
               <p className='text-h1 text-white'>立即註冊</p>
               <div className='flex gap-1 justify-center items-center pt-4'>
-                <img src={step1} alt="" className='h-10 w-20'/>
-                <img src={stepline} alt="" className='h-[2px] w-48'/>
-                <img src={step2} alt="" className='h-10 w-20'/>
+                <img src="./images/web/step1-2.png" alt="" className='h-10 w-20'/>
+                <img src="./images/web/stepline.png" alt="" className='h-[2px] w-48'/>
+                <img src="/images/web/step2-2.png" alt="" className='h-10 w-20'/>
               </div>
               <form action="" className='text-neutral-60' onSubmit={handleSubmit(onSubmit)}>
                 <div className='mt-6'>

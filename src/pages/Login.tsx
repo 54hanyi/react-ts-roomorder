@@ -48,10 +48,6 @@ export default function Login() {
     }
   };
 
-  const handleForgotPassword = () => {
-    navigate('/get-code');
-  };
-
   return (
     <>
       <div className="flex flex-col">
@@ -95,13 +91,7 @@ export default function Login() {
                     <input type="checkbox" className='h-3.5 w-3.5 pt-0.5'/>
                     <span className='text-body text-white'>記住帳號</span>
                   </label>
-                  <button
-                    type="button"
-                    className='text-body text-primary-100 underline ml-1 pb-[-1px]'
-                    onClick={handleForgotPassword}
-                  >
-                    忘記密碼？
-                  </button>
+                  <Link to="/get-code" className='text-body text-primary-100 underline ml-1 pb-[-1px]'>忘記密碼？</Link>
                 </div>
 
                 <button
