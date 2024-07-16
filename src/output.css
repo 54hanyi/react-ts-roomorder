@@ -936,6 +936,10 @@ video {
   height: 5rem;
 }
 
+.h-24{
+  height: 6rem;
+}
+
 .h-28{
   height: 7rem;
 }
@@ -1726,6 +1730,10 @@ video {
   padding-bottom: 2rem;
 }
 
+.pb-\[-1px\]{
+  padding-bottom: -1px;
+}
+
 .pl-3{
   padding-left: 0.75rem;
 }
@@ -1800,10 +1808,6 @@ video {
 
 .pt-\[4rem\]{
   padding-top: 4rem;
-}
-
-.pb-\[-1px\]{
-  padding-bottom: -1px;
 }
 
 .text-left{
@@ -1951,6 +1955,10 @@ video {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .backdrop-blur-sm{

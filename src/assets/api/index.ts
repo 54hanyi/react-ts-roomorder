@@ -14,3 +14,15 @@ export const fetchRoomList = async (): Promise<ApiResponse<RoomItem[]>> => {
     throw error;
   }
 };
+
+
+export const fetchRoomDetail = async (id: string): Promise<ApiResponse<RoomItem>> => {
+  try {
+    const response = await axios.get<ApiResponse<RoomItem>>(`${api}/api/v1/rooms/${id}`);
+    console.log('API Response:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching room detail:', error);
+    throw error;
+  }
+};
