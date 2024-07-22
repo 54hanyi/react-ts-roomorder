@@ -1,24 +1,24 @@
 import { useState, useEffect } from 'react';
 import RoomCard from "./RoomCard";
-// import { room2, room3, room4, room5 } from "../../data/roomImgList";
-import { fetchRoomList } from "../../assets/api";
-import { RoomItem } from "../../types/room";
+import { apiGetRoomType } from "@/assets/api";
+import { IRoom } from "@/types";
 
 const RoomChoose = () => {
-  const [roomList, setRoomList] = useState<RoomItem[]>([]);
+  const [roomList, setRoomList] = useState<IRoom[]>([]);
 
   useEffect(() => {
     const getRoomList = async () => {
       try {
-        const data = await fetchRoomList();
+        const token = localStorage.getItem('authToken') || ''; // 獲取token
+        const data = await apiGetRoomType(undefined, token); // 調用apiGetRoomType函數以獲取房型列表
         console.log("Fetched room list: ", data.result);
-        setRoomList(data.result);
+        setRoomList(data.result as IRoom[]); // 確保類型匹配
       } catch (error) {
         console.error('Failed to fetch room list:', error);
       }
     };
 
-    getRoomList();
+    getRoomList(); // 調用獲取房型列表的函數
   }, []);
 
   return (

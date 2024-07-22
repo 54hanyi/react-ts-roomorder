@@ -1,9 +1,9 @@
-type RoomInfoItem = {
+export type IItem = {
   title: string;
   isProvide: boolean;
 };
 
-export type RoomItem = {
+export interface IRoom {
   _id: string;
   name: string;
   description: string;
@@ -13,10 +13,43 @@ export type RoomItem = {
   bedInfo: string;
   maxPeople: number;
   price: number;
-  layoutInfo: RoomInfoItem[];
-  facilityInfo: RoomInfoItem[];
-  amenityInfo: RoomInfoItem[];
+  layoutInfo: IItem[];
+  facilityInfo: IItem[];
+  amenityInfo: IItem[];
   status: number;
   createdAt?: string;
   updatedAt?: string;
+}
+
+type RoomInfoSchema = {
+  title: string;
+  isProvide: boolean;
 };
+
+type RoomTypeSchema = {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  imageUrlList: string[];
+  areaInfo: string;
+  bedInfo: string;
+  maxPeople: number;
+  status: number;
+  layoutInfo: RoomInfoSchema[];
+  facilityInfo: RoomInfoSchema[];
+  amenityInfo: RoomInfoSchema[];
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+type RoomTypeResponseData = {
+  status: boolean;
+  result: RoomTypeSchema[];
+};
+
+export type RoomTypeCardProps = Pick<
+IRoom,
+  '_id' | 'name' | 'description' | 'price' | 'imageUrl' | 'imageUrlList' | 'areaInfo' | 'bedInfo' | 'maxPeople'
+>;

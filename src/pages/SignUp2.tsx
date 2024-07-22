@@ -7,7 +7,7 @@ import cityData from "../data/cityData.json";
 import { UserContext } from './SignUp';
 import Input from '../components/Common/Input';
 import Navbar from '../components/Layout/Navbar';
-import { RegisterForm2 } from '../types/UserInfo';
+import { RegisterForm2 } from '../types/user';
 import Line2 from '../assets/icons/Line2.svg';
 
 const api = import.meta.env.VITE_API_LINK;

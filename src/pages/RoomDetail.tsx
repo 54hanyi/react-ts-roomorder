@@ -4,32 +4,35 @@ import Navbar from "../components/Layout/Navbar";
 import Footer from "../components/Layout/Footer";
 import RoomDetailInfo from "../components/Room/RoomDetailInfo";
 import RoomDetailBox from "../components/Room/RoomDetailBox";
-import { fetchRoomDetail } from "../assets/api";
-import { RoomItem } from '../types/room';
-import { roomList } from '../data/roomList';
+import { apiGetRoomType } from "@/assets/api";
+import { IRoom } from '@/types';
 
 const RoomDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const [room, setRoom] = useState<RoomItem | null>(null);
+  const [room, setRoom] = useState<IRoom | null>(null);
 
   useEffect(() => {
     const getRoomDetail = async () => {
       try {
         if (id) {
-          const data = await fetchRoomDetail(id);
-          setRoom(data.result);
+          const token = localStorage.getItem('authToken') || ''; // 獲取token
+          const data = await apiGetRoomType(id, token); // 調用apiGetRoomType函數以獲取房型詳細資料
+          console.log('Fetched room detail:', data); // 添加調試信息
+          setRoom(data.result as IRoom); // 確保類型匹配
         }
       } catch (error) {
-        console.error('Failed to fetch room detail:', error);
+        console.error('Failed to fetch room detail:', error); // 錯誤處理
       }
     };
 
-    getRoomDetail();
+    getRoomDetail(); // 調用獲取房型詳細資料的函數
   }, [id]);
 
   if (!room) {
-    return <div>Loading...</div>;
+    return <div className='text-3xl'>努力尋找中...</div>;
   }
+
+  console.log('Room List:', room); // 確認數據加載
 
   return (
     <>
@@ -61,7 +64,7 @@ const RoomDetail = () => {
               <RoomDetailInfo roomList={room} />
             </div>
             <div className="w-[30%]">
-              <RoomDetailBox roomList={roomList[0]} />
+              <RoomDetailBox roomList={room} />
             </div>
           </div>
         </div>

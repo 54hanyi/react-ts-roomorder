@@ -1,17 +1,16 @@
 import { useState } from "react";
 import IconButton from "../../components/Common/IconButton";
-import { RoomItem } from "../../data/roomList";
-
+import { IRoom } from "../../types/room";
 
 interface RoomDetailBoxProps {
-  roomList: RoomItem;
+  roomList: IRoom;
 }
 
 export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
   const [currentPeople, setCurrentPeople] = useState(1);
 
-  const setPeople = (state:string) => {
-    switch(state) {
+  const setPeople = (state: string) => {
+    switch (state) {
       case "plus":
         setCurrentPeople(
           currentPeople + 1 === 10 ? 10 : currentPeople + 1
@@ -32,8 +31,8 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
           <p className="text-h5">預訂房型</p>
         </div>
         <div className="mt-6 text-neutral-80">
-          <p className="text-h2 mb-2">{roomList.title}</p>
-          <p className="text-body">{roomList.content}</p>
+          <p className="text-h2 mb-2">{roomList.name}</p>
+          <p className="text-body">{roomList.description}</p>
         </div>
         <div className="mt-6">
           <div className="flex gap-2">
@@ -79,7 +78,7 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
             </div>
           </div>
           <div className="my-6">
-            <p className="text-h5 text-primary-100">NT$ 10,000</p>
+            <p className="text-h5 text-primary-100">NT ${roomList.price}</p>
           </div>
           <button className="bg-primary-100 w-full h-10 rounded-[0.5rem] mt-2">
             <p className="text-white text-body">立即預訂</p>

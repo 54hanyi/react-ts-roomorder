@@ -6,7 +6,7 @@ import { useContext, createContext } from 'react'
 import { useNavigate } from "react-router-dom"
 import Input from '../components/Common/Input'
 
-import { RegisterForm1 } from '../types/UserInfo'
+import { RegisterForm1 } from '../types/user'
 import Line2 from '../assets/icons/Line2.svg'
 import Navbar from '../components/Layout/Navbar'
 
