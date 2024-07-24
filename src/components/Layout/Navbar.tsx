@@ -12,14 +12,25 @@ const Header = () => {
   const userContext = useContext(UserContext);
   console.log("User context in Header:", userContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   const switchMenu = (isOpen: boolean) => {
     setIsOpenMenu(isOpen);
   };
 
+  const toggleUserMenu = () => {
+    setIsUserMenuOpen(!isUserMenuOpen);
+  };
+
   const buttons = [
     { title: "客房旅宿", buttonStyle: "ghost", className: "p-[1rem]", to: "/rooms" },
-    { title: userContext?.isLoggedIn ? userContext.userName : "會員登入", buttonStyle: "ghost", className: userContext?.isLoggedIn ? "p-[1rem] text-primary-100 font-bold" : "p-[1rem]", to: userContext?.isLoggedIn ? "/user/profile" : "/login" },
+    {
+      title: userContext?.isLoggedIn ? userContext.userName : "會員登入",
+      buttonStyle: "ghost",
+      className: userContext?.isLoggedIn ? "p-[1rem] text-primary-100 font-bold relative" : "p-[1rem]",
+      to: userContext?.isLoggedIn ? "#" : "/login",
+      onClick: userContext?.isLoggedIn ? toggleUserMenu : undefined
+    },
     { title: "立即訂房", buttonStyle: "primary", className: "px-[2rem] py-[1rem] bg-primary-100 hover:bg-primary-120 rounded-[8px]", to: "/rooms" },
   ];
 
@@ -29,12 +40,32 @@ const Header = () => {
         <img src={logo_white} className="w-[6rem] h-[2rem] md:w-[10rem] md:h-[3.25rem]" alt="Logo" />
       </Link>
       <ul className="text-h6 gap-[1rem] hidden md:flex">
-        {buttons.map((button) => (
-          <li key={button.title}>
+        {buttons.map((button, index) => (
+          <li key={index}>
             <Button title="" buttonStyle={button.buttonStyle}>
-              <Link to={button.to} className={button.className}>
+              <Link
+                to={button.to}
+                className={button.className}
+                onClick={button.onClick}
+              >
                 {button.title}
               </Link>
+              {button.title === userContext?.userName && isUserMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+                  <Link
+                    to="/user/profile"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    我的帳戶
+                  </Link>
+                  <Link
+                    to="/logout"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    登出
+                  </Link>
+                </div>
+              )}
             </Button>
           </li>
         ))}

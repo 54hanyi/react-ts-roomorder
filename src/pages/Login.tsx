@@ -89,7 +89,7 @@ export default function Login() {
               >
                 會員登入
               </button>
-              <div className="flex text白色 text-body mt-4">
+              <div className="flex text-white text-body mt-4">
                 <p>沒有會員嗎？</p>
                 <Link to="/signup" className='text-primary-100 underline ml-1'>前往註冊</Link>
               </div>
