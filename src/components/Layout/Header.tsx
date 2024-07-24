@@ -19,7 +19,7 @@ const Header = () => {
 
   const buttons = [
     { title: "客房旅宿", buttonStyle: "ghost", className: "p-[1rem]", to: "/rooms" },
-    { title: userContext?.isLoggedIn ? userContext.userName : "會員登入", buttonStyle: "ghost", className: "p-[1rem]", to: userContext?.isLoggedIn ? "/user/profile" : "/login" },
+    { title: userContext?.isLoggedIn ? userContext.userName : "會員登入", buttonStyle: "ghost", className: userContext?.isLoggedIn ? "p-[1rem] text-primary-100 font-bold" : "p-[1rem]", to: userContext?.isLoggedIn ? "/user/profile" : "/login" },
     { title: "立即訂房", buttonStyle: "primary", className: "px-[2rem] py-[1rem] bg-primary-100 hover:bg-primary-120 rounded-[8px]", to: "/rooms" },
   ];
 
@@ -28,7 +28,7 @@ const Header = () => {
       <Link to="/">
         <img src={logo_white} className="w-[6rem] h-[2rem] md:w-[10rem] md:h-[3.25rem]" alt="Logo" />
       </Link>
-      <ul className="text-body gap-[1rem] hidden md:flex">
+      <ul className="text-h6 gap-[1rem] hidden md:flex">
         {buttons.map((button) => (
           <li key={button.title}>
             <Button title="" buttonStyle={button.buttonStyle}>

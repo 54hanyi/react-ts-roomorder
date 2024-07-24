@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 
-import { RoomItem } from "../../types/room";
+import { IRoom } from "../../types/room";
 import Carousel from "../Common/Carousel";
 import IconButton from "../Common/IconButton";
 
 interface RoomCardProps {
   imageList: string[];
-  roomList: RoomItem;
+  roomList: IRoom;
 }
 
 const RoomCard = ({ imageList, roomList }: RoomCardProps) => {
@@ -50,7 +50,7 @@ const RoomCard = ({ imageList, roomList }: RoomCardProps) => {
             onClick={() => setRoom("pre")}
           />
         </div>
-        <div className="absolute top-0 bottom-0 right-[24rem] flex items-center ">
+        <div className="absolute top-0 bottom-0 right-[28rem] flex items-center ">
           <IconButton
             name="ic_ArrowRight"
             svgClass="w-[2rem] h-[2rem] text-primary-100 rounded-full group-hover:bg-primary-40"

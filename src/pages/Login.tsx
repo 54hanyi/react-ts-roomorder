@@ -27,7 +27,7 @@ export default function Login() {
           userContext.setIsLoggedIn(true);
           userContext.setUserName(response.result.name);
         }
-        alert('登入成功');
+        alert(`歡迎 ${response.result.name}～`);
         navigate('/');
       } else {
         alert('登入失敗: ' + response.message);
@@ -47,7 +47,7 @@ export default function Login() {
           <img src={Line2} alt="Line2" className='absolute top-14 right-0 w-full'/>
           <div className="flex flex-col w-[50%]">
             <p className='text-title mb-2 text-primary-100'>享樂酒店，誠摯歡迎</p>
-            <p className='sm:text-h1 text-h2 text白色'>立即開始旅程</p>
+            <p className='sm:text-h1 text-h2 text-white'>立即開始旅程</p>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className='mt-8'>
                 <Input

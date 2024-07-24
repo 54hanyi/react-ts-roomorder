@@ -1,108 +1,50 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import clsx from 'clsx';
+import UserContext from '@/context/UserContext';
 
+import Button from "../Common/Button";
+import SvgIcon from "../Common/SvgIcon";
+import Menu from "./Menu";
 import logo_white from "../../assets/icons/logo_white.svg";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+const Header = () => {
+  const userContext = useContext(UserContext);
+  console.log("User context in Header:", userContext);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const switchMenu = (isOpen: boolean) => {
+    setIsOpenMenu(isOpen);
   };
 
-  return (
-    <div className="relative bg-[#140F0A] z-10">
-      <div className="flex justify-between items-center py-[1rem] px-[0.75rem] md:px-[4rem] md:py-0 h-[6rem]">
-        <NavLink to='/'>
-          <img src={logo_white} alt="logo" className="h-13" />
-        </NavLink>
-        <div className="hidden sm:flex items-center gap-8 text-body pr-16">
-          <NavLink to='/rooms'>
-            <button className="text-neutral-0 hover:text-primary-80">客房旅宿</button>
-          </NavLink>
-          <NavLink to='/login'>
-            <button className="text-neutral-0 hover:text-primary-80">會員登入</button>
-          </NavLink>
-          <NavLink to='/rooms'>
-            <button className="text-neutral-0 bg-primary-100 p-4 rounded-lg hover:bg-primary-120">立即訂房</button>
-          </NavLink>
-        </div>
-        <div className="sm:hidden flex items-center pr-4">
-          <button
-            className="text-neutral-0 hover:text-primary-80 focus:outline-none"
-            onClick={toggleMenu}
-          >
-            {isOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
-          </button>
-        </div>
-      </div>
+  const buttons = [
+    { title: "客房旅宿", buttonStyle: "ghost", className: "p-[1rem]", to: "/rooms" },
+    { title: userContext?.isLoggedIn ? userContext.userName : "會員登入", buttonStyle: "ghost", className: userContext?.isLoggedIn ? "p-[1rem] text-primary-100 font-bold" : "p-[1rem]", to: userContext?.isLoggedIn ? "/user/profile" : "/login" },
+    { title: "立即訂房", buttonStyle: "primary", className: "px-[2rem] py-[1rem] bg-primary-100 hover:bg-primary-120 rounded-[8px]", to: "/rooms" },
+  ];
 
-      {isOpen && (
-        <div className="sm:hidden absolute top-0 left-0 w-full h-screen bg-[#140F0A] flex justify-center items-center">
-          <button
-            className="text-neutral-0 hover:text-primary-80 absolute top-4 right-4"
-            onClick={toggleMenu}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-          <div className="text-body flex flex-col items-center">
-            <NavLink to='/rooms'>
-              <button className="text-neutral-0 hover:text-primary-80 p-4 mb-2 w-full">客房旅宿</button>
-            </NavLink>
-            <NavLink to='/login'>
-              <button className="text-neutral-0 hover:text-primary-80 p-4 mb-2 w-full">會員登入</button>
-            </NavLink>
-            <NavLink to='/rooms'>
-              <button className="text-neutral-0 bg-primary-100 p-4 rounded-lg hover:bg-primary-120 w-full">
-                立即訂房
-              </button>
-            </NavLink>
-          </div>
-        </div>
-      )}
-    </div>
+  return (
+    <header className="w-full bg-[#140F0A] h-[4rem] md:h-[6rem] flex items-center justify-between py-[1rem] px-[0.75rem] md:px-[4rem] md:py-4">
+      <Link to="/">
+        <img src={logo_white} className="w-[6rem] h-[2rem] md:w-[10rem] md:h-[3.25rem]" alt="Logo" />
+      </Link>
+      <ul className="text-h6 gap-[1rem] hidden md:flex">
+        {buttons.map((button) => (
+          <li key={button.title}>
+            <Button title="" buttonStyle={button.buttonStyle}>
+              <Link to={button.to} className={button.className}>
+                {button.title}
+              </Link>
+            </Button>
+          </li>
+        ))}
+      </ul>
+      <button type="button" onClick={() => switchMenu(true)} className="block md:hidden">
+        <SvgIcon name="ic_menu" svgClass="w-[2.5rem] h-[2.5rem] text-neutral-0 cursor-pointer" />
+      </button>
+      <Menu buttons={buttons} closeMenu={switchMenu} className={clsx(isOpenMenu ? "block" : "hidden", "block md:hidden")} />
+    </header>
   );
-}
+};
+
+export default Header;

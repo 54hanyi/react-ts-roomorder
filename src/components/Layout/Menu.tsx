@@ -3,7 +3,7 @@ import Button from "../Common/Button";
 import SvgIcon from "../Common/SvgIcon";
 
 type ButtonItem = {
-  title: string;
+  title: string | JSX.Element;
   buttonStyle: string;
   className: string;
   to: string;
@@ -29,7 +29,7 @@ const Menu = ({ buttons, className, closeMenu }: MenuProps) => {
         <ul className="flex flex-col items-center justify-center w-full h-full">
           {buttons.map((button) => {
             return (
-              <li key={button.title} className="w-full">
+              <li key={button.title.toString()} className="w-full">
                 <Button
                   title=""
                   buttonStyle={button.buttonStyle}
