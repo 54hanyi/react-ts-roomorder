@@ -81,7 +81,7 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
             <p className="text-h5 text-primary-100">NT ${roomList.price}</p>
           </div>
           <button className="bg-primary-100 w-full h-10 rounded-[0.5rem] mt-2">
-            <p className="text-white text-body">立即預訂</p>
+            <span className="text-white text-body">立即預訂</span>
           </button>
         </div>
       </div>

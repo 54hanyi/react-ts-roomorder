@@ -17,11 +17,11 @@ const RoomDetail = () => {
         if (id) {
           const token = localStorage.getItem('authToken') || ''; // 獲取token
           const data = await apiGetRoomType(id, token); // 調用apiGetRoomType函數以獲取房型詳細資料
-          console.log('Fetched room detail:', data); // 添加調試信息
+          console.log('Fetched room detail:', data); 
           setRoom(data.result as IRoom); // 確保類型匹配
         }
       } catch (error) {
-        console.error('Failed to fetch room detail:', error); // 錯誤處理
+        console.error('Failed to fetch room detail:', error); 
       }
     };
 

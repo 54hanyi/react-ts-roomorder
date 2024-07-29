@@ -900,8 +900,20 @@ video {
   margin-top: 0.75rem;
 }
 
+.mb-4{
+  margin-bottom: 1rem;
+}
+
+.mr-2{
+  margin-right: 0.5rem;
+}
+
 .block{
   display: block;
+}
+
+.inline{
+  display: inline;
 }
 
 .flex{
@@ -1210,6 +1222,10 @@ video {
 
 .grow-0{
   flex-grow: 0;
+}
+
+.transform{
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer{

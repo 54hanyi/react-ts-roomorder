@@ -26,10 +26,13 @@ const Header = () => {
     if (userContext) {
       userContext.setIsLoggedIn(false);
       userContext.setUserName('');
+      userContext.setUser(null);
       setIsUserMenuOpen(false);
+      localStorage.clear(); // 清除所有data
       alert('已成功登出');
     }
   };
+
 
   const buttons = [
     { title: "客房旅宿", buttonStyle: "ghost", className: "p-[1rem]", to: "/rooms" },
