@@ -13,7 +13,7 @@ import RoomDetail from './pages/RoomDetail';
 // import RoomDetail5 from './pages/RoomDetail5';
 import GetCode from './pages/GetCode';
 import ResetPassword from './pages/ResetPassword';
-import ConfirmBooking from './pages/ConfirmBooking';
+import BookingConfirmation from './pages/BookingConfirmation';
 import ScrollToTop from './components/Layout/ScrollToTop';
 
 function App() {
@@ -35,10 +35,10 @@ function App() {
         <Route path="/roomdetail5" element={<RoomDetail5 />} /> */}
         <Route path="/get-code" element={<GetCode />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/confirm-booking" element={<ConfirmBooking />} />
+        <Route path="/confirm-booking" element={<BookingConfirmation />} />
       </Routes>
     </>
   )
 }
 
-export default App
+export default App;

@@ -6,13 +6,16 @@ import "./index.css";
 import "./output.css";
 import "virtual:svg-icons-register";
 import { UserProvider } from './context/UserContext';
+import { BookingProvider } from "./context/BookingContext.tsx";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <UserProvider>
+    <BookingProvider>
       <HashRouter>
         <App />
       </HashRouter>
+    </BookingProvider>
     </UserProvider>
   </React.StrictMode>,
 )

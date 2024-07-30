@@ -20,6 +20,7 @@ export type Address = {
   detail: string;
   city?: string;
   county?: string;
+  street?: string;
 };
 
 export type UserInfo = {

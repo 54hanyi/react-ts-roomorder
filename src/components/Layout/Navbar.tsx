@@ -10,7 +10,6 @@ import logo_white from "../../assets/icons/logo_white.svg";
 
 const Header = () => {
   const userContext = useContext(UserContext);
-  console.log("User context in Header:", userContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 

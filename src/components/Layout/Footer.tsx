@@ -35,7 +35,7 @@ export default function Footer() {
               <p className=''>www.elhhexschool.com.tw</p>
             </div>
           </div>
-          <p className='text-white text-right text-body pt-14'>© 享樂酒店 2023 All Rights Reserved.</p>
+          <p className='text-white text-right text-body pt-14'>© 享樂酒店 2024 All Rights Reserved.</p>
         </div>
       </div>
     </>

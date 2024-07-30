@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import { BookingContext } from '@/context/BookingContext';
 import Navbar from "../components/Layout/Navbar";
 import Footer from "../components/Layout/Footer";
 import RoomDetailInfo from "../components/Room/RoomDetailInfo";
@@ -9,30 +10,33 @@ import { IRoom } from '@/types';
 
 const RoomDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const [room, setRoom] = useState<IRoom | null>(null);
+  const bookingContext = useContext(BookingContext);
 
   useEffect(() => {
     const getRoomDetail = async () => {
       try {
         if (id) {
-          const token = localStorage.getItem('authToken') || ''; // 獲取token
-          const data = await apiGetRoomType(id, token); // 調用apiGetRoomType函數以獲取房型詳細資料
-          console.log('Fetched room detail:', data); 
-          setRoom(data.result as IRoom); // 確保類型匹配
+          const token = localStorage.getItem('authToken') || ''; // 获取 token
+          const data = await apiGetRoomType(id, token); // 调用 apiGetRoomType 函数以获取房型详细资料
+
+          // 检查数据格式是否正确
+          if (data && data.status === true && data.result) {
+            bookingContext?.setRoom(data.result as IRoom); // 确保类型匹配
+          } else {
+            console.error('Invalid data structure', data);
+          }
         }
       } catch (error) {
         console.error('Failed to fetch room detail:', error); 
       }
     };
 
-    getRoomDetail(); // 調用獲取房型詳細資料的函數
-  }, [id]);
+    getRoomDetail(); // 调用获取房型详细资料的函数
+  }, [id, bookingContext]);
 
-  if (!room) {
-    return <div className='text-3xl'>努力尋找中...</div>;
+  if (!bookingContext?.room) {
+    return <div className='text-3xl'>請稍後...</div>;
   }
-
-  console.log('Room List:', room); // 確認數據加載
 
   return (
     <>
@@ -42,13 +46,13 @@ const RoomDetail = () => {
           <div className="flex gap-2">
             <div className="flex w-[55%]">
               <img
-                src={room.imageUrl}
+                src={bookingContext.room.imageUrl}
                 alt="Room View"
                 className="w-full h-auto object-cover rounded-lg"
               />
             </div>
             <div className="grid grid-rows-2 grid-flow-col gap-2 w-[45%]">
-              {room.imageUrlList.map((url, index) => (
+              {bookingContext.room.imageUrlList.map((url, index) => (
                 <img
                   key={index}
                   src={url}
@@ -61,10 +65,10 @@ const RoomDetail = () => {
 
           <div className="flex my-16 py-8 gap-20 justify-center">
             <div className="flex flex-col gap-10 w-[45%]">
-              <RoomDetailInfo roomList={room} />
+              <RoomDetailInfo roomList={bookingContext.room} />
             </div>
             <div className="w-[30%]">
-              <RoomDetailBox roomList={room} />
+              <RoomDetailBox roomList={bookingContext.room} />
             </div>
           </div>
         </div>
