@@ -1,92 +1,79 @@
 import { useContext, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
-import cityData from "../data/cityData.json";
-import { UserContext } from './SignUp';
-import Input from '../components/Common/Input';
+import Input from '@/components/Common/Input';
+import UserContext from '@/context/UserContext';
 import { IUser } from '../types/user';
+import cityData from "../data/cityData.json";
+import { userRegister } from '@/assets/api'; // 引入封装的 API 函数
+
 import Line2 from '../assets/icons/Line2.svg';
 
-const api = import.meta.env.VITE_API_LINK;
+type FormValues = {
+  name?: string;
+  phone?: string;
+  year: string;
+  month: string;
+  date: string;
+  districts: string;
+  address?: string;
+  agreement?: boolean;
+};
 
-type SelectList = string[]
-
-export default function SignUp2() {
-  const Context = useContext(UserContext);
+const SignUp2 = () => {
+  const { email, password } = useContext(UserContext);
   const navigate = useNavigate();
   const [county, setCounty] = useState<string>('臺北市');
-  // const [selectedDistricts, setSelectedDistricts] = useState<SelectList>([]);
-
   const countyData = cityData.find((c) => c.name === county)?.districts || [];
-  // 當 county 更新時，使用 useEffect 來設置相對應的區域
-  // useEffect(() => {
-  //   setSelectedDistricts(countyData?.districts || []);
-  // }, [county]);
 
-  // 生成年份、日期和月份列表
-  const yearList: SelectList = Array.from({ length: 80 }, (_, index) => (1944 + index).toString());
-  const dateList: SelectList = Array.from({ length: 31 }, (_, index) => (index + 1).toString());
-  const monthList: SelectList = Array.from({ length: 12 }, (_, index) => (index + 1).toString());
+  const yearList = Array.from({ length: 80 }, (_, index) => (1944 + index).toString());
+  const dateList = Array.from({ length: 31 }, (_, index) => (index + 1).toString());
+  const monthList = Array.from({ length: 12 }, (_, index) => (index + 1).toString());
 
-  // 事件處理函數，更新 county state
+  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
+    defaultValues: { year: '1998', month: '4', date: '1', districts: '100' },
+    mode: 'onTouched',
+  });
+
   const getCountyValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCounty(e.target.value);
   };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      year: '1998',
-      month: '4',
-      date: '1',
-      districts: '100',
-    },
-    mode: 'onTouched',
-  });
-
-  interface FormValues {
-    name?: string;  //  可選屬性避免undefined
-    phone?: string;
-    year: string;
-    month: string;
-    date: string;
-    districts: string;
-    address?: string;
-    agreement?: boolean;
-  }
-
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const { address, districts, phone, name, year, month, date } = data;
     const userData: IUser = {
-      name: name || ''  , // 默认为空字符串
-      email: Context.email,
-      password: Context.password,
-      phone: phone || '' ,
-      birthday: `${year}/${month}/${date}`,
+      name: name || '',
+      email: email || '',
+      password: password || '',
+      phone: phone || '',
+      birthday: new Date(`${year}-${month}-${date}`),
       address: {
-        zipcode: districts || '',
-        detail: address || ''
+        zipcode: parseInt(districts, 10),
+        detail: address || '',
       }
     };
+
     try {
-      const response = await axios.post(`${api}/api/v1/user/signup`, userData);
-      if (response.data.status) {
+      const response = await userRegister({
+        name: userData.name,
+        email: userData.email,
+        password: userData?.password as string,
+        phone: userData.phone,
+        birthday: new Date(userData.birthday || '').toDateString(),
+        address: {
+          zipcode: userData.address.zipcode,
+          detail: userData.address.detail,
+        },
+      });
+      if (response.status) {
         alert('註冊成功，請重新登入');
         navigate('/login', { replace: true });
       } else {
-        alert(response.data.message || '註冊失敗，請重試');
+        alert(response.message || '註冊失敗，請重試');
       }
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        alert(error.response?.data.message || '註冊失敗，請重試');
-      } else {
-        alert('註冊失敗，請重試');
-      }
+      alert('註冊失敗，請重試');
     }
   };
 
@@ -96,10 +83,10 @@ export default function SignUp2() {
         <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
           <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
           <div className="relative sm:w-[50%] w-full flex items-center justify-center">
-            <img src={Line2} alt="Line2" className='absolute top-10 right-0 w-full'/>
-            <div className="flex flex-col w-[50%] h-[80%] ">
+            <img src={Line2} alt="Line2" className='absolute top-0 right-0 w-full'/>
+            <div className="flex flex-col w-[50%] ">
               <p className='text-h1 text-white'>立即註冊</p>
-              <div className='flex gap-1 justify-center items-center pt-4'>
+              <div className='flex gap-1 justify-center items-center pt-8'>
                 <img src="./images/web/step1-2.png" alt="" className='h-10 w-20'/>
                 <img src="./images/web/stepline.png" alt="" className='h-[2px] w-48'/>
                 <img src="/images/web/step2-2.png" alt="" className='h-10 w-20'/>
@@ -263,3 +250,5 @@ export default function SignUp2() {
     </>
   )
 }
+
+export default SignUp2;

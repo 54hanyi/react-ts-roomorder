@@ -740,6 +740,22 @@ video {
   top: 5.4rem;
 }
 
+.top-5{
+  top: 1.25rem;
+}
+
+.top-2{
+  top: 0.5rem;
+}
+
+.top-4{
+  top: 1rem;
+}
+
+.top-8{
+  top: 2rem;
+}
+
 .z-10{
   z-index: 10;
 }
@@ -1563,13 +1579,13 @@ video {
   background-color: rgb(241 234 228 / var(--tw-bg-opacity));
 }
 
+.bg-transparent{
+  background-color: transparent;
+}
+
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-transparent{
-  background-color: transparent;
 }
 
 .bg-opacity-30{
@@ -1582,6 +1598,10 @@ video {
 
 .bg-\[url\(\'\/images\/web\/register\.png\'\)\]{
   background-image: url('/images/web/register.png');
+}
+
+.bg-\[url\(\\\'\/images\/web\/register\.png\\\'\)\]{
+  background-image: url(\'/images/web/register.png\');
 }
 
 .bg-gradient-to-b{
@@ -1627,10 +1647,6 @@ video {
   padding: 0px;
 }
 
-.p-10{
-  padding: 2.5rem;
-}
-
 .p-14{
   padding: 3.5rem;
 }
@@ -1655,6 +1671,10 @@ video {
   padding: 1.25rem;
 }
 
+.p-6{
+  padding: 1.5rem;
+}
+
 .p-7{
   padding: 1.75rem;
 }
@@ -1669,10 +1689,6 @@ video {
 
 .p-\[2\.5rem\]{
   padding: 2.5rem;
-}
-
-.p-6{
-  padding: 1.5rem;
 }
 
 .px-12{
@@ -1855,6 +1871,10 @@ video {
 
 .pt-\[4rem\]{
   padding-top: 4rem;
+}
+
+.pt-8{
+  padding-top: 2rem;
 }
 
 .text-left{

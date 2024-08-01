@@ -9,9 +9,25 @@ interface UserContextType {
   setUser: (user: MemberData | null) => void;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
   setUserName: (userName: string) => void;
+  // 新增的状态和方法
+  email: string;
+  setEmail: (email: string) => void;
+  password: string;
+  setPassword: (password: string) => void;
 }
 
-const UserContext = createContext<UserContextType | null>(null);
+const UserContext = createContext<UserContextType>({
+  user: null,
+  isLoggedIn: false,
+  userName: '',
+  setUser: () => {},
+  setIsLoggedIn: () => {},
+  setUserName: () => {},
+  email: '',
+  setEmail: () => {},
+  password: '',
+  setPassword: () => {},
+});
 
 interface UserProviderProps {
   children: ReactNode;
@@ -21,6 +37,8 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   const [user, setUser] = useState<MemberData | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -77,7 +95,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, isLoggedIn, userName, setUser: handleSetUser, setIsLoggedIn: handleSetIsLoggedIn, setUserName: handleSetUserName }}>
+    <UserContext.Provider value={{ user, isLoggedIn, userName, setUser: handleSetUser, setIsLoggedIn: handleSetIsLoggedIn, setUserName: handleSetUserName, email, setEmail, password, setPassword }}>
       {children}
     </UserContext.Provider>
   );
