@@ -2,23 +2,19 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Input from '../components/Common/Input';
-import Navbar from '../components/Layout/Navbar';
 import Line2 from '../assets/icons/Line2.svg';
+import { VerifyEmailData } from '../types/user';
 
 const api = import.meta.env.VITE_API_LINK;
 
-interface GetCodeFormValues {
-  email: string;
-}
-
 const GetCode = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, setError, formState: { errors } } = useForm<GetCodeFormValues>({
+  const { register, handleSubmit, setError, formState: { errors } } = useForm<VerifyEmailData>({
     defaultValues: { email: '' },
     mode: 'onTouched',
   });
 
-  const onSubmit = async (data: GetCodeFormValues) => {
+  const onSubmit = async (data: VerifyEmailData) => {
     const apiUrl = `${api}/api/v1/verify/generateEmailCode`; 
     console.log('API URL:', apiUrl); 
     try {
@@ -37,7 +33,6 @@ const GetCode = () => {
 
   return (
     <div className="flex flex-col">
-      <Navbar />
       <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
         <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
         <div className="relative sm:w-[50%] w-full flex items-center justify-center">

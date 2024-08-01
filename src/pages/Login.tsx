@@ -5,7 +5,6 @@ import { userLogin } from '../assets/api';
 import { UserLoginData, UserResponse } from '../types/user';
 import Input from '../components/Common/Input';
 import Line2 from '../assets/icons/Line2.svg';
-import Navbar from '../components/Layout/Navbar';
 import UserContext from '@/context/UserContext';
 
 export default function Login() {
@@ -44,7 +43,6 @@ export default function Login() {
 
   return (
     <div className="flex flex-col">
-      <Navbar />
       <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
         <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
         <div className="relative sm:w-[50%] w-full flex items-center justify-center">

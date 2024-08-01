@@ -1,8 +1,6 @@
 import { useEffect, useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { BookingContext } from '@/context/BookingContext';
-import Navbar from "../components/Layout/Navbar";
-import Footer from "../components/Layout/Footer";
 import RoomDetailInfo from "../components/Room/RoomDetailInfo";
 import RoomDetailBox from "../components/Room/RoomDetailBox";
 import { apiGetRoomType } from "@/assets/api";
@@ -57,7 +55,6 @@ const RoomDetail = () => {
 
   return (
     <>
-      <Navbar />
       <div className="bg-[#F7F2EE]">
         <div className="p-16">
           <div className="flex gap-2">
@@ -90,7 +87,6 @@ const RoomDetail = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

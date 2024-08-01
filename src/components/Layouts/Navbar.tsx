@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom'; // 导入 useLocation
 import clsx from 'clsx';
 import UserContext from '@/context/UserContext';
 
@@ -10,6 +10,7 @@ import logo_white from "../../assets/icons/logo_white.svg";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation(); // 获取当前路径
   const userContext = useContext(UserContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -46,8 +47,12 @@ const Header = () => {
     { title: "立即訂房", buttonStyle: "primary", className: "px-[2rem] py-[1rem] bg-primary-100 hover:bg-primary-120 rounded-[8px]", to: "/rooms" },
   ];
 
+  // 确定是否在 "/" 和 "/rooms" 路径下使用默认背景色
+  const isSpecialRoute = location.pathname === "/" || location.pathname === "/rooms";
+  const headerBg = isSpecialRoute ? "bg-transparent" : "bg-[#140F0A]";
+
   return (
-    <header className="w-full bg-[#140F0A] h-[4rem] md:h-[6rem] flex items-center justify-between py-[1rem] px-[0.75rem] md:px-[4rem] md:py-4">
+    <header className={`w-full h-[4rem] md:h-[6rem] flex items-center justify-between py-[1rem] px-[0.75rem] md:px-[4rem] md:py-4 ${headerBg}`}>
       <Link to="/">
         <img src={logo_white} className="w-[6rem] h-[2rem] md:w-[10rem] md:h-[3.25rem]" alt="Logo" />
       </Link>

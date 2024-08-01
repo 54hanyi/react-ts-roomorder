@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Input from '../components/Common/Input';
-import Navbar from '../components/Layout/Navbar';
 import Line2 from '../assets/icons/Line2.svg';
 
 const api = import.meta.env.VITE_API_LINK;
@@ -40,7 +39,6 @@ const ResetPassword = () => {
 
   return (
     <div className="flex flex-col">
-      <Navbar />
       <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
         <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
         <div className="relative sm:w-[50%] w-full flex items-center justify-center">

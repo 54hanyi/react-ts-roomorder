@@ -1,8 +1,6 @@
 import { useState, useContext } from "react";
 import { BookingContext } from "@/context/BookingContext";
 import BookingInfo from '@/components/Room/BookingInfo';
-import Footer from '@/components/Layout/Footer';
-import Navbar from "../components/Layout/Navbar";
 import BookingBox from "@/components/Room/BookingBox";
 import LoadingModal from '@/components/Common/LoadingModal';
 
@@ -19,7 +17,6 @@ const BookingConfirmation = () => {
   return (
     <>
       {loading && <LoadingModal />}
-      <Navbar />
       <div className="bg-[#F7F2EE]">
         <div className="p-16">
           <div className="flex my-16 py-8 gap-20 justify-center">           
@@ -32,7 +29,6 @@ const BookingConfirmation = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

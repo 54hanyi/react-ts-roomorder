@@ -6,8 +6,7 @@ import axios from 'axios';
 import cityData from "../data/cityData.json";
 import { UserContext } from './SignUp';
 import Input from '../components/Common/Input';
-import Navbar from '../components/Layout/Navbar';
-import { RegisterForm2 } from '../types/user';
+import { IUser } from '../types/user';
 import Line2 from '../assets/icons/Line2.svg';
 
 const api = import.meta.env.VITE_API_LINK;
@@ -63,7 +62,7 @@ export default function SignUp2() {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const { address, districts, phone, name, year, month, date } = data;
-    const userData: RegisterForm2 = {
+    const userData: IUser = {
       name: name || ''  , // 默认为空字符串
       email: Context.email,
       password: Context.password,
@@ -94,7 +93,6 @@ export default function SignUp2() {
   return (
     <>
       <div className="flex flex-col">
-        <Navbar />
         <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
           <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
           <div className="relative sm:w-[50%] w-full flex items-center justify-center">
