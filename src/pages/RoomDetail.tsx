@@ -1,5 +1,5 @@
 import { useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { BookingContext } from '@/context/BookingContext';
 import Navbar from "../components/Layout/Navbar";
 import Footer from "../components/Layout/Footer";
@@ -7,10 +7,12 @@ import RoomDetailInfo from "../components/Room/RoomDetailInfo";
 import RoomDetailBox from "../components/Room/RoomDetailBox";
 import { apiGetRoomType } from "@/assets/api";
 import { IRoom } from '@/types';
+import LoadingModal from '@/components/Common/LoadingModal';
 
 const RoomDetail = () => {
   const { id } = useParams<{ id: string }>();
   const bookingContext = useContext(BookingContext);
+  const location = useLocation(); // 移除类型参数
 
   useEffect(() => {
     const getRoomDetail = async () => {
@@ -34,8 +36,23 @@ const RoomDetail = () => {
     getRoomDetail(); // 调用获取房型详细资料的函数
   }, [id, bookingContext]);
 
+  useEffect(() => {
+    if (location.state) {
+      const { checkInDate, checkOutDate, currentPeople } = location.state as {
+        checkInDate: string;
+        checkOutDate: string;
+        currentPeople: number;
+      };
+      if (bookingContext) {
+        bookingContext.setCheckInDate(checkInDate);
+        bookingContext.setCheckOutDate(checkOutDate);
+        bookingContext.setCurrentPeople(currentPeople);
+      }
+    }
+  }, [location.state, bookingContext]);
+
   if (!bookingContext?.room) {
-    return <div className='text-3xl'>請稍後...</div>;
+    return <LoadingModal />;
   }
 
   return (

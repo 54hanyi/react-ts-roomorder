@@ -26,6 +26,10 @@ export default function Login() {
           userContext.setUser(response.result);
           userContext.setIsLoggedIn(true);
           userContext.setUserName(response.result.name);
+          // 保存 token 到本地存储
+          if (response.token) {
+            localStorage.setItem('authToken', response.token);
+          }
         }
         alert(`歡迎 ${response.result.name}～`);
         navigate('/');

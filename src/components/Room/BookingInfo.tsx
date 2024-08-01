@@ -6,8 +6,13 @@ import cityData from "../../data/cityData.json";
 import IconButton from "../Common/IconButton";
 import Deco from "@/assets/icons/ic_Deco.svg";
 import Left from "@/assets/icons/ic_left.svg";
+import LoadingModal from "../Common/LoadingModal";
 
-const BookingInfo = () => {
+interface BookingInfoProps {
+  setIsValid: (valid: boolean) => void;
+}
+
+const BookingInfo = ({ setIsValid }: BookingInfoProps) => {
   const navigate = useNavigate();
   const userContext = useContext(UserContext);
   const bookingContext = useContext(BookingContext);
@@ -18,18 +23,27 @@ const BookingInfo = () => {
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedCounty, setSelectedCounty] = useState('');
 
+  useEffect(() => {
+    // 计算表单的有效性
+    const valid = Boolean(name && phone && email && street && selectedCity && selectedCounty);
+    setIsValid(valid);
+  }, [name, phone, email, street, selectedCity, selectedCounty, setIsValid]);
+  
+
   const applyMemberData = () => {
     if (userContext && userContext.user) {
       const { name, phone, email, address } = userContext.user;
-      console.log(userContext.user);
       setName(name || '');
       setPhone(phone || '');
       setEmail(email || '');
   
       if (address) {
-        setStreet(address.detail || '');
         setSelectedCity(address.city || '');
-        setSelectedCounty(address.county || '');
+        // 延迟更新地区以确保城市先更新
+        setTimeout(() => {
+          setStreet(address.detail || '');
+          setSelectedCounty(address.county || '');
+        }, 0);
       }
     }
   };
@@ -40,13 +54,13 @@ const BookingInfo = () => {
 
   if (!bookingContext || !bookingContext.room) {
     console.log('Booking context in BookingInfo:', bookingContext);
-    return <div>Loading...</div>;
+    return <LoadingModal />;
   }
 
   const { room, checkInDate, checkOutDate, currentPeople } = bookingContext;
 
   const handleBackClick = () => {
-    navigate("/rooms", { state: { checkInDate, checkOutDate, currentPeople } });
+    navigate(`/room-detail/${room._id}`, { state: { checkInDate, checkOutDate, currentPeople } });
   };
 
   return (
@@ -57,32 +71,47 @@ const BookingInfo = () => {
         </button>
         <p className="ml-3 text-h4">確認訂房資訊</p>
       </div>
-      <div>
-        <div className="flex">
-          <img src={Deco} alt="" />
-          <p className="ml-3 text-h4">選擇房型</p>
+      <div className="flex justify-between items-center">
+        <div>
+          <div className="flex">
+            <img src={Deco} alt="" />
+            <p className="ml-3 text-h4">選擇房型</p>
+          </div>
+          <div className='pt-2'>
+            <p className='text-xl'>{room.name}</p>
+          </div>
         </div>
-        <div className='pt-2'>
-          <p className='text-xl'>{room.name}</p>
-        </div>
-      </div>
-      <div>
-        <div className="flex">
-          <img src={Deco} alt="" />
-          <p className="ml-3 text-h4">訂房日期</p>
-        </div>
-        <div className='pt-2'>
-          <p className='text-xl'>入住： {checkInDate}</p>
-          <p className='text-xl'>退房： {checkOutDate}</p>
+        <div>
+          <button onClick={handleBackClick} className="underline hover:text-primary-120">編輯</button>
         </div>
       </div>
-      <div>
-        <div className="flex">
-          <img src={Deco} alt="" />
-          <p className="ml-3 text-h4">入住人數</p>
+      <div className="flex justify-between items-center">
+        <div>
+          <div className="flex">
+            <img src={Deco} alt="" />
+            <p className="ml-3 text-h4">訂房日期</p>
+          </div>
+          <div className='pt-2'>
+            <p className='text-xl'>入住： {checkInDate}</p>
+            <p className='text-xl'>退房： {checkOutDate}</p>
+          </div>
         </div>
-        <div className='pt-2'>
-          <p className='text-xl'>{currentPeople} 人</p>
+        <div>
+          <button onClick={handleBackClick} className="underline hover:text-primary-120">編輯</button>
+        </div>
+      </div>
+      <div className="flex justify-between items-center">
+        <div>
+          <div className="flex">
+            <img src={Deco} alt="" />
+            <p className="ml-3 text-h4">入住人數</p>
+          </div>
+          <div className='pt-2'>
+            <p className='text-xl'>{currentPeople} 人</p>
+          </div>
+        </div>
+        <div>
+          <button onClick={handleBackClick} className="underline hover:text-primary-120">編輯</button>
         </div>
       </div>
       
@@ -91,7 +120,7 @@ const BookingInfo = () => {
       <div className="max-w-4xl rounded-lg ">
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold mb-6">訂房人資訊</h1>
-          <button onClick={applyMemberData} className="text-primary-100 mb-6 hover:text-primary-120">套用會員資料</button>
+          <button onClick={applyMemberData} className="text-primary-100 mb-6 hover:text-primary-120 underline">套用會員資料</button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>

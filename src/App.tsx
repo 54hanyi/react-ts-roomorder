@@ -15,6 +15,7 @@ import GetCode from './pages/GetCode';
 import ResetPassword from './pages/ResetPassword';
 import BookingConfirmation from './pages/BookingConfirmation';
 import ScrollToTop from './components/Layout/ScrollToTop';
+import BookingSuccessed from './pages/BookingSuccessed';
 
 function App() {
 
@@ -24,18 +25,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/get-code" element={<GetCode />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signup2" element={<SignUp2 />} />
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/room-detail/:id" element={<RoomDetail />} />
-        {/* <Route path="/roomdetail3" element={<RoomDetail3 />} />
-        <Route path="/roomdetail2" element={<RoomDetail2 />} />
-        <Route path="/roomdetail3" element={<RoomDetail3 />} />
-        <Route path="/roomdetail4" element={<RoomDetail4 />} />
-        <Route path="/roomdetail5" element={<RoomDetail5 />} /> */}
-        <Route path="/get-code" element={<GetCode />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/confirm-booking" element={<BookingConfirmation />} />
+        <Route path="/successed-booking" element={<BookingSuccessed />} />
       </Routes>
     </>
   )

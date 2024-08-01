@@ -21,7 +21,7 @@ export default function Footer() {
             </div>
             <div className='text-body'>
               <p className=''>MAIL</p>
-              <p className=''>elh6666@hexschool.com</p>
+              <p className=''>tp6c04u4456@yahoo.com.tw</p>
             </div>
           </div>
 
@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
             <div className='text-body'>
               <p className=''>WEB</p>
-              <p className=''>www.elhhexschool.com.tw</p>
+              <p className=''>https://54hanyi.github.io/react-ts-roomorder/</p>
             </div>
           </div>
           <p className='text-white text-right text-body pt-14'>© 享樂酒店 2024 All Rights Reserved.</p>

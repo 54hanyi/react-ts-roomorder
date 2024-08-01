@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import UserContext from '@/context/UserContext';
 
@@ -9,6 +9,7 @@ import Menu from "./Menu";
 import logo_white from "../../assets/icons/logo_white.svg";
 
 const Header = () => {
+  const navigate = useNavigate();
   const userContext = useContext(UserContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -19,6 +20,18 @@ const Header = () => {
 
   const toggleUserMenu = () => {
     setIsUserMenuOpen(!isUserMenuOpen);
+  };
+
+  const handleLogout = () => {
+    if (userContext) {
+      userContext.setIsLoggedIn(false);
+      userContext.setUserName('');
+      userContext.setUser(null);
+      setIsUserMenuOpen(false);
+      localStorage.clear(); // 清除所有data
+      alert('已成功登出');
+      navigate("/");
+    }
   };
 
   const buttons = [
@@ -50,19 +63,19 @@ const Header = () => {
                 {button.title}
               </Link>
               {button.title === userContext?.userName && isUserMenuOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+                <div className="absolute mt-3 bg-white rounded-md shadow-lg">
                   <Link
                     to="/user/profile"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="block p-3 text-sm font-semibold text-primary-100"
                   >
                     我的帳戶
                   </Link>
-                  <Link
-                    to="/logout"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left p-3 text-sm font-semibold text-primary-100"
                   >
                     登出
-                  </Link>
+                  </button>
                 </div>
               )}
             </Button>
