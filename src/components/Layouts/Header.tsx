@@ -68,7 +68,7 @@ const Header = () => {
                 {button.title}
               </Link>
               {button.title === userContext?.userName && isUserMenuOpen && (
-                <div className="absolute mt-3 bg-white rounded-md shadow-lg">
+                <div className="absolute mt-3 bg-white rounded-md shadow-lg z-50">
                   <Link
                     to="/user/profile"
                     className="block p-3 text-sm font-semibold text-primary-100"
