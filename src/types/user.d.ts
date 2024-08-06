@@ -108,6 +108,7 @@ export type UserResponse = ApiResponse<MemberData> & {
 export type VerifyEmailData = {
   email: string;
 };
+
 export type ForgotPwdData = {
   email: string;
   code: string;

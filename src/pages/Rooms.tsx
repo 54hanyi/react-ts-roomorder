@@ -1,4 +1,3 @@
-// import React from 'react'
 import Footer from '../components/Layouts/Footer';
 import BannerContent from '../components/Room/BannerContent';
 import RoomChoose from '../components/Room/RoomChoose';

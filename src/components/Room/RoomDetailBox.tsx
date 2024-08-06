@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import IconButton from "../../components/Common/IconButton";
+import Button from "../Common/Button";
 import { IRoom } from "../../types/room";
 import { BookingContext } from "@/context/BookingContext";
 import { RoomContext } from "@/context/RoomContext";
@@ -128,12 +129,13 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
         <div className="my-6">
           <p className="text-h5 text-primary-100">NT ${roomList.price}</p>
         </div>
-        <button
-          className="bg-primary-100 w-full h-10 rounded-[0.5rem] mt-2 hover:bg-primary-120"
+        <Button
+          title="立即預訂"
+          buttonStyle="primary"
+          defaultClass="w-full h-10 rounded-[0.5rem] mt-6 bg-primary-100 hover:bg-primary-120"
           onClick={handleBookingClick}
-        >
-          <span className="text-white text-body">立即預訂</span>
-        </button>
+          buttonType="button"
+        />
       </div>
     </div>
   );

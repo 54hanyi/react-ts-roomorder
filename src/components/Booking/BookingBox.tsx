@@ -5,6 +5,7 @@ import { RoomContext } from '@/context/RoomContext';
 import UserContext from '@/context/UserContext';
 import { postOrder } from '@/assets/api';
 import { OrderPostData } from '@/types/order';
+import Button from '../Common/Button';
 
 interface BookingBoxProps {
   setLoading: (loading: boolean) => void;
@@ -105,13 +106,14 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
         <p>總價</p>
         <p>NT$ {totalPrice}</p>
       </div>
-
-      <button
-        className="bg-primary-100 w-full h-10 rounded-[0.5rem] mt-6 hover:bg-primary-120"
+      
+      <Button
+        title="確認訂房"
+        buttonStyle="primary"
+        defaultClass="w-full h-10 rounded-[0.5rem] mt-6 bg-primary-100 hover:bg-primary-120"
         onClick={handleConfirmBooking}
-      >
-        <span className="text-white text-body">確認訂房</span>
-      </button>
+        buttonType="button"
+      />
     </div>
   );
 }

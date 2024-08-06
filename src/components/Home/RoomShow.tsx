@@ -7,6 +7,9 @@ import { roomList } from "../../data/roomList";
 import CarouselLocal from "../Common/CarouselLocal";
 import IconButton from "../Common/IconButton";
 
+import Line2 from '@/assets/icons/Line2.svg';
+import BG from '@/assets/icons/BG.svg';
+
 export default function RoomShow() {
   const [currentRoom, setCurrentRoom] = useState(0);
   
@@ -35,7 +38,13 @@ export default function RoomShow() {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row md:items-end gap-[2rem] md:gap-[5rem] py-[5rem] px-[0.75rem] sm:px-[5rem] bg-neutral-100">
+      <div className="relative flex flex-col md:flex-row md:items-end gap-[2rem] md:gap-[5rem] py-[5rem] px-[0.75rem] sm:px-[5rem] bg-neutral-100">
+        <div className="absolute top-20 right-0">
+          <img src={Line2} alt="Line2" className='w-full'/>
+        </div>
+        <div className="absolute top-80 left-80">
+          <img src={BG} alt="BG" className='w-full'/>
+        </div>
         <div className="w-full md:w-[37.5rem] lg:w-[50rem] h-[18.75rem] sm:h-[30rem] lg:h-[43rem] rounded-r-[0.5rem] overflow-hidden">
           <CarouselLocal 
             imageList={roomImgList[roomList[currentRoom].imgListName]} 

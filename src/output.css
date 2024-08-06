@@ -672,6 +672,10 @@ video {
   left: 15rem;
 }
 
+.left-80{
+  left: 20rem;
+}
+
 .right-0{
   right: 0px;
 }
@@ -728,6 +732,10 @@ video {
   top: 7rem;
 }
 
+.top-80{
+  top: 20rem;
+}
+
 .top-\[-5rem\]{
   top: -5rem;
 }
@@ -738,22 +746,6 @@ video {
 
 .top-\[5\.4rem\]{
   top: 5.4rem;
-}
-
-.top-5{
-  top: 1.25rem;
-}
-
-.top-2{
-  top: 0.5rem;
-}
-
-.top-4{
-  top: 1rem;
-}
-
-.top-8{
-  top: 2rem;
 }
 
 .z-10{
@@ -799,6 +791,11 @@ video {
   margin-bottom: 0.25rem;
 }
 
+.my-10{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
 .my-16{
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -830,6 +827,10 @@ video {
 
 .mb-2{
   margin-bottom: 0.5rem;
+}
+
+.mb-3{
+  margin-bottom: 0.75rem;
 }
 
 .mb-4{
@@ -886,6 +887,10 @@ video {
 
 .mt-1{
   margin-top: 0.25rem;
+}
+
+.mt-10{
+  margin-top: 2.5rem;
 }
 
 .mt-12{
@@ -948,6 +953,10 @@ video {
   height: 5rem;
 }
 
+.h-24{
+  height: 6rem;
+}
+
 .h-28{
   height: 7rem;
 }
@@ -958,6 +967,10 @@ video {
 
 .h-3\.5{
   height: 0.875rem;
+}
+
+.h-32{
+  height: 8rem;
 }
 
 .h-36{
@@ -1080,8 +1093,12 @@ video {
   height: 5.2rem;
 }
 
-.h-\[80\%\]{
-  height: 80%;
+.h-\[52rem\]{
+  height: 52rem;
+}
+
+.h-\[65rem\]{
+  height: 65rem;
 }
 
 .h-auto{
@@ -1090,6 +1107,18 @@ video {
 
 .h-full{
   height: 100%;
+}
+
+.h-\[55rem\]{
+  height: 55rem;
+}
+
+.h-\[54rem\]{
+  height: 54rem;
+}
+
+.h-\[68rem\]{
+  height: 68rem;
 }
 
 .min-h-screen{
@@ -1521,6 +1550,11 @@ video {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
+.border-neutral-40{
+  --tw-border-opacity: 1;
+  border-color: rgb(236 236 236 / var(--tw-border-opacity));
+}
+
 .border-primary-100\/40{
   border-color: rgb(191 157 125 / 0.4);
 }
@@ -1781,6 +1815,14 @@ video {
   padding-bottom: 5rem;
 }
 
+.pb-10{
+  padding-bottom: 2.5rem;
+}
+
+.pb-2{
+  padding-bottom: 0.5rem;
+}
+
 .pb-3{
   padding-bottom: 0.75rem;
 }
@@ -1869,12 +1911,12 @@ video {
   padding-top: 1.5rem;
 }
 
-.pt-\[4rem\]{
-  padding-top: 4rem;
-}
-
 .pt-8{
   padding-top: 2rem;
+}
+
+.pt-\[4rem\]{
+  padding-top: 4rem;
 }
 
 .text-left{

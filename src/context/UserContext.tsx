@@ -9,11 +9,12 @@ interface UserContextType {
   setUser: (user: MemberData | null) => void;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
   setUserName: (userName: string) => void;
-  // 新增的状态和方法
   email: string;
   setEmail: (email: string) => void;
   password: string;
   setPassword: (password: string) => void;
+  phone: string;
+  setPhone: (phone: string) => void; 
 }
 
 const UserContext = createContext<UserContextType>({
@@ -27,6 +28,8 @@ const UserContext = createContext<UserContextType>({
   setEmail: () => {},
   password: '',
   setPassword: () => {},
+  phone: '', 
+  setPhone: () => {},
 });
 
 interface UserProviderProps {
@@ -39,19 +42,24 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
 
   useEffect(() => {
+    // 读取本地存储中的数据
     const storedUser = localStorage.getItem('user');
     const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
     const storedUserName = localStorage.getItem('userName');
+    const storedEmail = localStorage.getItem('email');
+    const storedPhone = localStorage.getItem('phone');
 
-    if (storedUser && storedIsLoggedIn && storedUserName) {
+    if (storedUser && storedIsLoggedIn && storedUserName && storedPhone) {
       setUser(JSON.parse(storedUser));
       setIsLoggedIn(storedIsLoggedIn === 'true');
       setUserName(storedUserName);
+      setEmail(storedEmail ?? "");  //當storedEmail為null時，返回""
+      setPhone(storedPhone);
     } else {
       const checkUserStatus = async () => {
-        console.log("Checking user status...");
         try {
           const status: CheckResponse = await checkLoginStatus();
           if (status && status.token) {
@@ -60,10 +68,14 @@ export const UserProvider = ({ children }: UserProviderProps) => {
               setUser(userData.result);
               setIsLoggedIn(true);
               setUserName(userData.result.name);
+              setEmail(userData.result.email || '');
+              setPhone(userData.result.phone || '');
 
               localStorage.setItem('user', JSON.stringify(userData.result));
               localStorage.setItem('isLoggedIn', 'true');
               localStorage.setItem('userName', userData.result.name);
+              localStorage.setItem('email', userData.result.email);
+              localStorage.setItem('phone', userData.result.phone || '');
             }
           }
         } catch (error) {
@@ -94,8 +106,38 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     localStorage.setItem('userName', userName);
   };
 
+  const handleSetEmail = (email: string) => {
+    setEmail(email);
+    localStorage.setItem('email', email);
+  };
+
+  const handleSetPassword = (password: string) => {
+    setPassword(password);
+    localStorage.setItem('password', password);
+  };
+
+  const handleSetPhone = (phone: string) => {
+    setPhone(phone);
+    localStorage.setItem('phone', phone);
+  };
+
   return (
-    <UserContext.Provider value={{ user, isLoggedIn, userName, setUser: handleSetUser, setIsLoggedIn: handleSetIsLoggedIn, setUserName: handleSetUserName, email, setEmail, password, setPassword }}>
+    <UserContext.Provider 
+      value={{
+        user, 
+        setUser: handleSetUser, 
+        isLoggedIn, 
+        setIsLoggedIn: handleSetIsLoggedIn, 
+        userName, 
+        setUserName: handleSetUserName, 
+        email, 
+        setEmail: handleSetEmail, 
+        password, 
+        setPassword: handleSetPassword, 
+        phone, 
+        setPhone: handleSetPhone 
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

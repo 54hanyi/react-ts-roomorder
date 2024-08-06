@@ -8,6 +8,7 @@ type ButtonProps = {
   children?: ReactNode;
   buttonType?: "button" | "submit";
   disabled?: boolean; 
+  onClick?: () => void
 };
 
 const Button = ({
@@ -16,14 +17,15 @@ const Button = ({
   defaultClass,
   children,
   buttonType = "button",
-  disabled
+  disabled,
+  onClick
 }: ButtonProps) => {
   const [className, setClassName] = useState("");
   useEffect(() => {
     switch(buttonStyle) {
       case "primary":
         setClassName(
-          `${defaultClass} text-neutral-0 disabled:bg-neutral-40 disabled:text-neutral-60 disabled:cursor-not-allowed`
+          `${defaultClass} text-neutral-0 disabled:bg-neutral-40 disabled:text-neutral-60 disabled:cursor-not-allowed `
         );
         break;
       case "ghost":
@@ -35,7 +37,7 @@ const Button = ({
   }, [buttonStyle, defaultClass])
 
   return (
-    <button type={buttonType} className={className} disabled={disabled}>
+    <button type={buttonType} className={className} disabled={disabled} onClick={onClick}>
       {title}
       {children}
     </button>

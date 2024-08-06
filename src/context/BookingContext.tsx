@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from 'react';
+import { createContext, useState, useEffect, ReactNode } from 'react';
 import { IRoom } from '@/types';
 
 interface BookingContextType {
@@ -19,6 +19,33 @@ export const BookingProvider = ({ children }: { children: ReactNode }) => {
   const [checkInDate, setCheckInDate] = useState<string>('');
   const [checkOutDate, setCheckOutDate] = useState<string>('');
   const [currentPeople, setCurrentPeople] = useState<number>(1);
+
+  useEffect(() => {
+    const storedRoom = localStorage.getItem('room');
+    const storedCheckInDate = localStorage.getItem('checkInDate');
+    const storedCheckOutDate = localStorage.getItem('checkOutDate');
+    const storedCurrentPeople = localStorage.getItem('currentPeople');
+
+    if (storedRoom) setRoom(JSON.parse(storedRoom));
+    if (storedCheckInDate) setCheckInDate(storedCheckInDate);
+    if (storedCheckOutDate) setCheckOutDate(storedCheckOutDate);
+    if (storedCurrentPeople) setCurrentPeople(parseInt(storedCurrentPeople, 10));
+  }, []);
+
+  useEffect(() => {
+    if (room) {
+      localStorage.setItem('room', JSON.stringify(room));
+    }
+    if (checkInDate) {
+      localStorage.setItem('checkInDate', checkInDate);
+    }
+    if (checkOutDate) {
+      localStorage.setItem('checkOutDate', checkOutDate);
+    }
+    if (currentPeople) {
+      localStorage.setItem('currentPeople', currentPeople.toString());
+    }
+  }, [room, checkInDate, checkOutDate, currentPeople]);
 
   return (
     <BookingContext.Provider value={{ room, checkInDate, checkOutDate, currentPeople, setRoom, setCheckInDate, setCheckOutDate, setCurrentPeople }}>

@@ -75,12 +75,12 @@ const Header = () => {
                   >
                     我的帳戶
                   </Link>
-                  <button
+                  <span
                     onClick={handleLogout}
                     className="block w-full text-left p-3 text-sm font-semibold text-primary-100"
                   >
                     登出
-                  </button>
+                  </span>
                 </div>
               )}
             </Button>

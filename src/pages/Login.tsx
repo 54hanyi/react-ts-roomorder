@@ -19,27 +19,34 @@ export default function Login() {
   const onSubmit = async (data: UserLoginData) => {
     try {
       const response: UserResponse = await userLogin(data);
+      console.log("API response result:", response.result);
+  
       if (response.status && response.result) {
         // 登入成功，更新UserContext
         if (userContext) {
           userContext.setUser(response.result);
           userContext.setIsLoggedIn(true);
           userContext.setUserName(response.result.name);
+          userContext.setEmail(response.result.email || ""); 
+          userContext.setPhone(response.result.phone || "");
+  
           // 保存 token 到本地存储
           if (response.token) {
             localStorage.setItem('authToken', response.token);
           }
         }
         alert(`歡迎 ${response.result.name}～`);
+        console.log("UserContext after login:", userContext);
         navigate('/');
       } else {
         alert('登入失敗: ' + response.message);
       }
     } catch (error) {
-      alert('發生未知錯誤');
       console.error('Login error:', error);
+      alert('發生錯誤，請稍後再試。');
     }
   };
+  
 
   return (
     <div className="flex flex-col">

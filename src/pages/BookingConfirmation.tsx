@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { BookingContext } from "@/context/BookingContext";
-import BookingInfo from '@/components/Room/BookingInfo';
-import BookingBox from "@/components/Room/BookingBox";
+import BookingInfo from '@/components/Booking/BookingInfo';
+import BookingBox from "@/components/Booking/BookingBox";
 import LoadingModal from '@/components/Common/LoadingModal';
 
 const BookingConfirmation = () => {

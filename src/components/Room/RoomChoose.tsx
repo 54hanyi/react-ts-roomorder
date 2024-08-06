@@ -35,7 +35,7 @@ const RoomChoose = () => {
   return (
     <div className="px-60 py-20 bg-[#F7F2EE]">
       <div className="flex flex-col">
-        <div className="text-h5 text-primary-0 mb-6">房型選擇</div>
+        <div className="text-h4 text-primary-0 mb-6">房型選擇</div>
         <div className="text-h1 text-primary-100 mb-12">各種房型，隨心所欲</div>
         {roomContext.roomList.length > 0 ? (
           roomContext.roomList.map((room) => (
