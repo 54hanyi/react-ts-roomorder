@@ -24,11 +24,12 @@ const config = (token?: string) => ({
     'Content-Type': 'application/json',
     Authorization: token ? `Bearer ${token}` : '',
   },
+  // withCredentials: true,  啟用時，伺服器需特別配置，明確允許這些憑證的發送跟接收
 });
 
 // 使用者 API
 export const checkLoginStatus = async (): Promise<CheckResponse> => {
-  const response = await get<CheckResponse>(`${api}/api/v1/user/check`, { withCredentials: true });
+  const response = await get<CheckResponse>(`${api}/api/v1/user/check`, config());
   return handleApiResponse(response);
 };
 

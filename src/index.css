@@ -36,3 +36,26 @@ body {
 }
 
 
+.custom-underline {
+  position: relative;
+  padding-bottom: 0.25rem; 
+}
+
+.custom-underline::before {
+  content: '';
+  display: block;
+  width: 1rem;  /*初始長度*/
+  height: 3px; 
+  background-color: #BF9D7D;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);  /*left: 50% 和 transform: translateX(-50%)：將底線置中對齊。*/
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+.custom-underline:hover::before,
+.custom-underline:focus::before {
+  width: 50%;
+}

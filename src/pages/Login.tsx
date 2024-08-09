@@ -29,7 +29,9 @@ export default function Login() {
           userContext.setUserName(response.result.name);
           userContext.setEmail(response.result.email || ""); 
           userContext.setPhone(response.result.phone || "");
-  
+          userContext.setBirthday(response.result.birthday.substring(0, 10) || ""); 
+          userContext.setAddress(response.result.address || { zipcode: 0, detail: '', city: '', county: '' });
+
           // 保存 token 到本地存储
           if (response.token) {
             localStorage.setItem('authToken', response.token);

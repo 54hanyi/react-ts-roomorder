@@ -13,6 +13,7 @@ import GetCode from './pages/GetCode';
 import ResetPassword from './pages/ResetPassword';
 import BookingConfirmation from './pages/BookingConfirmation';
 import BookingSuccessed from './pages/BookingSuccessed';
+import UserProfile from './pages/UserProfile';
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
           <Route path="/room-detail/:id" element={<RoomDetail />} />
           <Route path="/confirm-booking" element={<BookingConfirmation />} />
           <Route path="/successed-booking" element={<BookingSuccessed />} />
+
+          <Route path="/user-profile" element={<UserProfile />} />
         </Route>
       </Routes>
     </>

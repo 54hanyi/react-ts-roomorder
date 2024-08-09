@@ -796,6 +796,11 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.my-14{
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
 .my-16{
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -819,6 +824,11 @@ video {
 .my-6{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.my-8{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .mb-12{
@@ -1017,6 +1027,10 @@ video {
   height: 10rem;
 }
 
+.h-\[16rem\]{
+  height: 16rem;
+}
+
 .h-\[18\.75rem\]{
   height: 18.75rem;
 }
@@ -1093,12 +1107,16 @@ video {
   height: 5.2rem;
 }
 
-.h-\[52rem\]{
-  height: 52rem;
+.h-\[54rem\]{
+  height: 54rem;
 }
 
-.h-\[65rem\]{
-  height: 65rem;
+.h-\[68rem\]{
+  height: 68rem;
+}
+
+.h-\[70rem\]{
+  height: 70rem;
 }
 
 .h-auto{
@@ -1109,16 +1127,16 @@ video {
   height: 100%;
 }
 
-.h-\[55rem\]{
-  height: 55rem;
+.h-\[14rem\]{
+  height: 14rem;
 }
 
-.h-\[54rem\]{
-  height: 54rem;
+.h-\[28rem\]{
+  height: 28rem;
 }
 
-.h-\[68rem\]{
-  height: 68rem;
+.h-\[25rem\]{
+  height: 25rem;
 }
 
 .min-h-screen{
@@ -1447,6 +1465,10 @@ video {
   border-radius: 1.2rem;
 }
 
+.rounded-\[1\.5rem\]{
+  border-radius: 1.5rem;
+}
+
 .rounded-\[10px\]{
   border-radius: 10px;
 }
@@ -1555,6 +1577,11 @@ video {
   border-color: rgb(236 236 236 / var(--tw-border-opacity));
 }
 
+.border-primary-100{
+  --tw-border-opacity: 1;
+  border-color: rgb(191 157 125 / var(--tw-border-opacity));
+}
+
 .border-primary-100\/40{
   border-color: rgb(191 157 125 / 0.4);
 }
@@ -1628,6 +1655,10 @@ video {
 
 .bg-\[url\(\'\/images\/web\/about\.png\'\)\]{
   background-image: url('/images/web/about.png');
+}
+
+.bg-\[url\(\'\/images\/web\/hero\.png\'\)\]{
+  background-image: url('/images/web/hero.png');
 }
 
 .bg-\[url\(\'\/images\/web\/register\.png\'\)\]{
@@ -1745,6 +1776,11 @@ video {
   padding-right: 1rem;
 }
 
+.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .px-60{
   padding-left: 15rem;
   padding-right: 15rem;
@@ -1773,6 +1809,11 @@ video {
 .py-10{
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
+}
+
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .py-2{
@@ -1831,6 +1872,10 @@ video {
   padding-bottom: 1rem;
 }
 
+.pb-5{
+  padding-bottom: 1.25rem;
+}
+
 .pb-6{
   padding-bottom: 1.5rem;
 }
@@ -1883,6 +1928,10 @@ video {
   padding-top: 0.125rem;
 }
 
+.pt-1{
+  padding-top: 0.25rem;
+}
+
 .pt-10{
   padding-top: 2.5rem;
 }
@@ -1905,6 +1954,10 @@ video {
 
 .pt-4{
   padding-top: 1rem;
+}
+
+.pt-5{
+  padding-top: 1.25rem;
 }
 
 .pt-6{
@@ -2115,6 +2168,12 @@ video {
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
+.transition-all{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 * {
   transition: all 0.3s, color 0.3s;
 }
@@ -2145,6 +2204,32 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #7B6651;
+}
+
+.custom-underline {
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.custom-underline::before {
+  content: '';
+  display: block;
+  width: 1rem;
+  /*初始長度*/
+  height: 3px;
+  background-color: #BF9D7D;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  /*left: 50% 和 transform: translateX(-50%)：將底線置中對齊。*/
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+.custom-underline:hover::before,
+.custom-underline:focus::before {
+  width: 50%;
 }
 
 .last\:mr-0:last-child{
@@ -2532,5 +2617,3 @@ body {
     font-size: 5rem;
   }
 }
-
-

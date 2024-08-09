@@ -1,20 +1,20 @@
+import { FieldErrors, UseFormRegister, FieldValues, Path } from 'react-hook-form';
 
-interface InputProps {
-  register: any;
-  // 確保每個錯誤鍵都包含一個 message 屬性
-  errors: any;  
-  id: string;
+interface InputProps<T extends FieldValues> {
+  register: UseFormRegister<T>;
+  errors: FieldErrors<T>;
+  id: Path<T>;
   labelText: string;
   type: string;
   rules: object;
   placeholder: string;
 }
 
-const Input: React.FC<InputProps>= ({ register, errors, id, labelText, type, rules, placeholder }) => {
+const Input = <T extends FieldValues>({ register, errors, id, labelText, type, rules, placeholder }: InputProps<T>) => {
   return (
     <div className="z-20">
-      <label htmlFor={id} className="text-white">
-        {labelText} 
+      <label htmlFor={id} className="text-black">
+        {labelText}
       </label>
       <input
         id={id}
@@ -23,13 +23,13 @@ const Input: React.FC<InputProps>= ({ register, errors, id, labelText, type, rul
         className="text-neutral-60 mt-1 w-full px-3 py-2 border border-[#ECECEC] rounded-md shadow-sm focus:outline-none focus:ring-primary-100 focus:border-primary-100"
         placeholder={placeholder}
       />
-      <div className='text-primary-100'> 
-        {errors?.[id] && (
-          <div>{errors[id]?.message}</div>
+      <div className='text-primary-100'>
+        {errors[id] && (
+          <div>{String(errors[id]?.message)}</div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Input
+export default Input;

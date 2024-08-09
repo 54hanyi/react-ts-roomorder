@@ -70,7 +70,7 @@ const Header = () => {
               {button.title === userContext?.userName && isUserMenuOpen && (
                 <div className="absolute mt-3 bg-white rounded-md shadow-lg z-50">
                   <Link
-                    to="/user/profile"
+                    to="/user-profile"
                     className="block p-3 text-sm font-semibold text-primary-100"
                   >
                     我的帳戶
