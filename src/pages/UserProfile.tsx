@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import UserContext from '@/context/UserContext';
 
 import Line3 from '@/assets/icons/Line3.svg';
@@ -7,6 +7,11 @@ import UserOrder from '@/components/User/UserOrder';
 
 export default function UserProfile() {
   const userContext = useContext(UserContext);
+  const [activeTab, setActiveTab] = useState<'profile' | 'orders'>('profile'); // 默認為 "profile"
+
+  const handleTabClick = (tab: 'profile' | 'orders') => {
+    setActiveTab(tab);
+  };
 
   return (
     <>
@@ -16,14 +21,26 @@ export default function UserProfile() {
         </div>
         <div className='px-60 py-16'>
           <div className="flex text-white gap-6">
-            <button className="relative custom-underline">個人資料</button>
-            <button className="relative custom-underline">我的訂單</button>
+            <button
+              className={`relative custom-underline ${activeTab === 'profile' ? 'active' : ''}`}
+              onClick={() => handleTabClick('profile')}
+            >
+              個人資料
+            </button>
+            <button
+              className={`relative custom-underline ${activeTab === 'orders' ? 'active' : ''}`}
+              onClick={() => handleTabClick('orders')}
+            >
+              我的訂單
+            </button>
           </div>
-          <UserInfo />
-          {/* <UserOrder /> */}
+          <div className="mt-8">
+            {activeTab === 'profile' && <UserInfo />}
+            {activeTab === 'orders' && <UserOrder />}
+          </div>
         </div>
 
-        <img src={Line3} alt="Line2" className='absolute bottom-0 w-full'/>
+        <img src={Line3} alt="Line3" className='absolute bottom-0 w-full'/>
       </div>
     </>
   );

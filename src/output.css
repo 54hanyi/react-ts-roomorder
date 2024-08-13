@@ -1055,6 +1055,10 @@ video {
   height: 23rem;
 }
 
+.h-\[25rem\]{
+  height: 25rem;
+}
+
 .h-\[264px\]{
   height: 264px;
 }
@@ -1125,18 +1129,6 @@ video {
 
 .h-full{
   height: 100%;
-}
-
-.h-\[14rem\]{
-  height: 14rem;
-}
-
-.h-\[28rem\]{
-  height: 28rem;
-}
-
-.h-\[25rem\]{
-  height: 25rem;
 }
 
 .min-h-screen{
@@ -2228,7 +2220,8 @@ body {
 }
 
 .custom-underline:hover::before,
-.custom-underline:focus::before {
+.custom-underline:focus::before,
+.custom-underline.active::before {
   width: 50%;
 }
 

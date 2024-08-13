@@ -56,6 +56,7 @@ body {
 }
 
 .custom-underline:hover::before,
-.custom-underline:focus::before {
+.custom-underline:focus::before,
+.custom-underline.active::before {
   width: 50%;
 }
