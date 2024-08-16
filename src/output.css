@@ -831,6 +831,16 @@ video {
   margin-bottom: 2rem;
 }
 
+.mx-4{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mb-12{
   margin-bottom: 3rem;
 }
@@ -931,6 +941,14 @@ video {
   margin-top: 2rem;
 }
 
+.mb-8{
+  margin-bottom: 2rem;
+}
+
+.mt-16{
+  margin-top: 4rem;
+}
+
 .block{
   display: block;
 }
@@ -1027,6 +1045,10 @@ video {
   height: 10rem;
 }
 
+.h-\[110rem\]{
+  height: 110rem;
+}
+
 .h-\[16rem\]{
   height: 16rem;
 }
@@ -1115,6 +1137,14 @@ video {
   height: 54rem;
 }
 
+.h-\[5rem\]{
+  height: 5rem;
+}
+
+.h-\[66rem\]{
+  height: 66rem;
+}
+
 .h-\[68rem\]{
   height: 68rem;
 }
@@ -1129,6 +1159,18 @@ video {
 
 .h-full{
   height: 100%;
+}
+
+.h-\[18rem\]{
+  height: 18rem;
+}
+
+.max-h-\[50rem\]{
+  max-height: 50rem;
+}
+
+.max-h-\[none\]{
+  max-height: none;
 }
 
 .min-h-screen{
@@ -1219,6 +1261,10 @@ video {
   width: 45%;
 }
 
+.w-\[48\%\]{
+  width: 48%;
+}
+
 .w-\[4rem\]{
   width: 4rem;
 }
@@ -1256,6 +1302,10 @@ video {
 }
 
 .w-full{
+  width: 100%;
+}
+
+.w-\[100\%\]{
   width: 100%;
 }
 
@@ -1437,6 +1487,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-y-auto{
+  overflow-y: auto;
+}
+
 .overflow-x-scroll{
   overflow-x: scroll;
 }
@@ -1495,6 +1549,10 @@ video {
 
 .rounded-sm{
   border-radius: 0.125rem;
+}
+
+.rounded-\[0\.8rem\]{
+  border-radius: 0.8rem;
 }
 
 .rounded-l-\[1rem\]{
@@ -1848,6 +1906,11 @@ video {
   padding-bottom: 5rem;
 }
 
+.py-1{
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .pb-10{
   padding-bottom: 2.5rem;
 }
@@ -1962,6 +2025,14 @@ video {
 
 .pt-\[4rem\]{
   padding-top: 4rem;
+}
+
+.pr-2{
+  padding-right: 0.5rem;
+}
+
+.pb-1{
+  padding-bottom: 0.25rem;
 }
 
 .text-left{
@@ -2119,6 +2190,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-gray-500{
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
 .underline{
   text-decoration-line: underline;
 }
@@ -2164,6 +2240,10 @@ video {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.duration-300{
+  transition-duration: 300ms;
 }
 
 * {
@@ -2243,6 +2323,11 @@ body {
 .hover\:bg-primary-120:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(123 102 81 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-white:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .hover\:text-primary-100:hover{

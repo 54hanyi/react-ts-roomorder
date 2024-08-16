@@ -36,7 +36,7 @@ const SuccessedBox = () => {
     <div className="h-[54rem] bg-white rounded-[1.2rem] p-8">
       <div className='mb-4'>
         <p className='text-body'>預訂參考編號： HH2302183151222</p>
-        <p className='text-h4'>即將來的行程</p>
+        <p className='text-h4'>即將到來的旅程</p>
       </div>
 
       {selectedRoom.imageUrlList && (

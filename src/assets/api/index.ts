@@ -48,16 +48,6 @@ export const updateUserPwd = async (data: MemberUpdatePwdData, token: string): P
   return handleApiResponse(res);
 };
 
-export const getOrders = async (id: string | undefined, token: string): Promise<ApiResponse<IOrder[] | IOrder | null>> => {
-  const res = await get<ApiResponse<IOrder[] | IOrder>>(`${api}/api/v1/orders/${id ?? ''}`, config(token));
-  return handleApiResponse(res);
-};
-
-export const deleteOrder = async (id: string | undefined, token: string): Promise<ApiResponse<IOrder | null>> => {
-  const res = await del<ApiResponse<IOrder | null>>(`${api}/api/v1/orders/${id}`, config(token));
-  return handleApiResponse(res);
-};
-
 export const userLogin = async (data: UserLoginData): Promise<UserResponse> => {
   const res = await post<UserResponse, UserLoginData>(`${api}/api/v1/user/login`, data);
   return handleApiResponse(res);
@@ -107,6 +97,16 @@ export const apiGetCulinary = async (id: string | undefined, token: string): Pro
 };
 
 // 訂單 API
+export const getOrders = async (id: string | undefined, token: string): Promise<ApiResponse<IOrder[] | IOrder | null>> => {
+  const res = await get<ApiResponse<IOrder[]>>(`${api}/api/v1/orders/${id ?? ''}`, config(token));
+  return handleApiResponse(res);
+};
+
+export const deleteOrder = async (id: string | undefined, token: string): Promise<ApiResponse<IOrder | null>> => {
+  const res = await del<ApiResponse<IOrder | null>>(`${api}/api/v1/orders/${id}`, config(token));
+  return handleApiResponse(res);
+};
+
 export const postOrder = async (data: OrderPostData, token: string): Promise<ApiResponse<Order | null>> => {
   const res = await post<ApiResponse<Order | null>, OrderPostData>(`${api}/api/v1/orders`, data, config(token));
   return handleApiResponse(res);

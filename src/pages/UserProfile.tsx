@@ -15,7 +15,7 @@ export default function UserProfile() {
 
   return (
     <>
-      <div className="relative bg-[#140F0A] h-[70rem]">
+      <div className={`relative bg-[#140F0A] ${activeTab === 'profile' ? "h-[70rem]" : "h-[110rem]"}`}>
         <div className="inset-0 h-[20rem] bg-[url('/images/web/hero.png')] bg-cover bg-center flex items-center justify-center">
           <p className='text-white text-h1'>{userContext.userName}，您好</p>
         </div>

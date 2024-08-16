@@ -12,6 +12,7 @@ export interface IOrder {
   createdAt?: string;
   updatedAt?: string;
   _id?: string;
+  referenceNumber?: string;
 }
 
 export interface IOrderRequest {
