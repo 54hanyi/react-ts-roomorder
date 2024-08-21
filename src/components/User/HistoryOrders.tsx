@@ -39,10 +39,10 @@ export default function HistoryOrders({ recentOrders }: HistoryOrdersProps) {
 
   return (
     <>
-      <p className='text-h4 py-8'>歷史訂單</p>
+      <p className='text-h4 py-7'>歷史訂單</p>
       <div
         ref={containerRef}
-        className={`flex flex-col gap-4 transition-all duration-300 ${showAll ? 'max-h-[50rem] overflow-y-auto' : 'max-h-[none]'}`}
+        className={`flex flex-col gap-4 transition-all duration-300 ${showAll ? 'max-h-[50rem] overflow-y-auto' : 'max-h-[50rem]'}`}
         style={{ maxHeight: showAll ? '50rem' : 'auto', overflowY: showAll ? 'auto' : 'hidden' }}
       >
         {ordersToShow.map((order) => {
@@ -50,7 +50,7 @@ export default function HistoryOrders({ recentOrders }: HistoryOrdersProps) {
           const orderTotalPrice = order.roomId.price * orderDays;
           return (
             <div key={order._id}>
-              <div className="flex py-8 bg-white rounded-[1.2rem]">
+              <div className="flex py-4 bg-white rounded-[1.2rem]">
                 <div className='mr-4'>
                   {order.roomId.imageUrlList && order.roomId.imageUrlList.length > 0 && (
                     <img src={order.roomId.imageUrlList[0]} alt="Room Image" className='h-[5rem] w-[5rem] object-cover rounded-[0.8rem]' />
@@ -83,7 +83,7 @@ export default function HistoryOrders({ recentOrders }: HistoryOrdersProps) {
       </div>
       {/* 当历史订单数量超过3个时，显示“查看更多”按钮 */}
       {recentOrders.length > 3 && (
-        <div className="mt-16">
+        <div className="mt-16 pt-2">
           <Button
             title={showAll ? "收起" : "查看更多"}
             buttonStyle="ghost"

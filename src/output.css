@@ -831,16 +831,6 @@ video {
   margin-bottom: 2rem;
 }
 
-.mx-4{
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.my-4{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .mb-12{
   margin-bottom: 3rem;
 }
@@ -917,6 +907,10 @@ video {
   margin-top: 3rem;
 }
 
+.mt-16{
+  margin-top: 4rem;
+}
+
 .mt-2{
   margin-top: 0.5rem;
 }
@@ -943,10 +937,6 @@ video {
 
 .mb-8{
   margin-bottom: 2rem;
-}
-
-.mt-16{
-  margin-top: 4rem;
 }
 
 .block{
@@ -1161,16 +1151,8 @@ video {
   height: 100%;
 }
 
-.h-\[18rem\]{
-  height: 18rem;
-}
-
 .max-h-\[50rem\]{
   max-height: 50rem;
-}
-
-.max-h-\[none\]{
-  max-height: none;
 }
 
 .min-h-screen{
@@ -1305,8 +1287,12 @@ video {
   width: 100%;
 }
 
-.w-\[100\%\]{
-  width: 100%;
+.w-\[10rem\]{
+  width: 10rem;
+}
+
+.w-\[20rem\]{
+  width: 20rem;
 }
 
 .min-w-\[18rem\]{
@@ -1507,6 +1493,10 @@ video {
   border-radius: 0.6rem;
 }
 
+.rounded-\[0\.8rem\]{
+  border-radius: 0.8rem;
+}
+
 .rounded-\[1\.2rem\]{
   border-radius: 1.2rem;
 }
@@ -1549,10 +1539,6 @@ video {
 
 .rounded-sm{
   border-radius: 0.125rem;
-}
-
-.rounded-\[0\.8rem\]{
-  border-radius: 0.8rem;
 }
 
 .rounded-l-\[1rem\]{
@@ -1703,6 +1689,10 @@ video {
   --tw-bg-opacity: 0.3;
 }
 
+.bg-opacity-50{
+  --tw-bg-opacity: 0.5;
+}
+
 .bg-\[url\(\'\/images\/web\/about\.png\'\)\]{
   background-image: url('/images/web/about.png');
 }
@@ -1806,6 +1796,10 @@ video {
   padding: 2.5rem;
 }
 
+.p-12{
+  padding: 3rem;
+}
+
 .px-12{
   padding-left: 3rem;
   padding-right: 3rem;
@@ -1856,6 +1850,11 @@ video {
   padding-right: 2rem;
 }
 
+.py-1{
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .py-10{
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -1886,6 +1885,11 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-7{
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -1904,11 +1908,6 @@ video {
 .py-\[5rem\]{
   padding-top: 5rem;
   padding-bottom: 5rem;
-}
-
-.py-1{
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
 .pb-10{
@@ -2025,14 +2024,6 @@ video {
 
 .pt-\[4rem\]{
   padding-top: 4rem;
-}
-
-.pr-2{
-  padding-right: 0.5rem;
-}
-
-.pb-1{
-  padding-bottom: 0.25rem;
 }
 
 .text-left{
@@ -2188,11 +2179,6 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-gray-500{
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .underline{

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom'; // 导入 useNavigate
+import { useNavigate } from 'react-router-dom';
 import { BookingContext } from '@/context/BookingContext';
 import { RoomContext } from '@/context/RoomContext';
 import UserContext from '@/context/UserContext';
@@ -9,35 +9,33 @@ import Button from '../Common/Button';
 
 interface BookingBoxProps {
   setLoading: (loading: boolean) => void;
-  isValid: boolean; // 添加 isValid prop
+  isValid: boolean;
 }
 
 const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
   const bookingContext = useContext(BookingContext);
   const roomContext = useContext(RoomContext);
   const userContext = useContext(UserContext);
-  const navigate = useNavigate(); // 使用 useNavigate 钩子
+  const navigate = useNavigate();
 
   if (!bookingContext || !roomContext || !roomContext.selectedRoom || !userContext) {
     return <div>Loading...</div>;
   }
 
   const { selectedRoom } = roomContext;
-  const { checkInDate, checkOutDate, currentPeople } = bookingContext;
+  const { checkInDate, checkOutDate, currentPeople, setOrderId } = bookingContext;
   const { user } = userContext;
 
-  // 计算入住天数
   const calculateDays = (checkIn: string, checkOut: string): number => {
     const date1 = new Date(checkIn);
     const date2 = new Date(checkOut);
     const timeDiff = Math.abs(date2.getTime() - date1.getTime());
-    return Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // 转换为天数
+    return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
   };
 
   const days = calculateDays(checkInDate, checkOutDate);
-  const totalPrice = selectedRoom.price * days; // 计算总价格
+  const totalPrice = selectedRoom.price * days;
 
-  // 确认订单
   const handleConfirmBooking = async () => {
     if (!isValid) {
       alert('請完整填寫訂房人資訊！');
@@ -49,7 +47,7 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
       return;
     }
 
-    setLoading(true); // 显示加载动画
+    setLoading(true);
 
     const orderData: OrderPostData = {
       roomId: selectedRoom._id,
@@ -69,18 +67,17 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
 
     try {
       const token = localStorage.getItem('authToken') || '';
-      console.log('Sending order with token:', token); // 打印令牌
-      console.log('Order data:', orderData); // 打印订单数据
       const response = await postOrder(orderData, token);
-      setLoading(false); // 隐藏加载动画
-      if (response.status) {
+      setLoading(false);
+      if (response.status && response.result) {
         console.log('Order confirmed:', response.result);
-        navigate('/successed-booking'); // 跳转到成功页面
+        setOrderId(response.result._id); // 儲存返回的 _id 到 BookingContext 中
+        navigate('/successed-booking');
       } else {
         console.error('Order confirmation failed:', response);
       }
     } catch (error) {
-      setLoading(false); // 隐藏加载动画
+      setLoading(false);
       console.error('Error confirming order:', error);
     }
   };
