@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import UserContext from '@/context/UserContext';
 import Button from '../Common/Button';
 
@@ -18,13 +19,15 @@ export default function SuccessedInfo() {
 
       <div className='text-white my-10'>
         <p className='text-h5 mb-2'>立即查看您的訂單紀錄</p>
-        <Button
-          title="前往我的訂單"
-          buttonStyle="primary"
-          defaultClass="w-[30%] h-10 rounded-[0.5rem] mt-2 bg-primary-100 hover:bg-primary-120"
-          // onClick={handleBookingClick}
-          buttonType="button"
-        />
+        <Link to="/user-profile" >        
+          <Button
+            title="前往我的訂單"
+            buttonStyle="primary"
+            defaultClass="w-[30%] h-10 rounded-[0.5rem] mt-2 bg-primary-100 hover:bg-primary-120"
+            // onClick={handleBookingClick}
+            buttonType="button"
+          />
+        </Link>
       </div>
 
       <hr />

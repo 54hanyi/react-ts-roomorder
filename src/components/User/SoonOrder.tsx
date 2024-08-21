@@ -112,9 +112,11 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
             <p className='text-h4'>即將到來的旅程</p>
           </div>
 
-          {selectedRoom.imageUrlList && (
-            <img src={selectedRoom.imageUrlList[0]} alt="Room Image" className='rounded-[1.2rem]' />
-          )}
+          <div className="h-[18rem] overflow-hidden">
+            {selectedRoom.imageUrlList && (
+              <img src={selectedRoom.imageUrlList[0]} alt="Room Image" className='rounded-[1.2rem] w-full h-full object-cover max-h-[18rem]' />
+            )}
+          </div>
 
           <div className="flex justify-between py-4 text-h5">
             <p className="">{selectedRoom.name}，{days}晚</p>
@@ -138,7 +140,7 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
               <img src={Deco} alt="" />
               <p className="ml-3 text-h5">房內設備</p>
             </div>
-            <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-24">
+            <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-32">
               {selectedRoom.facilityInfo.filter((item: IFacility) => item.isProvide).map((item: IFacility) => (
                 <div key={item.title} className="flex items-baseline w-[5rem]">
                   <IconButton
@@ -173,7 +175,7 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
             </div>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-1">
             <Button
               title="取消預定"
               buttonStyle="ghost"
