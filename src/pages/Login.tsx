@@ -1,6 +1,6 @@
+import { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useContext } from 'react'; 
 import { userLogin } from '../assets/api';
 import { UserLoginData, UserResponse } from '../types/user';
 import Input from '../components/Common/Input';
@@ -9,20 +9,29 @@ import UserContext from '@/context/UserContext';
 
 export default function Login() {
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors } } = useForm<UserLoginData>({
+  const [rememberMe, setRememberMe] = useState(false);
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm<UserLoginData>({
     defaultValues: { email: '', password: '' },
     mode: 'onTouched',
   });
 
-  const userContext = useContext(UserContext); 
+  const userContext = useContext(UserContext);
+
+  // 在组件加载时，读取上次登录的账号并填充到表单中
+  useEffect(() => {
+    const lastLoginEmail = localStorage.getItem('lastLoginEmail');
+    console.log('读取的邮箱:', lastLoginEmail); // 确认邮箱是否正确读取
+    if (lastLoginEmail && lastLoginEmail !== 'null') {
+      setValue('email', lastLoginEmail); // 自动填充邮箱
+      setRememberMe(true); // 设置“记住账号”复选框为勾选状态
+    }
+  }, [setValue]);
 
   const onSubmit = async (data: UserLoginData) => {
     try {
       const response: UserResponse = await userLogin(data);
-      console.log("API response result:", response.result);
   
       if (response.status && response.result) {
-        // 登入成功，更新UserContext
         if (userContext) {
           userContext.setUser(response.result);
           userContext.setIsLoggedIn(true);
@@ -32,13 +41,20 @@ export default function Login() {
           userContext.setBirthday(response.result.birthday.substring(0, 10) || ""); 
           userContext.setAddress(response.result.address || { zipcode: 0, detail: '', city: '', county: '' });
 
-          // 保存 token 到本地存储
           if (response.token) {
             localStorage.setItem('authToken', response.token);
           }
+
+          // 如果勾选了“记住账号”，保存当前的邮箱到 localStorage
+          if (rememberMe) {
+            localStorage.setItem('lastLoginEmail', data.email || '');
+            const savedEmail = localStorage.getItem('lastLoginEmail');
+            console.log('刚保存的邮箱:', savedEmail); // 验证刚保存的邮箱是否正确
+          } else {
+            localStorage.removeItem('lastLoginEmail'); // 如果没有勾选，则移除保存的邮箱
+          }
         }
         alert(`歡迎 ${response.result.name}～`);
-        console.log("UserContext after login:", userContext);
         navigate('/');
       } else {
         alert('登入失敗: ' + response.message);
@@ -48,7 +64,10 @@ export default function Login() {
       alert('發生錯誤，請稍後再試。');
     }
   };
-  
+
+  const handleRememberMeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRememberMe(event.target.checked);
+  };
 
   return (
     <div className="flex flex-col">
@@ -87,8 +106,14 @@ export default function Login() {
               </div>
 
               <div className='flex justify-between items-center mt-2'>
-                <label htmlFor="" className='flex items-center space-x-2'>
-                  <input type="checkbox" className='h-3.5 w-3.5 pt-0.5'/>
+                <label htmlFor="rememberMe" className='flex items-center space-x-2'>
+                  <input 
+                    type="checkbox" 
+                    id="rememberMe"
+                    className='h-3.5 w-3.5 pt-0.5'
+                    checked={rememberMe}
+                    onChange={handleRememberMeChange}
+                  />
                   <span className='text-body text-white'>記住帳號</span>
                 </label>
                 <Link to="/get-code" className='text-body text-primary-100 underline ml-1 pb-[-1px]'>忘記密碼？</Link>

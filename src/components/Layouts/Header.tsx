@@ -29,7 +29,11 @@ const Header = () => {
       userContext.setUserName('');
       userContext.setUser(null);
       setIsUserMenuOpen(false);
-      localStorage.clear(); // 清除所有data
+
+      // 选择性清除 localStorage 中的数据
+      localStorage.removeItem('authToken');  // 只清除 authToken
+      // localStorage.removeItem('lastLoginEmail'); // 如果你不希望保存 email，取消注释这一行
+
       alert('已成功登出');
       navigate("/");
     }
