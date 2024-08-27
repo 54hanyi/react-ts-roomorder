@@ -5,7 +5,7 @@ import { userLogin } from '../assets/api';
 import { UserLoginData, UserResponse } from '../types/user';
 import Input from '../components/Common/Input';
 import Line2 from '../assets/icons/Line2.svg';
-import UserContext from '@/context/UserContext';
+import UserContext from '@/contexts/UserContext';
 
 export default function Login() {
   const navigate = useNavigate();

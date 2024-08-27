@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { BookingContext } from '@/context/BookingContext';
-import { RoomContext } from '@/context/RoomContext';
+import { BookingContext } from '@/contexts/BookingContext';
+import { RoomContext } from '@/contexts/RoomContext';
 
 import LoadingModal from '../Common/LoadingModal';
 

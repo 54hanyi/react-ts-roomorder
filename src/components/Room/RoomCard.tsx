@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
-import { RoomContext } from '@/context/RoomContext';
+import { RoomContext } from '@/contexts/RoomContext';
 import { IRoom } from "../../types/room";
 import Carousel from "../Common/Carousel";
 import IconButton from "../Common/IconButton";

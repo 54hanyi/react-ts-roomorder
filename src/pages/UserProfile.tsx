@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import UserContext from '@/context/UserContext';
+import UserContext from '@/contexts/UserContext';
 
 import Line3 from '@/assets/icons/Line3.svg';
 import UserInfo from '@/components/User/UserInfo';

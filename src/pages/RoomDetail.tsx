@@ -1,6 +1,6 @@
 import { useEffect, useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import { BookingContext } from '@/context/BookingContext';
+import { BookingContext } from '@/contexts/BookingContext';
 import RoomDetailInfo from "../components/Room/RoomDetailInfo";
 import RoomDetailBox from "../components/Room/RoomDetailBox";
 import { apiGetRoomType } from "@/assets/api";

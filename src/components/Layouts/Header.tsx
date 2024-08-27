@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom'; 
 import clsx from 'clsx';
-import UserContext from '@/context/UserContext';
+import UserContext from '@/contexts/UserContext';
 
 import Button from "../Common/Button";
 import SvgIcon from "../Common/SvgIcon";

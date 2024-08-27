@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import UserContext from '@/context/UserContext';
+import UserContext from '@/contexts/UserContext';
 import Input from '@/components/Common/Input';
 import Button from '../Common/Button';
 import { MemberEditData, MemberUpdateDetailData } from '@/types';

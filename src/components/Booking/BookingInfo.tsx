@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import UserContext from '@/context/UserContext';
-import { BookingContext } from '@/context/BookingContext';
+import UserContext from '@/contexts/UserContext';
+import { BookingContext } from '@/contexts/BookingContext';
 import cityData from "../../data/cityData.json"; 
 import IconButton from "../Common/IconButton";
 import Deco from "@/assets/icons/ic_Deco.svg";

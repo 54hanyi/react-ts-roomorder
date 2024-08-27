@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import IconButton from "../../components/Common/IconButton";
 import Button from "../Common/Button";
 import { IRoom } from "../../types/room";
-import { BookingContext } from "@/context/BookingContext";
-import { RoomContext } from "@/context/RoomContext";
+import { BookingContext } from "@/contexts/BookingContext";
+import { RoomContext } from "@/contexts/RoomContext";
 
 interface RoomDetailBoxProps {
   roomList: IRoom;

@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import LoadingModal from '@/components/Common/LoadingModal';
 import Input from '@/components/Common/Input';
-import UserContext from '@/context/UserContext';
+import UserContext from '@/contexts/UserContext';
 import { MemberEditData } from '@/types';
 import Line2 from '../assets/icons/Line2.svg';
 

@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import Input from '@/components/Common/Input';
-import UserContext from '@/context/UserContext';
+import UserContext from '@/contexts/UserContext';
 import { IUser } from '../types/user';
 import cityData from "../data/cityData.json";
 import { userRegister } from '@/assets/api'; // 引入封装的 API 函数

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BookingContext } from '@/context/BookingContext';
-import { RoomContext } from '@/context/RoomContext';
-import UserContext from '@/context/UserContext';
+import { BookingContext } from '@/contexts/BookingContext';
+import { RoomContext } from '@/contexts/RoomContext';
+import UserContext from '@/contexts/UserContext';
 import { postOrder } from '@/assets/api';
 import { OrderPostData } from '@/types/order';
 import Button from '../Common/Button';

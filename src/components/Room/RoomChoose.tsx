@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import RoomCard from './RoomCard';
-import { RoomContext } from '@/context/RoomContext';
+import { RoomContext } from '@/contexts/RoomContext';
 import { apiGetRoomType } from '@/assets/api';
 import { IRoom } from '@/types';
 import LoadingModal from '../Common/LoadingModal';

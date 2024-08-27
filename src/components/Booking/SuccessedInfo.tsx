@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import UserContext from '@/context/UserContext';
+import UserContext from '@/contexts/UserContext';
 import Button from '../Common/Button';
 
 

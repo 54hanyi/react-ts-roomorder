@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { BookingContext } from '@/context/BookingContext';
-import { RoomContext } from '@/context/RoomContext';
+import { BookingContext } from '@/contexts/BookingContext';
+import { RoomContext } from '@/contexts/RoomContext';
 import IconButton from '../Common/IconButton';
 import Deco from "@/assets/icons/ic_Deco.svg";
 import Deco_gray from "@/assets/icons/ic_Deco_gray.svg";
