@@ -732,8 +732,8 @@ video {
   top: 7rem;
 }
 
-.top-80{
-  top: 20rem;
+.top-72{
+  top: 18rem;
 }
 
 .top-\[-5rem\]{
@@ -758,6 +758,10 @@ video {
 
 .z-50{
   z-index: 50;
+}
+
+.z-0{
+  z-index: 0;
 }
 
 .col-span-2{
@@ -1047,6 +1051,10 @@ video {
   height: 18.75rem;
 }
 
+.h-\[18rem\]{
+  height: 18rem;
+}
+
 .h-\[1px\]{
   height: 1px;
 }
@@ -1151,28 +1159,12 @@ video {
   height: 100%;
 }
 
-.h-\[18rem\]{
-  height: 18rem;
-}
-
-.max-h-\[16rem\]{
-  max-height: 16rem;
-}
-
-.max-h-\[20rem\]{
-  max-height: 20rem;
+.max-h-\[18rem\]{
+  max-height: 18rem;
 }
 
 .max-h-\[50rem\]{
   max-height: 50rem;
-}
-
-.max-h-\[2rem\]{
-  max-height: 2rem;
-}
-
-.max-h-\[18rem\]{
-  max-height: 18rem;
 }
 
 .min-h-screen{
@@ -1757,11 +1749,6 @@ video {
 
 .bg-no-repeat{
   background-repeat: no-repeat;
-}
-
-.object-contain{
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 
 .object-cover{

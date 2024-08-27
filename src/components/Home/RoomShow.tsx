@@ -42,8 +42,8 @@ export default function RoomShow() {
         <div className="absolute top-20 right-0">
           <img src={Line2} alt="Line2" className='w-full'/>
         </div>
-        <div className="absolute top-80 left-80">
-          <img src={BG} alt="BG" className='w-full'/>
+        <div className="absolute top-72 left-80">
+          <img src={BG} alt="BG" className='w-full inset-0 z-0'/>
         </div>
         <div className="w-full md:w-[37.5rem] lg:w-[50rem] h-[18.75rem] sm:h-[30rem] lg:h-[43rem] rounded-r-[0.5rem] overflow-hidden">
           <CarouselLocal 
@@ -53,7 +53,7 @@ export default function RoomShow() {
             currentImgIndex={currentRoom}
           />
         </div>
-        <div className="text-neutral-0 pr-[5rem] md:w-[40rem]">
+        <div className="text-neutral-0 pr-[5rem] md:w-[40rem] z-50">
           <h2 className="text-h4 sm:h2 mb-[1rem]">{roomList[currentRoom].title}</h2>
           <p className="text-6 my-2">{roomList[currentRoom].content}</p>
           <p className="text-h5 sm:text-h3 mb-[2.5rem]">{roomList[currentRoom].price}</p>
