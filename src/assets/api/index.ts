@@ -24,7 +24,8 @@ const config = (token?: string) => ({
     'Content-Type': 'application/json',
     Authorization: token ? `Bearer ${token}` : '',
   },
-  // withCredentials: true,  啟用時，伺服器需特別配置，明確允許這些憑證的發送跟接收
+  credentials: 'include',  // 允許跨域請求帶上 Cookies
+  withCredentials: true,  // 啟用時，伺服器需特別配置，明確允許這些憑證的發送跟接收
 });
 
 // 使用者 API
