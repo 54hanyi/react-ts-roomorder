@@ -26,8 +26,11 @@ interface SoonOrderProps {
 export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  
+  console.log("upcomingOrder in SoonOrder before rendering: ", upcomingOrder);
 
   if (!upcomingOrder) {
+    console.log("即將到來的訂單為空，顯示無訂單信息");
     return (
       <div className="h-[54rem] bg-white rounded-[1.2rem] p-8 flex flex-col justify-center items-center">
         <p className="text-h4 mb-8">您目前沒有即將到來的訂單</p>
@@ -41,6 +44,7 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
       </div>
     );
   }
+  
 
   const { roomId: selectedRoom, checkInDate, checkOutDate, peopleNum, _id: orderId } = upcomingOrder;
 

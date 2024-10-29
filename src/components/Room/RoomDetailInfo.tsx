@@ -56,7 +56,7 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
           <p className="ml-3 text-h5">房間格局</p>
         </div>
         <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-22">
-          {roomList.layoutInfo.filter(item => item.isProvide).map((item, index) => (
+          {(roomList.layoutInfo || []).filter(item => item.isProvide).map((item, index) => (
             <div key={index} className="flex items-baseline w-[100px]">
               <IconButton
                 name="ic_check"
@@ -76,7 +76,7 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
           <p className="ml-3 text-h5">房內設備</p>
         </div>
         <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-28">
-          {roomList.facilityInfo.filter(item => item.isProvide).map((item, index) => (
+          {(roomList.facilityInfo || []).filter(item => item.isProvide).map((item, index) => (
             <div key={index} className="flex items-baseline w-[100px]">
               <IconButton
                 name="ic_check"
@@ -96,7 +96,7 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
           <p className="ml-3 text-h5">備品提供</p>
         </div>
         <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-28">
-          {roomList.amenityInfo.filter(item => item.isProvide).map((item, index) => (
+          {(roomList.amenityInfo || []).filter(item => item.isProvide).map((item, index) => (
             <div key={index} className="flex items-baseline w-[100px]">
               <IconButton
                 name="ic_check"
@@ -109,7 +109,7 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
           ))}
         </div>
       </div>
-
+      {/* 訂房須知部分 */}
       <div className="flex flex-col gap-6">
         <div className="flex">
           <img src={Deco} alt="" />
@@ -131,5 +131,6 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
         </div>
       </div>
     </>
-  )
+  );
 }
+
