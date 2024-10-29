@@ -26,7 +26,7 @@ interface SoonOrderProps {
 export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  
+    
   console.log("upcomingOrder in SoonOrder before rendering: ", upcomingOrder);
 
   if (!upcomingOrder) {
