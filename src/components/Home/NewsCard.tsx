@@ -33,17 +33,17 @@ export default function NewsCard() {
   return (
     <div>
       {data.map((item, index) => (
-        <div key={index} className="flex flex-row gap-2 mb-6 w-[52rem]">
+        <div key={index} className="md:flex md:flex-row gap-2 mb-3 md:mb-6 md:w-[53rem] w-full">
           <img
-            className="w-[426px] h-[264px] rounded-md object-cover"
+            className="md:w-[426px] md:h-[264px] w-[333px] h-[198px] rounded-md object-cover"
             src={item.image}
             alt=""
           />
-          <div className="flex flex-col justify-center p-5 w-2/3 ">
-            <header className="text-left text-h3 font-bold pb-4">
+          <div className="flex flex-col justify-center md:px-5 py-5 ">
+            <header className="text-left text-h5 md:text-h3 font-bold pb-2 md:pb-4">
               {item.title}
             </header>
-            <p className="text-left text-h6 text-neutral-80 whitespace-pre-line">
+            <p className="text-left break-words text-body md:text-h6 text-neutral-80 whitespace-pre-line">
               {item.description}
             </p>
           </div>

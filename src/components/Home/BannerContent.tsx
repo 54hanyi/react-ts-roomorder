@@ -18,7 +18,7 @@ const BannerContent = () => {
             "grow-0 shrink",
             "lg:mr-[6rem] xl:mr-[8rem]",
             "flex flex-col items-center lg:block",
-            "mb-[2.5rem] lg:mb-0"
+            "mb-[2rem] mt-[1rem] lg:mb-0"
           )}
         >
           <h2 className="text-h4 md:text-h2 text-primary-100">享樂酒店</h2>
@@ -32,7 +32,7 @@ const BannerContent = () => {
             }}
           />
           <div
-            className="w-[2px] h-[5.2rem] lg:hidden"
+            className="w-[2px] h-[3rem] lg:hidden"
             style={{
               background: "linear-gradient(#BE9C7C, #FFFFFF)",
             }}
@@ -49,7 +49,7 @@ const BannerContent = () => {
             className={clsx(
               "absolute right-0",
               "h-full",
-              "border-t border-r border-[#F5F7F9] rounded-[80px]"
+              "border-t border-r border-[#F5F7F9] rounded-[80px]",
             )}
             style={{
               width: "calc(100% - 3rem)",
