@@ -6,7 +6,7 @@ const BannerContent = () => {
       <div
         className={clsx(
           "flex flex-col items-center",
-          "lg:flex-row lg:justify-center",
+          "lg:flex-row justify-center",
           "mx-[1.25rem] md:mx-[5rem]"
         )}
         style={{ height: `calc(100% - 7.5rem)` }}
@@ -39,8 +39,8 @@ const BannerContent = () => {
         </div>
         <div
           className={clsx(
-            "relative",
-            "min-w-[18rem] max-w-[56%] w-full lg:w-[25rem]",
+            "relative pl-24",
+            "min-w-[18rem] lg:max-w-[56%] w-full lg:w-[25rem]",
             "grow-0 shrink"
           )}
         >
