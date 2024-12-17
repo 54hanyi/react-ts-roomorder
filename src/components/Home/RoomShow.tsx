@@ -38,14 +38,14 @@ export default function RoomShow() {
 
   return (
     <>
-      <div className="relative flex flex-col md:flex-row md:items-end gap-[2rem] md:gap-[5rem] py-[5rem] px-[0.75rem] sm:px-[5rem] bg-neutral-100">
+      <div className="relative flex flex-col md:flex-row md:items-end gap-[2rem] md:gap-[5rem] lg:py-[5rem] py-[2rem] px-[1rem] sm:px-[5rem] bg-neutral-100">
         <div className="absolute top-20 right-0">
           <img src={Line2} alt="Line2" className='w-full'/>
         </div>
         <div className="absolute top-72 left-80">
           <img src={BG} alt="BG" className='w-full inset-0 z-0'/>
         </div>
-        <div className="w-full md:w-[37.5rem] lg:w-[50rem] h-[18.75rem] sm:h-[30rem] lg:h-[43rem] rounded-r-[0.5rem] overflow-hidden">
+        <div className="w-full md:w-[37.5rem] lg:w-[50rem] h-[18.75rem] sm:h-[30rem] lg:h-[43rem] rounded-[0.5rem] overflow-hidden">
           <CarouselLocal 
             imageList={roomImgList[roomList[currentRoom].imgListName]} 
             onNextRoom={nextRoom} 
