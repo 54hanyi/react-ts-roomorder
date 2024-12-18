@@ -5,7 +5,7 @@ import AboutUs from '../components/Home/AboutUs';
 import RoomShow from '../components/Home/RoomShow';
 import Food from '../components/Home/Food'; 
 import Transportation from '../components/Home/Transportation'; 
-
+import Footer from '@/components/Layouts/Footer';
 
 
 export default function Home() {
@@ -19,6 +19,7 @@ export default function Home() {
       <RoomShow />
       <Food />
       <Transportation />
+      <Footer />
     </>
   )
 }

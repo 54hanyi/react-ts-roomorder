@@ -26,7 +26,7 @@ const Menu = ({ buttons, className, closeMenu }: MenuProps) => {
         >
             <SvgIcon name="ic_close" svgClass="w-[2.5rem] h-[2.5rem] text-neutral-0 block md:hidden cursor-pointer" />
         </button>
-        <ul className="flex flex-col items-center justify-center w-full h-full">
+        <ul className="flex flex-col gap-10 items-center justify-center w-full h-full">
           {buttons.map((button) => {
             return (
               <li key={button.title.toString()} className="w-full">
