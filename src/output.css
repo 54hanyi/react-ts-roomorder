@@ -624,6 +624,16 @@ video {
   }
 }
 
+@media (min-width: 1600px){
+  .\!container{
+    max-width: 1600px !important;
+  }
+
+  .container{
+    max-width: 1600px;
+  }
+}
+
 .fixed{
   position: fixed;
 }
@@ -874,6 +884,10 @@ video {
   margin-left: 0.75rem;
 }
 
+.ml-36{
+  margin-left: 9rem;
+}
+
 .ml-5{
   margin-left: 1.25rem;
 }
@@ -1014,8 +1028,8 @@ video {
   height: 10.5rem;
 }
 
-.h-\[100rem\]{
-  height: 100rem;
+.h-\[102rem\]{
+  height: 102rem;
 }
 
 .h-\[10rem\]{
@@ -1144,10 +1158,6 @@ video {
 
 .h-full{
   height: 100%;
-}
-
-.h-\[102rem\]{
-  height: 102rem;
 }
 
 .max-h-\[18rem\]{
@@ -1927,6 +1937,10 @@ video {
   padding-bottom: -1px;
 }
 
+.pl-1{
+  padding-left: 0.25rem;
+}
+
 .pl-2{
   padding-left: 0.5rem;
 }
@@ -1941,10 +1955,6 @@ video {
 
 .pl-4{
   padding-left: 1rem;
-}
-
-.pl-6{
-  padding-left: 1.5rem;
 }
 
 .pr-14{
@@ -2174,11 +2184,6 @@ video {
 .text-primary-120{
   --tw-text-opacity: 1;
   color: rgb(123 102 81 / var(--tw-text-opacity));
-}
-
-.text-primary-80{
-  --tw-text-opacity: 1;
-  color: rgb(208 183 159 / var(--tw-text-opacity));
 }
 
 .text-white{
@@ -2452,6 +2457,10 @@ body {
     margin-right: 5rem;
   }
 
+  .md\:ml-\[17rem\]{
+    margin-left: 17rem;
+  }
+
   .md\:flex{
     display: flex;
   }
@@ -2632,10 +2641,6 @@ body {
     right: 15rem;
   }
 
-  .lg\:right-\[28rem\]{
-    right: 28rem;
-  }
-
   .lg\:z-20{
     z-index: 20;
   }
@@ -2682,6 +2687,10 @@ body {
 
   .lg\:ml-0{
     margin-left: 0px;
+  }
+
+  .lg\:ml-\[26rem\]{
+    margin-left: 26rem;
   }
 
   .lg\:mr-\[2rem\]{
@@ -2913,6 +2922,10 @@ body {
     padding-left: 12rem;
   }
 
+  .lg\:pl-6{
+    padding-left: 1.5rem;
+  }
+
   .lg\:pt-16{
     padding-top: 4rem;
   }
@@ -2981,6 +2994,10 @@ body {
     top: 7rem;
   }
 
+  .xl\:ml-\[16rem\]{
+    margin-left: 16rem;
+  }
+
   .xl\:mr-\[3rem\]{
     margin-right: 3rem;
   }
@@ -2995,6 +3012,11 @@ body {
 
   .xl\:w-752{
     width: 47rem;
+  }
+
+  .xl\:px-60{
+    padding-left: 15rem;
+    padding-right: 15rem;
   }
 
   .xl\:pl-48{
@@ -3025,6 +3047,10 @@ body {
     margin-bottom: 1.5rem;
   }
 
+  .xxl\:ml-\[26rem\]{
+    margin-left: 26rem;
+  }
+
   .xxl\:flex{
     display: flex;
   }
@@ -3049,5 +3075,15 @@ body {
 
   .\32xl\:text-\[5rem\]{
     font-size: 5rem;
+  }
+}
+
+@media (min-width: 1600px){
+  .xxxl\:ml-\[26rem\]{
+    margin-left: 26rem;
+  }
+
+  .xxxl\:ml-\[36rem\]{
+    margin-left: 36rem;
   }
 }

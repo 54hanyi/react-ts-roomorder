@@ -9,6 +9,7 @@ export default {
         lg: "992px", // 對應Bootstrap的large
         xl: "1200px", // 對應Bootstrap的extra-large
         xxl: "1400px",
+        xxxl: "1600px",
       },
       fontFamily: {
         noto: ["Noto Serif TC", "serif"],

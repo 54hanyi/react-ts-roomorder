@@ -50,18 +50,18 @@ const RoomCard = ({ imageList, roomList }: RoomCardProps) => {
       <div className="lg:w-[60%] w-[50%] rounded-l-[1rem] overflow-hidden">
         <Carousel imageList={imageList} onNextRoom={nextRoom} currentImgIndex={currentImgIndex} />
       </div>
-      <div className="absolute top-0 bottom-0 lg:left-0 flex items-center pl-6">
+      <div className="absolute top-0 bottom-0 lg:left-0 flex items-center pl-1 lg:pl-6">
         <IconButton
           name="ic_ArrowLeft"
-          svgClass="w-[2rem] h-[2rem] text-primary-80 rounded-full group-hover:bg-primary-40"
+          svgClass="w-[2rem] h-[2rem] text-primary-100 rounded-full group-hover:bg-primary-40"
           className="group"
           onClick={() => setRoom("pre")}
         />
       </div>
-      <div className="absolute top-0 bottom-0 lg:right-[28rem] flex items-center ">
+      <div className="absolute top-0 bottom-0 flex items-center ml-36 md:ml-[17rem] lg:ml-[26rem] xl:ml-[16rem] xxl:ml-[26rem] xxxl:ml-[36rem]">
         <IconButton
           name="ic_ArrowRight"
-          svgClass="w-[2rem] h-[2rem] text-primary-80 rounded-full group-hover:bg-primary-40"
+          svgClass="w-[2rem] h-[2rem] text-primary-100 rounded-full group-hover:bg-primary-40"
           className="group"
           onClick={() => setRoom("next")}
         />

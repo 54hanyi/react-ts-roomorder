@@ -33,7 +33,7 @@ const RoomChoose = () => {
   }
 
   return (
-    <div className="px-4 lg:px-60 py-20 bg-[#F7F2EE]">
+    <div className="px-4 xl:px-60 py-20 bg-[#F7F2EE]">
       <div className="flex flex-col">
         <div className="text-h3 text-primary-0 mb-6">房型選擇</div>
         <div className="md:text-h1 text-h3 text-primary-100 mb-12">各種房型，隨心所欲</div>
