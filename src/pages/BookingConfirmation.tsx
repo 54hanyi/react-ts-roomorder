@@ -18,12 +18,12 @@ const BookingConfirmation = () => {
     <>
       {loading && <LoadingModal />}
       <div className="bg-[#F7F2EE]">
-        <div className="p-16">
-          <div className="flex my-16 py-8 gap-20 justify-center">           
-            <div className="flex flex-col gap-6 w-[45%]">
+        <div className="p-4 lg:p-16">
+          <div className="lg:flex my-16 py-8 gap-20 justify-center">           
+            <div className="flex flex-col gap-6 w-full lg:w-[45%]">
               <BookingInfo setIsValid={setIsValid} />
             </div>
-            <div className="w-[30%]">
+            <div className="w-full lg:w-[30%]">
               <BookingBox setLoading={setLoading} isValid={isValid} />
             </div>
           </div>

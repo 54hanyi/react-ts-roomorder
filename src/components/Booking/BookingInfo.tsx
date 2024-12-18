@@ -65,7 +65,7 @@ const BookingInfo = ({ setIsValid }: BookingInfoProps) => {
 
   return (
     <>
-      <div className='flex mb-4'>
+      <div className='flex mb-2 lg:mb-4'>
         <button onClick={handleBackClick}>
           <img src={Left} alt="返回" />
         </button>
@@ -254,7 +254,7 @@ const BookingInfo = ({ setIsValid }: BookingInfoProps) => {
           <img src={Deco} alt="" />
           <p className="ml-3 text-h5">房內設備</p>
         </div>
-        <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-28">
+        <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-44 lg:h-28">
           {room.facilityInfo.filter(item => item.isProvide).map(item => (
             <div key={item.title} className="flex items-baseline w-[100px]">
               <IconButton
@@ -269,12 +269,12 @@ const BookingInfo = ({ setIsValid }: BookingInfoProps) => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 mb-10">
         <div className="flex">
           <img src={Deco} alt="" />
           <p className="ml-3 text-h5">備品提供</p>
         </div>
-        <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-28">
+        <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-44 lg:h-28">
           {room.amenityInfo.filter(item => item.isProvide).map(item => (
             <div key={item.title} className="flex items-baseline w-[100px]">
               <IconButton

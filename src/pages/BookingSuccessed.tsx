@@ -5,12 +5,12 @@ import SuccessedBox from '@/components/Booking/SuccessedBox';
 function BookingSuccessed() {
   return (
     <>
-      <div className="relative bg-[#140F0A] h-[68rem]">
-        <div className="flex justify-center py-10 px-60 gap-20">
-          <div className="w-[50%]">
+      <div className="relative bg-[#140F0A] lg:h-[68rem] h-[102rem]">
+        <div className="lg:flex justify-center px-4 py-10 lg:px-60 lg:gap-20">
+          <div className="w-full lg:w-[50%] mb-10">
             <SuccessedInfo />                     
           </div>
-          <div className="w-[40%]">
+          <div className="w-full lg:w-[40%]">
             <SuccessedBox />                     
           </div>
         </div>

@@ -33,7 +33,7 @@ const SuccessedBox = () => {
   const totalPrice = selectedRoom.price * days;
 
   return (
-    <div className="h-[54rem] bg-white rounded-[1.2rem] p-8">
+    <div className="h-[56rem] lg:h-[54rem] bg-white rounded-[1.2rem] p-4 lg:p-8">
       <div className='mb-4'>
         <p className='text-body'>預訂參考編號： HH2302183151222</p>
         <p className='text-h4'>即將到來的旅程</p>
@@ -67,7 +67,7 @@ const SuccessedBox = () => {
           <img src={Deco} alt="" />
           <p className="ml-3 text-h5">房內設備</p>
         </div>
-        <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-24">
+        <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-40 lg:h-24">
           {selectedRoom.facilityInfo.filter(item => item.isProvide).map(item => (
             <div key={item.title} className="flex items-baseline w-[5rem]">
               <IconButton
@@ -87,7 +87,7 @@ const SuccessedBox = () => {
           <img src={Deco} alt="" />
           <p className="ml-3 text-h5">備品提供</p>
         </div>
-        <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-32">
+        <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-40 lg:h-32">
           {selectedRoom.amenityInfo.filter(item => item.isProvide).map(item => (
             <div key={item.title} className="flex items-baseline w-[5rem]">
               <IconButton

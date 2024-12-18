@@ -71,7 +71,7 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
   };
 
   return (
-    <div className="h-[30rem] bg-white rounded-[1.2rem] px-8 py-10">
+    <div className="h-[30rem] lg:bg-white rounded-[1.2rem] px-8 py-10">
       <div className="border-b border-[#ECECEC] pb-3">
         <p className="text-h5">預訂房型</p>
       </div>
@@ -89,7 +89,7 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
               type="date"
               id="check-in"
               name="check-in"
-              className="mt-1 block w-full border-0 p-0 text-black placeholder-neutral-80 focus:ring-0 sm:text-sm rounded-lg"
+              className="mt-1 block w-full border-0 p-0 bg-[#F7F2EE] lg:bg-white text-black placeholder-neutral-80 focus:ring-0 sm:text-sm rounded-lg"
               value={checkInDate}
               onChange={(e) => handleDateChange(setCheckInDate, e.target.value)}
             />
@@ -102,7 +102,7 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
               type="date"
               id="check-out"
               name="check-out"
-              className="mt-1 block w-full border-0 p-0 text-black placeholder-neutral-80 focus:ring-0 sm:text-sm rounded-md"
+              className="mt-1 block w-full border-0 p-0 bg-[#F7F2EE] lg:bg-white text-black placeholder-neutral-80 focus:ring-0 sm:text-sm rounded-md"
               value={checkOutDate}
               onChange={(e) => handleDateChange(setCheckOutDate, e.target.value)}
             />

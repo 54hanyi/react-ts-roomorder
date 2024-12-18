@@ -83,7 +83,7 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
   };
 
   return (
-    <div className="h-[34rem] bg-white rounded-[1.2rem] p-8">
+    <div className="h-[32rem] bg-white rounded-[1.2rem] p-8">
       {selectedRoom.imageUrlList && (
         <img src={selectedRoom.imageUrlList[0]} alt="Room Image" className='rounded-[1.2rem]' />
       )}
@@ -99,7 +99,7 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
 
       <hr />
 
-      <div className="flex justify-between pt-2 text-h5 font-medium mt-4">
+      <div className="flex justify-between pt-2 text-h5 font-medium my-6 lg:my-4">
         <p>總價</p>
         <p>NT$ {totalPrice}</p>
       </div>

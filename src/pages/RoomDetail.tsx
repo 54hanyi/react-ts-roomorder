@@ -57,8 +57,8 @@ const RoomDetail = () => {
   return (
     <>
       <div className="bg-[#F7F2EE]">
-        <div className="p-16">
-          <div className="flex gap-2">
+        <div className="p-4 lg:p-16">
+          <div className="flex gap-1 lg:gap-2">
             <div className="flex w-[55%]">
               <img
                 src={bookingContext.room.imageUrl}
@@ -78,11 +78,11 @@ const RoomDetail = () => {
             </div>
           </div>
 
-          <div className="flex my-16 py-8 gap-20 justify-center">
-            <div className="flex flex-col gap-10 w-[45%]">
+          <div className="lg:flex my-6 lg:my-16 py-6 gap-20 justify-center">
+            <div className="flex flex-col gap-10 w-full lg:w-[45%]">
               <RoomDetailInfo roomList={bookingContext.room} />
             </div>
-            <div className="w-[30%]">
+            <div className="w-full lg:w-[30%]">
               <RoomDetailBox roomList={bookingContext.room} />
             </div>
           </div>
