@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 import IconButton from '../Common/IconButton';
 import Deco from "@/assets/icons/ic_Deco.svg";
 import Deco_gray from "@/assets/icons/ic_Deco_gray.svg";
@@ -106,9 +107,12 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
     }
   };
 
+  const formattedCheckInDate = format(new Date(checkInDate), 'yyyy-MM-dd');
+  const formattedCheckOutDate = format(new Date(checkOutDate), 'yyyy-MM-dd');
+
   return (
-    <div className="h-[54rem] bg-white rounded-[1.2rem] p-8">
-      {isLoading && <LoadingModal />} {/* 顯示加載指示器 */}
+    <div className="h-[70rem] lg:h-[66rem] bg-white rounded-[1.2rem] p-8">
+      {isLoading && <LoadingModal />}
       {!isLoading && (
         <>
           <div className='mb-4'>
@@ -122,7 +126,7 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
             )}
           </div>
 
-          <div className="flex justify-between py-4 text-h5">
+          <div className="flex justify-between py-4 text-h6 font-bold lg:text-h5">
             <p className="">{selectedRoom.name}，{days}晚</p>
             <p>|</p>
             <p>住宿人數：{peopleNum}人</p>
@@ -130,21 +134,21 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
           
           <div className="flex">
             <img src={Deco} alt="" />
-            <p className="ml-3 text-h6">入住：{checkInDate}</p>
+            <p className="ml-3 text-h6">入住：{formattedCheckInDate}</p>
           </div>
           <div className="flex py-2">
             <img src={Deco_gray} alt="" />
-            <p className="ml-3 text-h6">退房：{checkOutDate}</p>
+            <p className="ml-3 text-h6">退房：{formattedCheckOutDate}</p>
           </div>
 
-          <p className='text-h6 py-4'>NT$ {totalPrice}</p>
+          <p className='text-h6 py-2 lg:py-4'>NT$ {totalPrice}</p>
 
           <div className="flex flex-col mt-4">
             <div className="flex">
               <img src={Deco} alt="" />
               <p className="ml-3 text-h5">房內設備</p>
             </div>
-            <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-32">
+            <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-40 lg:h-32">
               {selectedRoom.facilityInfo.filter((item: IFacility) => item.isProvide).map((item: IFacility) => (
                 <div key={item.title} className="flex items-baseline w-[5rem]">
                   <IconButton
@@ -159,12 +163,12 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
             </div>
           </div>
 
-          <div className="flex flex-col mt-6">
+          <div className="flex flex-col mt-4 lg:mt-6">
             <div className="flex">
               <img src={Deco} alt="" />
               <p className="ml-3 text-h5">備品提供</p>
             </div>
-            <div className="flex flex-wrap items中心 gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-32">
+            <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-40 lg:h-32">
               {selectedRoom.amenityInfo.filter((item: IAmenity) => item.isProvide).map((item: IAmenity) => (
                 <div key={item.title} className="flex items-baseline w-[5rem]">
                   <IconButton

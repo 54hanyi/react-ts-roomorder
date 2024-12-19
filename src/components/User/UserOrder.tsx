@@ -76,15 +76,15 @@ export default function UserOrder() {
   }
 
   return (
-    <div className="flex gap-10 my-14">
-      <div className="bg-white h-[66rem] w-[55%] rounded-[1.5rem] transition-all">
+    <div className="lg:flex gap-10 my-14">
+      <div className="bg-white w-full lg:w-[55%] rounded-[1.5rem] transition-all mb-10">
           <SoonOrder 
             upcomingOrder={upcomingOrder} 
             onOrderDeleted={handleOrderDeleted} 
           />
       </div>
 
-      <div className="bg-white h-[66rem] w-[45%] rounded-[1.5rem] transition-all px-8">
+      <div className="bg-white h-[60rem] lg:h-[66rem] w-full lg:w-[45%] rounded-[1.5rem] transition-all px-8">
         <HistoryOrders recentOrders={recentOrders} />
       </div>
     </div>

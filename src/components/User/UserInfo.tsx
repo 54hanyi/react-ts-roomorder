@@ -142,8 +142,8 @@ export default function UserInfo() {
 
   return (
     <>
-      <div className="flex gap-10 my-14">
-        <div className={`bg-white ${isEditingPassword ? 'h-[25rem]' : 'h-[16rem]'} w-[45%] rounded-[1.5rem] p-8 transition-all`}>
+      <div className="lg:flex lg:gap-10 my-14">
+        <div className={`bg-white ${isEditingPassword ? 'h-[25rem]' : 'h-[16rem]'} lg:w-[45%] w-full rounded-[1.5rem] p-8 mb-8 transition-all`}>
           <p className='text-h5 pb-5'>修改密碼</p>
           {isEditingPassword ? (
             <form onSubmit={handleSubmitPassword(onSubmitPassword)}>
@@ -215,7 +215,7 @@ export default function UserInfo() {
           )}
         </div>
 
-        <div className="bg-white h-[30rem] w-[55%] rounded-[1.5rem] p-8 transition-all">
+        <div className="bg-white h-[30rem] lg:w-[55%] w-full rounded-[1.5rem] p-8 transition-all">
           <p className='text-h5 pb-5'>基本資料</p>
           {isEditingDetails ? (
             <form onSubmit={handleSubmitDetails(onSubmitDetails)}>

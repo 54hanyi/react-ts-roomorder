@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { format } from 'date-fns';
 import { IOrder } from '@/types';
 import Deco from "@/assets/icons/ic_Deco.svg";
 import Deco_gray from "@/assets/icons/ic_Deco_gray.svg";
@@ -19,30 +20,34 @@ export default function HistoryOrders({ recentOrders }: HistoryOrdersProps) {
   const [showAll, setShowAll] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // 根据 showAll 状态决定显示的订单数量
+  // 根據 showAll 狀態決定顯示的訂單數量
   const ordersToShow = showAll ? recentOrders : recentOrders.slice(0, 3);
 
   const handleToggleShowAll = () => {
     if (showAll && containerRef.current) {
-      // 在切换为“收起”状态时，平滑地滚动到容器的顶端
+      // 切換為「收起」狀態時，平滑地捲動到容器的頂端
       containerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     }
     setShowAll(prev => !prev);
   };
 
-  // 确保组件重新渲染时的滚动位置
+  // 確保元件重新渲染時的滾動位置
   useEffect(() => {
     if (!showAll && containerRef.current) {
       containerRef.current.scrollTo({ top: 0 });
     }
   }, [showAll]);
 
+  const formatDate = (dateString: string): string => {
+    return format(new Date(dateString), 'yyyy-MM-dd');
+  };
+
   return (
     <>
-      <p className='text-h4 py-7'>歷史訂單</p>
+      <p className='text-h4 pb-4 pt-7'>歷史訂單</p>
       <div
         ref={containerRef}
-        className={`flex flex-col gap-4 transition-all duration-300 ${showAll ? 'max-h-[50rem] overflow-y-auto' : 'max-h-[50rem]'}`}
+        className={`flex flex-col gap-2 lg:gap-4 transition-all duration-300 ${showAll ? 'max-h-[72rem] overflow-y-auto' : 'max-h-[72rem]'}`}
         style={{ maxHeight: showAll ? '50rem' : 'auto', overflowY: showAll ? 'auto' : 'hidden' }}
       >
         {ordersToShow.map((order) => {
@@ -66,14 +71,14 @@ export default function HistoryOrders({ recentOrders }: HistoryOrdersProps) {
 
                   <div className="flex py-2">
                     <img src={Deco} alt="" />
-                    <p className="ml-3 text-h6">入住：{order.checkInDate}</p>
+                    <p className="ml-3 text-h6">入住：{formatDate(order.checkInDate)}</p>
                   </div>
                   <div className="flex pb-4">
                     <img src={Deco_gray} alt="" />
-                    <p className="ml-3 text-h6">退房：{order.checkOutDate}</p>
+                    <p className="ml-3 text-h6">退房：{formatDate(order.checkOutDate)}</p>
                   </div>
 
-                  <p className='text-h6 py-4'>NT$ {orderTotalPrice}</p>
+                  <p className='text-h6 py-2 lg:py-4'>NT$ {orderTotalPrice}</p>
                 </div>
               </div>
               <hr />
