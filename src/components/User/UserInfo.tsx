@@ -249,12 +249,12 @@ export default function UserInfo() {
                 labelText="生日"
                 type="date"
                 placeholder="請輸入生日"
-                rules={{}} // 確保傳遞空的 rules
+                rules={{}} 
               />
               <Input
                 register={registerDetails}
                 errors={errorsDetails}
-                id="address.detail" // 正確引用 address 的 detail 属性
+                id="address.detail" 
                 labelText="地址"
                 type="text"
                 placeholder="請輸入地址"

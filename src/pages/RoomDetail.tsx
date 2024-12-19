@@ -11,18 +11,17 @@ const RoomDetail = () => {
   const { id } = useParams<{ id: string }>();
   console.log('Room ID:', id); // 確認 id 是否正確
   const bookingContext = useContext(BookingContext);
-  const location = useLocation(); // 移除类型参数
+  const location = useLocation(); 
 
   useEffect(() => {
     const getRoomDetail = async () => {
       try {
         if (id) {
-          const token = localStorage.getItem('authToken') || ''; // 获取 token
-          const data = await apiGetRoomType(id, token); // 调用 apiGetRoomType 函数以获取房型详细资料
+          const token = localStorage.getItem('authToken') || ''; 
+          const data = await apiGetRoomType(id, token); 
 
-          // 检查数据格式是否正确
           if (data && data.status === true && data.result) {
-            bookingContext?.setRoom(data.result as IRoom); // 确保类型匹配
+            bookingContext?.setRoom(data.result as IRoom); 
           } else {
             console.error('Invalid data structure', data);
           }
@@ -32,7 +31,7 @@ const RoomDetail = () => {
       }
     };
 
-    getRoomDetail(); // 调用获取房型详细资料的函数
+    getRoomDetail();
   }, [id, bookingContext]);
 
   useEffect(() => {

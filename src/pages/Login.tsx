@@ -17,13 +17,13 @@ export default function Login() {
 
   const userContext = useContext(UserContext);
 
-  // 在组件加载时，读取上次登录的账号并填充到表单中
+  // 在元件載入時，讀取上次登入的帳號並填入表單中
   useEffect(() => {
     const lastLoginEmail = localStorage.getItem('lastLoginEmail');
-    console.log('读取的邮箱:', lastLoginEmail); // 确认邮箱是否正确读取
+    console.log('读取的邮箱:', lastLoginEmail); 
     if (lastLoginEmail && lastLoginEmail !== 'null') {
-      setValue('email', lastLoginEmail); // 自动填充邮箱
-      setRememberMe(true); // 设置“记住账号”复选框为勾选状态
+      setValue('email', lastLoginEmail); // 自動填入Mail
+      setRememberMe(true); // 設定「記住帳號」複選框為勾選狀態
     }
   }, [setValue]);
 
@@ -45,13 +45,13 @@ export default function Login() {
             localStorage.setItem('authToken', response.token);
           }
 
-          // 如果勾选了“记住账号”，保存当前的邮箱到 localStorage
+          // 如果勾選了「記住帳號」，請儲存目前的信箱到 localStorage
           if (rememberMe) {
             localStorage.setItem('lastLoginEmail', data.email || '');
             const savedEmail = localStorage.getItem('lastLoginEmail');
             console.log('刚保存的邮箱:', savedEmail); // 验证刚保存的邮箱是否正确
           } else {
-            localStorage.removeItem('lastLoginEmail'); // 如果没有勾选，则移除保存的邮箱
+            localStorage.removeItem('lastLoginEmail'); // 如果沒有勾選，則移除已儲存的信箱
           }
         }
         alert(`歡迎 ${response.result.name}～`);

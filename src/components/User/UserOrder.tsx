@@ -5,8 +5,8 @@ import { RoomContext } from '@/contexts/RoomContext';
 
 import LoadingModal from '../Common/LoadingModal';
 
-import { getOrders } from '@/assets/api'; // 假设你有这个API函数
-import { IOrder } from '@/types'; // 假设你有这个类型定义
+import { getOrders } from '@/assets/api'; 
+import { IOrder } from '@/types'; 
 
 import HistoryOrders from './HistoryOrders';
 import SoonOrder from './SoonOrder';
@@ -18,7 +18,7 @@ export default function UserOrder() {
   const [recentOrders, setRecentOrders] = useState<IOrder[]>([]);
 
   const fetchOrders = async () => {
-    const token = localStorage.getItem('authToken') || ''; // 確保 token 為字串類型
+    const token = localStorage.getItem('authToken') || ''; 
     try {
       const response = await getOrders(undefined, token);
       console.log("API Response: ", response);
@@ -66,9 +66,9 @@ export default function UserOrder() {
     console.log("upcomingOrder in UserOrder:", upcomingOrder);
   }, [upcomingOrder]);
 
-  // 当订单被删除时调用，重新获取订单数据
+  // 當訂單被刪除時調用，重新獲取訂單數據
   const handleOrderDeleted = () => {
-    fetchOrders(); // 重新获取订单数据以更新状态
+    fetchOrders();
   };
 
   if (!bookingContext || !roomContext) {

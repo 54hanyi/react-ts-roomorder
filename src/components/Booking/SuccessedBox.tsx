@@ -26,7 +26,7 @@ const SuccessedBox = () => {
     const date1 = new Date(checkIn);
     const date2 = new Date(checkOut);
     const timeDiff = Math.abs(date2.getTime() - date1.getTime());
-    return Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // 转换为天数
+    return Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
   };
 
   const days = calculateDays(checkInDate, checkOutDate);

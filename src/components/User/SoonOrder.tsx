@@ -20,7 +20,7 @@ interface IAmenity {
 }
 
 interface SoonOrderProps {
-  upcomingOrder: IOrder | null; // 允許 upcomingOrder 為 null
+  upcomingOrder: IOrder | null; 
   onOrderDeleted: (orderId: string) => void;
 }
 

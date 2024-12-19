@@ -6,7 +6,7 @@ import LoadingModal from '@/components/Common/LoadingModal';
 
 const BookingConfirmation = () => {
   const [loading, setLoading] = useState(false);
-  const [isValid, setIsValid] = useState(true); // 用于跟踪表单验证状态
+  const [isValid, setIsValid] = useState(true);
   const bookingContext = useContext(BookingContext);
 
   if (!bookingContext || !bookingContext.room) {

@@ -16,11 +16,11 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
   const bookingContext = useContext(BookingContext);
   const roomContext = useContext(RoomContext);
 
-  // 初始化日期状态
+
   const [checkInDate, setCheckInDate] = useState<string>(bookingContext?.checkInDate || '');
   const [checkOutDate, setCheckOutDate] = useState<string>(bookingContext?.checkOutDate || '');
 
-  // 获取selectedRoom的maxPeople
+
   const maxPeople = roomContext?.selectedRoom?.maxPeople || 1;
 
   const setPeople = (state: string) => {
@@ -34,9 +34,8 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
   const handleDateChange = (setDate: React.Dispatch<React.SetStateAction<string>>, date: string) => {
     setDate(date);
 
-    // 验证日期顺序
     if (setDate === setCheckInDate && checkOutDate && new Date(date) >= new Date(checkOutDate)) {
-      setCheckOutDate(''); // 清空退房日期
+      setCheckOutDate('');
       alert('入住日期不能晚于或等于退房日期');
     }
   };
@@ -56,7 +55,7 @@ export default function RoomDetailBox({ roomList }: RoomDetailBoxProps) {
       return;
     }
 
-    // 更新 BookingContext 中的状态
+    // 更新 BookingContext 中的狀態
     if (bookingContext) {
       console.log("Setting room to booking context:", roomList);
       bookingContext.setRoom(roomList);

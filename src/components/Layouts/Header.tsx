@@ -10,7 +10,7 @@ import logo_white from "../../assets/icons/logo_white.svg";
 
 const Header = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // 获取当前路径
+  const location = useLocation();
   const userContext = useContext(UserContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -30,9 +30,7 @@ const Header = () => {
       userContext.setUser(null);
       setIsUserMenuOpen(false);
 
-      // 选择性清除 localStorage 中的数据
-      localStorage.removeItem('authToken');  // 只清除 authToken
-      // localStorage.removeItem('lastLoginEmail'); // 如果你不希望保存 email，取消注释这一行
+      localStorage.removeItem('authToken');  
 
       alert('已成功登出');
       navigate("/");
@@ -51,7 +49,7 @@ const Header = () => {
     { title: "立即訂房", buttonStyle: "primary", className: "px-[2rem] py-[1rem] bg-primary-100 hover:bg-primary-120 rounded-[8px]", to: "/rooms" },
   ];
 
-  // 确定是否在 "/" 和 "/rooms" 路径下使用默认背景色
+
   const isSpecialRoute = location.pathname === "/" || location.pathname === "/rooms";
   const headerBg = isSpecialRoute ? "bg-transparent" : "bg-[#140F0A]";
 

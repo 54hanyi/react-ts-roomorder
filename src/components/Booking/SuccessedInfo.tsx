@@ -24,7 +24,6 @@ export default function SuccessedInfo() {
             title="前往我的訂單"
             buttonStyle="primary"
             defaultClass="w-[30%] h-10 rounded-[0.5rem] mt-2 bg-primary-100 hover:bg-primary-120"
-            // onClick={handleBookingClick}
             buttonType="button"
           />
         </Link>

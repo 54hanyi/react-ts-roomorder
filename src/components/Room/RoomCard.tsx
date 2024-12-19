@@ -16,10 +16,10 @@ const RoomCard = ({ imageList, roomList }: RoomCardProps) => {
 
   if (!roomContext) {
     console.error("RoomContext is undefined");
-    return null; // 或者返回一些合适的 UI
+    return null;
   }
 
-  const { setSelectedRoom } = roomContext; // 使用 RoomContext
+  const { setSelectedRoom } = roomContext;
 
 
   const handleRoomClick = () => {

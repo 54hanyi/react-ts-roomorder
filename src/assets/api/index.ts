@@ -88,7 +88,6 @@ export const apiGetNews = async (id: string | undefined, token: string): Promise
 // 房型 API
 export const apiGetRoomType = async (id: string | undefined, token: string): Promise<ApiResponse<IRoom[] | IRoom | null>> => {
   const res = await get<ApiResponse<IRoom[] | IRoom | null>>(`${api}/api/v1/rooms/${id ?? ''}`, config(token));
-  console.log('API Response:', res); // 檢查回傳的結果
   return handleApiResponse(res);
 };
 

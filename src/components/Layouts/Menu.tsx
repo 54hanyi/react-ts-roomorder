@@ -9,7 +9,7 @@ type ButtonItem = {
   buttonStyle: string;
   className: string;
   to: string;
-  onClick?: () => void; // 可選的點擊處理
+  onClick?: () => void;
 };
 
 type MenuProps = {

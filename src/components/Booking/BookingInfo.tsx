@@ -24,7 +24,6 @@ const BookingInfo = ({ setIsValid }: BookingInfoProps) => {
   const [selectedCounty, setSelectedCounty] = useState('');
 
   useEffect(() => {
-    // 计算表单的有效性
     const valid = Boolean(name && phone && email && street && selectedCity && selectedCounty);
     setIsValid(valid);
   }, [name, phone, email, street, selectedCity, selectedCounty, setIsValid]);
@@ -39,7 +38,7 @@ const BookingInfo = ({ setIsValid }: BookingInfoProps) => {
   
       if (address) {
         setSelectedCity(address.city || '');
-        // 延迟更新地区以确保城市先更新
+        // 延遲更新地區以確保城市先更新
         setTimeout(() => {
           setStreet(address.detail || '');
           setSelectedCounty(address.county || '');

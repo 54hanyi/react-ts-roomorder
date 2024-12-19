@@ -7,7 +7,7 @@ import UserOrder from '@/components/User/UserOrder';
 
 export default function UserProfile() {
   const userContext = useContext(UserContext);
-  const [activeTab, setActiveTab] = useState<'profile' | 'orders'>('profile'); // 默認為 "profile"
+  const [activeTab, setActiveTab] = useState<'profile' | 'orders'>('profile'); // 預設為 "profile"
 
   const handleTabClick = (tab: 'profile' | 'orders') => {
     setActiveTab(tab);

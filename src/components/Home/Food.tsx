@@ -1,4 +1,3 @@
-// import React from 'react'
 import DecoLine2 from '../../assets/icons/DecoLine2.svg'
 import SliderList from '../Common/SliderList';
 import { foodImgList } from '../../data/foodImgList';
@@ -6,7 +5,6 @@ import { foodList } from '../../data/foodList';
 
 
 export default function Food() {
-  // console.log(foodList, foodImgList)
   return (
     <>
       <div className="bg-[#F7F2EE] h-832 lg:h-880 w-full">

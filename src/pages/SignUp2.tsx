@@ -6,7 +6,7 @@ import Input from '@/components/Common/Input';
 import UserContext from '@/contexts/UserContext';
 import { IUser } from '../types/user';
 import cityData from "../data/cityData.json";
-import { userRegister } from '@/assets/api'; // 引入封装的 API 函数
+import { userRegister } from '@/assets/api'; 
 
 import Line2 from '../assets/icons/Line2.svg';
 
