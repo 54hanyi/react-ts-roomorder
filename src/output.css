@@ -754,6 +754,10 @@ video {
   z-index: 20;
 }
 
+.z-40{
+  z-index: 40;
+}
+
 .z-50{
   z-index: 50;
 }
@@ -3079,10 +3083,6 @@ body {
 }
 
 @media (min-width: 1600px){
-  .xxxl\:ml-\[26rem\]{
-    margin-left: 26rem;
-  }
-
   .xxxl\:ml-\[36rem\]{
     margin-left: 36rem;
   }

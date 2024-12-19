@@ -45,7 +45,7 @@ const Header = () => {
       title: userContext?.isLoggedIn ? userContext.userName : "會員登入",
       buttonStyle: "ghost",
       className: userContext?.isLoggedIn ? "p-[1rem] text-primary-100 font-bold relative" : "p-[1rem]",
-      to: userContext?.isLoggedIn ? "#" : "/login",
+      to: userContext?.isLoggedIn ? "" : "/login",
       onClick: userContext?.isLoggedIn ? toggleUserMenu : undefined
     },
     { title: "立即訂房", buttonStyle: "primary", className: "px-[2rem] py-[1rem] bg-primary-100 hover:bg-primary-120 rounded-[8px]", to: "/rooms" },
@@ -94,7 +94,7 @@ const Header = () => {
       <button type="button" onClick={() => switchMenu(true)} className="block md:hidden">
         <SvgIcon name="ic_menu" svgClass="w-[2.5rem] h-[2.5rem] text-neutral-0 cursor-pointer" />
       </button>
-      <Menu buttons={buttons} closeMenu={switchMenu} className={clsx(isOpenMenu ? "block" : "hidden", "block md:hidden")} />
+      <Menu buttons={buttons} closeMenu={switchMenu} className={clsx(isOpenMenu ? "block" : "hidden", "block md:hidden ")} />
     </header>
   );
 };
