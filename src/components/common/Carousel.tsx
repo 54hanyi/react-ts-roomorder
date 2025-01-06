@@ -41,7 +41,7 @@ const Carousel = ({ imageList, children, onNextRoom, onRoomChange, currentImgInd
         <img src={imageList[current]} className="w-full h-full object-cover" />
         <div className="w-full h-full absolute top-0"></div>
         {children}
-        <div className="flex absolute bottom-[2rem] w-full justify-center">
+        <div className="flex absolute lg:bottom-[2rem] bottom-[1rem] lg:w-full w-[80%] ml-5 lg:ml-0 justify-center">
           {imageList.map((_, index) => (
             <button
               key={index}
