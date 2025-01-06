@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
-export default defineConfig(() => {
-  // const env = loadEnv(mode, process.cwd(), '');
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
   return {
-    base:'/react-ts-roomorder/',
+    base: env.VITE_BASE_URL || '/',
     plugins: [
       react(),
       createSvgIconsPlugin({
