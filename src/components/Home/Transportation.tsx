@@ -31,7 +31,7 @@ export default function Transportation() {
               <div className='text-white lg:w-1/3 p-2 lg:p-4'>
                 <img src={`${import.meta.env.BASE_URL}images/web/luxurycar.png`} alt="" className='pb-4'/>
                 <p className='text-h5'>禮賓車服務</p>
-                <p className='text-body'>承億酒店提供禮賓專車接送服務，但因目的地遠近會有不同的收費，請撥打電話將由專人為您服務洽詢專線：</p>
+                <p className='text-body'>享樂酒店提供禮賓專車接送服務，但因目的地遠近會有不同的收費，請撥打電話將由專人為您服務洽詢專線：</p>
                 <p className='text-body'>(07)123-4567</p>
               </div>
             </div>

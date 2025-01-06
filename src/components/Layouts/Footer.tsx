@@ -4,10 +4,10 @@ export default function Footer() {
     <>
       <div className="relative bg-[#140F0A] h-[22rem] w-full flex">
         <div className="absolute top-20 left-60">
-            <img src="/images/web/logo.png" alt="logo" className="h-10 lg:h-16" />
+            <img src={`${import.meta.env.BASE_URL}images/web/logo.png`} alt="logo" className="h-10 lg:h-16" />
             <div className='flex mt-3 lg:mt-6 gap-5'>
-              <img src="/images/web/LineImg.png" alt="logo" className="h-8 lg:h-9" />
-              <img src="/images/web/IG.png" alt="logo" className="h-8 lg:h-9" />
+              <img src={`${import.meta.env.BASE_URL}images/web/LineImg.png`}alt="LineImg" className="h-8 lg:h-9" />
+              <img src={`${import.meta.env.BASE_URL}images/web/IG.png`} alt="IG" className="h-8 lg:h-9" />
             </div>
             <p className='text-white text-body pt-4 lg:pt-16'>806087 台灣高雄市新興區八角壓路87號</p>
         </div>
