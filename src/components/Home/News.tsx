@@ -6,7 +6,7 @@ export default function News() {
     <>
       <div className='relative grid md:grid-cols-12 gap-4 p-14 w-full bg-[#F7F2EE]'>
         <img
-          src="/images/web/dot.png"
+          src={`${process.env.PUBLIC_URL}/images/web/dot.png`}
           alt="Top Right Dots"
           className="absolute top-10 right-28 h-36"
         />
