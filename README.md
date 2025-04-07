@@ -13,16 +13,29 @@
 
 ## 🧪 使用技術與堆疊
 
-| 技術                    | 說明                                                      |
-| ----------------------- | --------------------------------------------------------- |
-| **React 18 + Vite**     | 使用 Vite 作為快速開發環境，React 建立 SPA 架構           |
-| **TypeScript**          | 靜態型別檢查，提升程式穩定性與開發效率                    |
-| **Tailwind CSS + SCSS** | 結合原子化與自定義樣式，實現精緻 UI 設計                  |
-| **React Hooks**         | 使用 `useState`、`useEffect`、`useContext` 處理邏輯與狀態 |
-| **React Context**       | 建立 `BookingContext`、`UserContext` 管理全域狀態         |
-| **axios**               | 串接 RESTful API，處理房型與訂單資料請求                  |
-| **localStorage**        | 簡易資料持久化，例如暫存使用者資訊                        |
-| **react-hook-form**     | 驗證表單輸入資料，提升輸入流程的安全性與體驗              |
+- **React 18 + Vite**  
+  使用 Vite 提供快速熱更新與開發環境，React 建立 SPA 結構。
+
+- **TypeScript**  
+  靜態型別幫助控管資料與元件傳參，避免錯誤。
+
+- **Tailwind CSS + SCSS**  
+  結合 utility-first 的設計與自定義 SCSS 實現高彈性樣式設計。
+
+- **React Hooks**  
+  使用 `useState`、`useEffect`、`useContext` 管理狀態與觸發操作。
+
+- **React Context**  
+  建立全域狀態（如 BookingContext、UserContext）整合預訂流程。
+
+- **axios**  
+  串接 RESTful API，處理房型與訂單查詢、建立請求。
+
+- **localStorage**  
+  儲存簡易用戶資料，或暫存預約資訊。
+
+- **react-hook-form**  
+  控制輸入欄位、驗證資料格式與顯示錯誤提示。
 
 ---
 
