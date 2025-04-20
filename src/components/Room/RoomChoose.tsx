@@ -25,11 +25,11 @@ const RoomChoose = () => {
   }, [roomContext]);
 
   if (!roomContext) {
-    return <LoadingModal />; // 确保 roomContext 存在
+    return <LoadingModal />; 
   }
 
   if (!roomContext.roomList) {
-    return <div className='text-h5'>房間正在整理中...</div>; // 确保 roomList 存在
+    return <div className='text-h5'>房間正在整理中...</div>; 
   }
 
   return (

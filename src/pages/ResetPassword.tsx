@@ -40,7 +40,10 @@ const ResetPassword = () => {
   return (
     <div className="flex flex-col">
       <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
-        <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
+        <div 
+          className="w-[50%] hidden sm:block bg-cover bg-bottom h-auto z-10"
+          style={{ backgroundImage: "url('/images/web/register.webp')" }}
+        ></div>
         <div className="relative sm:w-[50%] w-full flex items-center justify-center">
         <img src={Line2} alt="Line2" className='absolute top-14 right-0 w-full' loading="lazy" />
           <div className="flex flex-col w-[50%]">

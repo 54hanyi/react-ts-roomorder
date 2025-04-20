@@ -241,7 +241,7 @@ button,
 input:where([type='button']),
 input:where([type='reset']),
 input:where([type='submit']) {
-  -webkit-appearance: button;
+  /* -webkit-appearance: button; */
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -288,7 +288,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 */
 
 [type='search'] {
-  -webkit-appearance: textfield;
+  /* -webkit-appearance: textfield; */
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -427,9 +427,7 @@ iframe,
 embed,
 object {
   display: block;
-  /* 1 */
-  vertical-align: middle;
-  /* 2 */
+
 }
 
 /*
@@ -1689,20 +1687,20 @@ video {
   --tw-bg-opacity: 0.5;
 }
 
-.bg-\[url\(\'\/images\/web\/about\.png\'\)\]{
-  background-image: url('/images/web/about.png');
+.bg-\[url\(\'\/images\/web\/about\.webp\'\)\]{
+  background-image: url('/images/web/about.webp');
 }
 
-.bg-\[url\(\'\/images\/web\/hero\.png\'\)\]{
-  background-image: url('/images/web/hero.png');
+.bg-\[url\(\'\/images\/web\/hero\.webp\'\)\]{
+  background-image: url('/images/web/hero.webp');
 }
 
-.bg-\[url\(\'\/images\/web\/register\.png\'\)\]{
-  background-image: url('/images/web/register.png');
+.bg-\[url\(\'\/images\/web\/register\.webp\'\)\]{
+  background-image: url('/images/web/register.webp');
 }
 
-.bg-\[url\(\\\'\/images\/web\/register\.png\\\'\)\]{
-  background-image: url(\'/images/web/register.png\');
+.bg-\[url\(\\\'\/images\/web\/register\.webp\\\'\)\]{
+  background-image: url(\'/images/web/register.webp\');
 }
 
 .bg-gradient-to-b{

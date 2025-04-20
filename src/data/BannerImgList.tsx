@@ -1,9 +1,9 @@
-import web_img_1 from "/images/web/banner.png";
-import web_img_2 from "/images/web/room1.png";
-import web_img_3 from "/images/web/room2-1.png";
-import web_img_4 from "/images/web/room3-1.png";
-import web_img_5 from "/images/web/room4-1.png";
-import mobile_img_1 from "/images/mobile/banner.png";
+import web_img_1 from "/images/web/banner.webp";
+import web_img_2 from "/images/web/room1.webp";
+import web_img_3 from "/images/web/room2-1.webp";
+import web_img_4 from "/images/web/room3-1.webp";
+import web_img_5 from "/images/web/room4-1.webp";
+import mobile_img_1 from "/images/mobile/banner.webp";
 import { ImageItem } from "../types/image";
 
 export const bannerImgList: ImageItem[] = [

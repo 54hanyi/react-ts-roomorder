@@ -15,7 +15,7 @@ export default function Transportation() {
 
           <div className='lg:mt-20 mt-10 w-full lg:w-[70rem]'>
             <p className='text-white text-body pb-3'>台灣高雄市新興區八角壓路87號</p>
-            <img src={`${import.meta.env.BASE_URL}images/web/map.png`} alt="" className='block rounded-sm lg:h-[20rem] h-[12rem] mx-auto' loading="lazy" />
+            <img src={`${import.meta.env.BASE_URL}images/web/map.webp`} alt="" className='block rounded-sm lg:h-[20rem] h-[12rem] mx-auto' loading="lazy" />
             
             <div className='lg:flex mt-6'>
               <div className='text-white lg:w-1/3 p-2 lg:p-4'>
