@@ -42,10 +42,11 @@
 
 ## 五、SEO 優化與可擴充性
 
-- 每頁使用 `<title>`、`<meta>`、`<link rel="canonical">`
-- 加入 JSON-LD 結構化資料（FAQ 版）
-- 支援 sitemap.xml 與 robots.txt 結構（如部署時加入）
-- 頁面圖片皆加上 alt 屬性以利圖片搜尋與無障礙
+- 每頁設置 `<title>`、`<meta name="description">`、`<link rel="canonical">`
+- 首頁加入結構化資料 JSON-LD（FAQ 格式）提升搜尋結果豐富度
+- 建立 sitemap.xml 與 robots.txt 提升被搜尋引擎收錄的完整性
+- 所有圖片皆設置 `alt` 描述與 `loading="lazy"`，並壓縮為 `.webp` 格式
+- 後端批次處理資料庫圖片路徑，統一為 `.webp` 降低載入延遲
 - 可擴充 Google Maps API、收藏功能、多語系切換
 
 ---

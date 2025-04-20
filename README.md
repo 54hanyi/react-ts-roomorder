@@ -91,6 +91,17 @@
 
 ---
 
+## 🔍 SEO 與效能優化
+
+- 使用 `react-helmet-async` 管理每頁 `<title>`、`<meta name="description">`、`<link rel="canonical">` 等標籤。
+- 首頁加入 **JSON-LD FAQ 結構化資料**，協助搜尋引擎理解內容。
+- 建立 `sitemap.xml` 與 `robots.txt` 於 `public/`，利於搜尋引擎索引。
+- 所有圖片皆加上 `loading="lazy"` 與 `alt` 描述屬性提升 UX 與無障礙。
+- 圖片資源轉為 `.webp` 格式，降低檔案大小，加快網站載入。
+- 後端同步批次更新資料庫中房型圖片路徑為 .webp。
+
+---
+
 ## 🚀 線上展示與原始碼連結
 
 - 🔗 [👉 線上 Try ](https://54hanyi.github.io/react-ts-roomorder/)
