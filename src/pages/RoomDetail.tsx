@@ -10,7 +10,7 @@ import LoadingModal from '@/components/Common/LoadingModal';
 
 const RoomDetail = () => {
   const { id } = useParams<{ id: string }>();
-  console.log('Room ID:', id); // 確認 id 是否正確
+  // console.log('Room ID:', id); // 確認 id 是否正確
   const bookingContext = useContext(BookingContext);
   const location = useLocation(); 
 
