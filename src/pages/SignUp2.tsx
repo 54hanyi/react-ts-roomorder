@@ -89,13 +89,13 @@ const SignUp2 = () => {
         <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
           <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
           <div className="relative sm:w-[50%] w-full flex items-center justify-center">
-            <img src={Line2} alt="Line2" className='absolute top-0 right-0 w-full'/>
+            <img src={Line2} alt="Line2" className='absolute top-0 right-0 w-full' loading="lazy" />
             <div className="flex flex-col w-[50%] ">
               <p className='text-h1 text-white'>立即註冊</p>
               <div className='flex gap-1 justify-center items-center pt-8'>
-                <img src="./images/web/step1-2.png" alt="" className='h-10 w-20'/>
-                <img src="./images/web/stepline.png" alt="" className='h-[2px] w-48'/>
-                <img src="/images/web/step2-2.png" alt="" className='h-10 w-20'/>
+                <img src="./images/web/step1-2.png" alt="" className='h-10 w-20' loading="lazy" />
+                <img src="./images/web/stepline.png" alt="" className='h-[2px] w-48' loading="lazy" />
+                <img src="/images/web/step2-2.png" alt="" className='h-10 w-20' loading="lazy" />
               </div>
               <form action="" className='text-neutral-60' onSubmit={handleSubmit(onSubmit)}>
                 <div className='mt-6'>

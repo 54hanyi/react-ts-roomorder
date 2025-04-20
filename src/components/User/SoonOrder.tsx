@@ -122,7 +122,7 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
 
           <div className="h-[18rem] overflow-hidden">
             {selectedRoom.imageUrlList && (
-              <img src={selectedRoom.imageUrlList[0]} alt="Room Image" className='rounded-[1.2rem] w-full h-full object-cover max-h-[18rem]' />
+              <img src={selectedRoom.imageUrlList[0]} alt="Room Image" className='rounded-[1.2rem] w-full h-full object-cover max-h-[18rem]' loading="lazy" />
             )}
           </div>
 
@@ -133,11 +133,11 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
           </div>
           
           <div className="flex">
-            <img src={Deco} alt="" />
+            <img src={Deco} alt="" loading="lazy" />
             <p className="ml-3 text-h6">入住：{formattedCheckInDate}</p>
           </div>
           <div className="flex py-2">
-            <img src={Deco_gray} alt="" />
+            <img src={Deco_gray} alt="" loading="lazy" />
             <p className="ml-3 text-h6">退房：{formattedCheckOutDate}</p>
           </div>
 
@@ -145,7 +145,7 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
 
           <div className="flex flex-col mt-4">
             <div className="flex">
-              <img src={Deco} alt="" />
+              <img src={Deco} alt="" loading="lazy" />
               <p className="ml-3 text-h5">房內設備</p>
             </div>
             <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-40 lg:h-32">
@@ -165,7 +165,7 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
 
           <div className="flex flex-col mt-4 lg:mt-6">
             <div className="flex">
-              <img src={Deco} alt="" />
+              <img src={Deco} alt="" loading="lazy" />
               <p className="ml-3 text-h5">備品提供</p>
             </div>
             <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-40 lg:h-32">

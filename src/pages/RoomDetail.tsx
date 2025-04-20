@@ -68,6 +68,7 @@ const RoomDetail = () => {
                 src={bookingContext.room.imageUrl}
                 alt="Room View"
                 className="w-full h-auto object-cover rounded-lg"
+                loading="lazy" 
               />
             </div>
             <div className="grid grid-rows-2 grid-flow-col gap-2 w-[45%]">
@@ -77,6 +78,7 @@ const RoomDetail = () => {
                   src={url}
                   alt={`Room View ${index + 1}`}
                   className="w-full h-full object-cover rounded-lg col-span-2"
+                  loading="lazy" 
                 />
               ))}
             </div>

@@ -16,7 +16,7 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
 
       <div className="flex flex-col gap-6">
         <div className="flex">
-          <img src={Deco} alt="" />
+          <img src={Deco} alt="" loading="lazy" />
           <p className="ml-3 text-h5">房型基本資訊</p>
         </div>
         <div className="flex gap-5">
@@ -52,7 +52,7 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
 
       <div className="flex flex-col gap-6">
         <div className="flex">
-          <img src={Deco} alt="" />
+          <img src={Deco} alt="" loading="lazy" />
           <p className="ml-3 text-h5">房間格局</p>
         </div>
         <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-22">
@@ -72,7 +72,7 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
 
       <div className="flex flex-col gap-6">
         <div className="flex">
-          <img src={Deco} alt="" />
+          <img src={Deco} alt="" loading="lazy" />
           <p className="ml-3 text-h5">房內設備</p>
         </div>
         <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-44 lg:h-28">
@@ -92,7 +92,7 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
 
       <div className="flex flex-col gap-6">
         <div className="flex">
-          <img src={Deco} alt="" />
+          <img src={Deco} alt="" loading="lazy" />
           <p className="ml-3 text-h5">備品提供</p>
         </div>
         <div className="flex flex-wrap items-center gap-3 gap-y-0 border-none bg-white rounded-[0.6rem] py-4 pl-4 pr-24 w-full h-44 lg:h-28">
@@ -112,7 +112,7 @@ export default function RoomDetailInfo({ roomList }: RoomDetailInfoProps) {
       {/* 訂房須知部分 */}
       <div className="flex flex-col gap-6 mb-10">
         <div className="flex">
-          <img src={Deco} alt="" />
+          <img src={Deco} alt="" loading="lazy" />
           <p className="ml-3 text-h5">訂房須知</p>
         </div>
         <div className="pl-4">

@@ -46,7 +46,7 @@ export default function UserProfile() {
           </div>
         </div>
 
-        <img src={Line3} alt="Line3" className='absolute bottom-0 w-full'/>
+        <img src={Line3} alt="Line3" className='absolute bottom-0 w-full' loading="lazy" />
       </div>
     </>
   );

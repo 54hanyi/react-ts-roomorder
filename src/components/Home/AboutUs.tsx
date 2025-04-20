@@ -12,7 +12,7 @@ export default function AboutUs() {
                 <p className="mr-4">關於</p>
                 <p className="mr-4">我們</p>
               </div>
-                <img src={DecoLine} alt="DecoLine" className="absolute top-[4.8rem] left-32 xl:top-24 xl:left-40" />
+                <img src={DecoLine} alt="DecoLine" className="absolute top-[4.8rem] left-32 xl:top-24 xl:left-40" loading="lazy" />
             </div>
             
             <div className='text-h6 text-white lg:px-12 px-10 py-3'>

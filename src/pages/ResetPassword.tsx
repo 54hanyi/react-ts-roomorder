@@ -42,7 +42,7 @@ const ResetPassword = () => {
       <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
         <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>
         <div className="relative sm:w-[50%] w-full flex items-center justify-center">
-        <img src={Line2} alt="Line2" className='absolute top-14 right-0 w-full'/>
+        <img src={Line2} alt="Line2" className='absolute top-14 right-0 w-full' loading="lazy" />
           <div className="flex flex-col w-[50%]">
             <p className='text-title mb-2 text-primary-100'>享樂酒店，誠摯歡迎</p>
             <p className='sm:text-h1 text-h2 text-white'>立即開始旅程</p>

@@ -9,6 +9,7 @@ export default function News() {
           src={`${import.meta.env.BASE_URL}images/web/dot.png`}
           alt="Top Right Dots"
           className="absolute top-10 right-28 h-36"
+          loading="lazy" 
         />
         <div className="flex flex-col items-end pr-14 col-span-3 ">
           <div className="border-b border-[#BE9C7C] pb-3 md:pb-6">
@@ -27,6 +28,7 @@ export default function News() {
           src={`${import.meta.env.BASE_URL}images/web/dot.png`}
           alt="Dots Bottom Left"
           className="absolute bottom-[-4.5rem] left-32 h-36"
+          loading="lazy" 
         />
       </div>
     </>

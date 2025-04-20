@@ -58,7 +58,7 @@ export default function HistoryOrders({ recentOrders }: HistoryOrdersProps) {
               <div className="flex py-4 bg-white rounded-[1.2rem]">
                 <div className='mr-4'>
                   {order.roomId.imageUrlList && order.roomId.imageUrlList.length > 0 && (
-                    <img src={order.roomId.imageUrlList[0]} alt="Room Image" className='h-[5rem] w-[5rem] object-cover rounded-[0.8rem]' />
+                    <img src={order.roomId.imageUrlList[0]} alt="Room Image" className='h-[5rem] w-[5rem] object-cover rounded-[0.8rem]' loading="lazy" />
                   )}
                 </div>
                 <div>
@@ -70,11 +70,11 @@ export default function HistoryOrders({ recentOrders }: HistoryOrdersProps) {
                   </div>
 
                   <div className="flex py-2">
-                    <img src={Deco} alt="" />
+                    <img src={Deco} alt="" loading="lazy" />
                     <p className="ml-3 text-h6">入住：{formatDate(order.checkInDate)}</p>
                   </div>
                   <div className="flex pb-4">
-                    <img src={Deco_gray} alt="" />
+                    <img src={Deco_gray} alt="" loading="lazy" />
                     <p className="ml-3 text-h6">退房：{formatDate(order.checkOutDate)}</p>
                   </div>
 

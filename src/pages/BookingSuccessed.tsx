@@ -20,7 +20,7 @@ function BookingSuccessed() {
             <SuccessedBox />                     
           </div>
         </div>
-        <img src={Line3} alt="Line2" className='absolute bottom-0 w-full'/>
+        <img src={Line3} alt="Line2" className='absolute bottom-0 w-full' loading="lazy" />
       </div>
     </>
   )

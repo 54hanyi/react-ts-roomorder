@@ -10,12 +10,12 @@ export default function Transportation() {
           <div className='relative flex flex-col items-start text-h1 text-primary-100'>
             <p>交通</p>
             <p>方式</p>
-            <img src={DecoLine2} alt="Line" className="absolute top-12 left-28 w-48" />
+            <img src={DecoLine2} alt="Line" className="absolute top-12 left-28 w-48" loading="lazy" />
           </div>
 
           <div className='lg:mt-20 mt-10 w-full lg:w-[70rem]'>
             <p className='text-white text-body pb-3'>台灣高雄市新興區八角壓路87號</p>
-            <img src={`${import.meta.env.BASE_URL}images/web/map.png`} alt="" className='block rounded-sm lg:h-[20rem] h-[12rem] mx-auto' />
+            <img src={`${import.meta.env.BASE_URL}images/web/map.png`} alt="" className='block rounded-sm lg:h-[20rem] h-[12rem] mx-auto' loading="lazy" />
             
             <div className='lg:flex mt-6'>
               <div className='text-white lg:w-1/3 p-2 lg:p-4'>
@@ -37,7 +37,7 @@ export default function Transportation() {
             </div>
           </div>
         </div>
-        <img src={Line3} alt="Line2" className='absolute bottom-0'/>
+        <img src={Line3} alt="Line2" className='absolute bottom-0' loading="lazy" />
       </div>
     </>
   )

@@ -38,6 +38,7 @@ export default function NewsCard() {
             className="md:w-[426px] md:h-[264px] w-[333px] h-[198px] rounded-md object-cover"
             src={item.image}
             alt=""
+            loading="lazy" 
           />
           <div className="flex flex-col justify-center md:px-5 py-5 ">
             <header className="text-left text-h5 md:text-h3 font-bold pb-2 md:pb-4">
