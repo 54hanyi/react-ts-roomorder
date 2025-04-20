@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://54hanyi.github.io/react-ts-roomorder/sitemap.xml

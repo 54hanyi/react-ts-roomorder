@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
+import SeoHelmet from '@/components/Common/SeoHelmet';
 import Input from '@/components/Common/Input';
 import UserContext from '@/contexts/UserContext';
 import { IUser } from '../types/user';
@@ -79,6 +80,11 @@ const SignUp2 = () => {
 
   return (
     <>
+      <SeoHelmet
+        title="第二步註冊｜豪華酒店預訂系統"
+        description="完成個人資訊填寫以完成帳號建立。"
+        canonical="https://54hanyi.github.io/react-ts-roomorder/signup2"
+      />
       <div className="flex flex-col">
         <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
           <div className="w-[50%] hidden sm:block bg-cover bg-bottom bg-[url('/images/web/register.png')] h-auto z-10"></div>

@@ -1,3 +1,4 @@
+import SeoHelmet from '@/components/Common/SeoHelmet';
 import { useEffect, useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { BookingContext } from '@/contexts/BookingContext';
@@ -55,6 +56,10 @@ const RoomDetail = () => {
 
   return (
     <>
+      <SeoHelmet
+        title="房型詳情｜豪華酒店預訂系統"
+        description="查看房型照片、設備與詳細資訊，立即完成預約。"
+      />
       <div className="bg-[#F7F2EE]">
         <div className="p-4 lg:p-16">
           <div className="flex gap-1 lg:gap-2">

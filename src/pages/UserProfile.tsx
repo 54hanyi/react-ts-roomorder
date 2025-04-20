@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import UserContext from '@/contexts/UserContext';
 
 import Line3 from '@/assets/icons/Line3.svg';
+import SeoHelmet from '@/components/Common/SeoHelmet';
 import UserInfo from '@/components/User/UserInfo';
 import UserOrder from '@/components/User/UserOrder';
 
@@ -15,6 +16,11 @@ export default function UserProfile() {
 
   return (
     <>
+      <SeoHelmet
+        title="個人資訊｜豪華酒店預訂系統"
+        description="管理個人資料、訂房紀錄與聯絡資訊。"
+        canonical="https://54hanyi.github.io/react-ts-roomorder/profile"
+      />
       <div className={`relative bg-[#140F0A] ${activeTab === 'profile' ? "lg:h-[70rem]" : "lg:h-[110rem]"} ${activeTab === 'profile' ? "h-[80rem]" : "h-[170rem]"}`}>
         <div className="inset-0 h-[20rem] bg-[url('/images/web/hero.png')] bg-cover bg-center flex items-center justify-center">
           <p className='text-white text-h1'>{userContext.userName}，您好</p>
