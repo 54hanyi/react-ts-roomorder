@@ -12,6 +12,7 @@ const SliderItem: React.FC<SliderItemProps> = ({ Item, imgData }) => {
           src={imgData.web}
           alt={Item.title}
           className="w-full h-auto object-cover"
+          loading="lazy" 
         />
       </picture>
       <div className="absolute bottom-0 w-full h-[10rem] text-neutral-0 backdrop-blur-sm" style={{ background: "linear-gradient(#00000000, #140F0A)" }}>

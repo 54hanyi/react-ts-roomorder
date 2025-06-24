@@ -38,7 +38,7 @@ const Carousel = ({ imageList, children, onNextRoom, onRoomChange, currentImgInd
   return (
     <>
       <div className="relative w-full h-full">
-        <img src={imageList[current]} className="w-full h-full object-cover" />
+        <img src={imageList[current]} className="w-full h-full object-cover" alt="房型圖片"/>
         <div className="w-full h-full absolute top-0"></div>
         {children}
         <div className="flex absolute lg:bottom-[2rem] bottom-[1rem] lg:w-full w-[80%] ml-5 lg:ml-0 justify-center">

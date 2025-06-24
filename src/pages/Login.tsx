@@ -1,29 +1,34 @@
-import { useEffect, useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { userLogin } from '../assets/api';
-import { UserLoginData, UserResponse } from '../types/user';
-import SeoHelmet from '@/components/Common/SeoHelmet';
-import Input from '../components/Common/Input';
-import Line2 from '../assets/icons/Line2.svg';
-import UserContext from '@/contexts/UserContext';
+import { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { userLogin } from "../assets/api";
+import { UserLoginData, UserResponse } from "../types/user";
+import SeoHelmet from "@/components/Common/SeoHelmet";
+import Input from "../components/Common/Input";
+import Line2 from "../assets/icons/Line2.svg";
+import UserContext from "@/contexts/UserContext";
 
 export default function Login() {
   const navigate = useNavigate();
   const [rememberMe, setRememberMe] = useState(false);
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm<UserLoginData>({
-    defaultValues: { email: '', password: '' },
-    mode: 'onTouched',
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm<UserLoginData>({
+    defaultValues: { email: "", password: "" },
+    mode: "onTouched",
   });
 
   const userContext = useContext(UserContext);
 
   // 在元件載入時，讀取上次登入的帳號並填入表單中
   useEffect(() => {
-    const lastLoginEmail = localStorage.getItem('lastLoginEmail');
-    console.log('读取的邮箱:', lastLoginEmail); 
-    if (lastLoginEmail && lastLoginEmail !== 'null') {
-      setValue('email', lastLoginEmail); // 自動填入Mail
+    const lastLoginEmail = localStorage.getItem("lastLoginEmail");
+    console.log("读取的邮箱:", lastLoginEmail);
+    if (lastLoginEmail && lastLoginEmail !== "null") {
+      setValue("email", lastLoginEmail); // 自動填入Mail
       setRememberMe(true); // 設定「記住帳號」複選框為勾選狀態
     }
   }, [setValue]);
@@ -31,42 +36,53 @@ export default function Login() {
   const onSubmit = async (data: UserLoginData) => {
     try {
       const response: UserResponse = await userLogin(data);
-  
+
       if (response.status && response.result) {
         if (userContext) {
           userContext.setUser(response.result);
           userContext.setIsLoggedIn(true);
           userContext.setUserName(response.result.name);
-          userContext.setEmail(response.result.email || ""); 
+          userContext.setEmail(response.result.email || "");
           userContext.setPhone(response.result.phone || "");
-          userContext.setBirthday(response.result.birthday.substring(0, 10) || ""); 
-          userContext.setAddress(response.result.address || { zipcode: 0, detail: '', city: '', county: '' });
+          userContext.setBirthday(
+            response.result.birthday.substring(0, 10) || ""
+          );
+          userContext.setAddress(
+            response.result.address || {
+              zipcode: 0,
+              detail: "",
+              city: "",
+              county: "",
+            }
+          );
 
           if (response.token) {
-            localStorage.setItem('authToken', response.token);
+            localStorage.setItem("authToken", response.token);
           }
 
           // 如果勾選了「記住帳號」，請儲存目前的信箱到 localStorage
           if (rememberMe) {
-            localStorage.setItem('lastLoginEmail', data.email || '');
-            const savedEmail = localStorage.getItem('lastLoginEmail');
-            console.log('刚保存的邮箱:', savedEmail); // 验证刚保存的邮箱是否正确
+            localStorage.setItem("lastLoginEmail", data.email || "");
+            const savedEmail = localStorage.getItem("lastLoginEmail");
+            console.log("刚保存的邮箱:", savedEmail); // 验证刚保存的邮箱是否正确
           } else {
-            localStorage.removeItem('lastLoginEmail'); // 如果沒有勾選，則移除已儲存的信箱
+            localStorage.removeItem("lastLoginEmail"); // 如果沒有勾選，則移除已儲存的信箱
           }
         }
         alert(`歡迎 ${response.result.name}～`);
-        navigate('/');
+        navigate("/");
       } else {
-        alert('登入失敗: ' + response.message);
+        alert("登入失敗: " + response.message);
       }
     } catch (error) {
-      console.error('Login error:', error);
-      alert('發生錯誤，請稍後再試。');
+      console.error("Login error:", error);
+      alert("發生錯誤，請稍後再試。");
     }
   };
 
-  const handleRememberMeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRememberMeChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setRememberMe(event.target.checked);
   };
 
@@ -79,18 +95,28 @@ export default function Login() {
       />
 
       <div className="flex flex-col">
-        <div className="flex bg-[#140F0A]" style={{ height: 'calc(100vh - 6rem)' }}>
-          <div 
+        <div
+          className="flex bg-[#140F0A]"
+          style={{ height: "calc(100vh - 6rem)" }}
+        >
+          <div
             className="w-[50%] hidden sm:block bg-cover bg-bottom h-auto z-10"
-            style={{ backgroundImage: "url('/images/web/register.webp')" }}
+            style={{ backgroundImage: "url('./images/web/register.webp')" }}
           ></div>
           <div className="relative sm:w-[50%] w-full flex items-center justify-center">
-            <img src={Line2} alt="Line2" className='absolute top-14 right-0 w-full' loading="lazy" />
+            <img
+              src={Line2}
+              alt="Line2"
+              className="absolute top-14 right-0 w-full"
+              loading="lazy"
+            />
             <div className="flex flex-col w-[50%]">
-              <p className='text-title mb-2 text-primary-100'>享樂酒店，誠摯歡迎</p>
-              <p className='sm:text-h1 text-h2 text-white'>立即開始旅程</p>
+              <p className="text-title mb-2 text-primary-100">
+                享樂酒店，誠摯歡迎
+              </p>
+              <p className="sm:text-h1 text-h2 text-white">立即開始旅程</p>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='mt-8'>
+                <div className="mt-8">
                   <Input
                     register={register}
                     errors={errors}
@@ -99,8 +125,11 @@ export default function Login() {
                     type="email"
                     placeholder="hello@example.com"
                     rules={{
-                      required: { value: true, message: '請輸入 Email' },
-                      pattern: { value: /^\S+@\S+$/i, message: 'Email 格式不正確' }
+                      required: { value: true, message: "請輸入 Email" },
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: "Email 格式不正確",
+                      },
                     }}
                   />
                 </div>
@@ -112,22 +141,30 @@ export default function Login() {
                     labelText="密碼"
                     type="password"
                     placeholder="請輸入密碼"
-                    rules={{ required: { value: true, message: '請輸入密碼' } }}
+                    rules={{ required: { value: true, message: "請輸入密碼" } }}
                   />
                 </div>
 
-                <div className='flex justify-between items-center mt-2'>
-                  <label htmlFor="rememberMe" className='flex items-center space-x-2'>
-                    <input 
-                      type="checkbox" 
+                <div className="flex justify-between items-center mt-2">
+                  <label
+                    htmlFor="rememberMe"
+                    className="flex items-center space-x-2"
+                  >
+                    <input
+                      type="checkbox"
                       id="rememberMe"
-                      className='h-3.5 w-3.5 pt-0.5'
+                      className="h-3.5 w-3.5 pt-0.5"
                       checked={rememberMe}
                       onChange={handleRememberMeChange}
                     />
-                    <span className='text-body text-white'>記住帳號</span>
+                    <span className="text-body text-white">記住帳號</span>
                   </label>
-                  <Link to="/get-code" className='text-body text-primary-100 underline ml-1 pb-[-1px]'>忘記密碼？</Link>
+                  <Link
+                    to="/get-code"
+                    className="text-body text-primary-100 underline ml-1 pb-[-1px]"
+                  >
+                    忘記密碼？
+                  </Link>
                 </div>
 
                 <button
@@ -138,7 +175,12 @@ export default function Login() {
                 </button>
                 <div className="flex text-white text-body mt-4">
                   <p>沒有會員嗎？</p>
-                  <Link to="/signup" className='text-primary-100 underline ml-1'>前往註冊</Link>
+                  <Link
+                    to="/signup"
+                    className="text-primary-100 underline ml-1"
+                  >
+                    前往註冊
+                  </Link>
                 </div>
               </form>
             </div>

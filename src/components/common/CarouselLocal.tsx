@@ -48,7 +48,7 @@ const CarouselLocal = ({ imageList, children, onNextRoom, onRoomChange, currentI
             media="(max-width: 750px)"
             srcSet={imageList[current].mobile}
           />
-          <img src={imageList[current].web} className="w-full h-full object-cover"/>
+          <img src={imageList[current].web} className="w-full h-full object-cover" alt="房型圖片" loading="lazy"/>
         </picture>
         <div className="w-full h-full absolute top-0"></div>
         {children}
