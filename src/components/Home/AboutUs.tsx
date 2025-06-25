@@ -6,7 +6,11 @@ export default function AboutUs() {
       <div className="bg-black pt-[4rem] h-832 w-full">
         <div
           className="relative bg-contain bg-no-repeat bg-center h-576 w-full"
-          style={{ backgroundImage: "url('./images/web/about.webp')" }}
+          style={{
+            backgroundImage: `url(${
+              import.meta.env.BASE_URL
+            }images/web/about.webp')`,
+          }}
         >
           <div className="absolute bg-gradient-to-b from-neutral-120/80 to-primary-100/80 rounded-br-none rounded-[4rem] border-white border-l border-b mx-4 xl:right-48 xl:top-28 w-full xl:w-752 h-[38rem] xl:h-500">
             <div className="flex items-start text-white text-h3 xl:text-h1 lg:px-12 px-10 pt-10 pb-8">

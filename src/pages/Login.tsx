@@ -26,7 +26,7 @@ export default function Login() {
   // 在元件載入時，讀取上次登入的帳號並填入表單中
   useEffect(() => {
     const lastLoginEmail = localStorage.getItem("lastLoginEmail");
-    console.log("读取的邮箱:", lastLoginEmail);
+    console.log("讀取的email:", lastLoginEmail);
     if (lastLoginEmail && lastLoginEmail !== "null") {
       setValue("email", lastLoginEmail); // 自動填入Mail
       setRememberMe(true); // 設定「記住帳號」複選框為勾選狀態
@@ -101,7 +101,11 @@ export default function Login() {
         >
           <div
             className="w-[50%] hidden sm:block bg-cover bg-bottom h-auto z-10"
-            style={{ backgroundImage: "url('./images/web/register.webp')" }}
+            style={{
+              backgroundImage: `url(${
+                import.meta.env.BASE_URL
+              }images/web/register.webp')`,
+            }}
           ></div>
           <div className="relative sm:w-[50%] w-full flex items-center justify-center">
             <img

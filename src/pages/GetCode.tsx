@@ -44,7 +44,11 @@ const GetCode = () => {
       >
         <div
           className="w-[50%] hidden sm:block bg-cover bg-bottom h-auto z-10"
-          style={{ backgroundImage: "url('./images/web/register.webp')" }}
+          style={{
+            backgroundImage: `url(${
+              import.meta.env.BASE_URL
+            }images/web/register.webp')`,
+          }}
         ></div>
         <div className="relative sm:w-[50%] w-full flex items-center justify-center">
           <img
