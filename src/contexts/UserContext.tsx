@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect, ReactNode } from 'react';
-import { checkLoginStatus, getUser } from '@/assets/api';
-import { UserResponse, CheckResponse, MemberData, Address } from '@/types';
+import { createContext, useState, useEffect, ReactNode } from "react";
+import { checkLoginStatus, getUser } from "@/api";
+import { UserResponse, CheckResponse, MemberData, Address } from "@/types";
 
 interface UserContextType {
   user: MemberData | null;
@@ -24,19 +24,19 @@ interface UserContextType {
 const UserContext = createContext<UserContextType>({
   user: null,
   isLoggedIn: false,
-  userName: '',
+  userName: "",
   setUser: () => {},
   setIsLoggedIn: () => {},
   setUserName: () => {},
-  email: '',
+  email: "",
   setEmail: () => {},
-  password: '',
+  password: "",
   setPassword: () => {},
-  phone: '', 
+  phone: "",
   setPhone: () => {},
-  birthday: '',
+  birthday: "",
   setBirthday: () => {},
-  address: { zipcode: 0, detail: '', city: '', county: '' },
+  address: { zipcode: 0, detail: "", city: "", county: "" },
   setAddress: () => {},
 });
 
@@ -47,25 +47,38 @@ interface UserProviderProps {
 export const UserProvider = ({ children }: UserProviderProps) => {
   const [user, setUser] = useState<MemberData | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [address, setAddress] = useState<Address>({ zipcode: 0, detail: '', city: '', county: '' });
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [address, setAddress] = useState<Address>({
+    zipcode: 0,
+    detail: "",
+    city: "",
+    county: "",
+  });
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
-    const storedUserName = localStorage.getItem('userName');
-    const storedEmail = localStorage.getItem('email');
-    const storedPhone = localStorage.getItem('phone');
-    const storedBirthday = localStorage.getItem('birthday');
-    const storedAddress = localStorage.getItem('address');
+    const storedUser = localStorage.getItem("user");
+    const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
+    const storedUserName = localStorage.getItem("userName");
+    const storedEmail = localStorage.getItem("email");
+    const storedPhone = localStorage.getItem("phone");
+    const storedBirthday = localStorage.getItem("birthday");
+    const storedAddress = localStorage.getItem("address");
 
-    if (storedUser && storedIsLoggedIn && storedUserName && storedEmail && storedPhone && storedBirthday && storedAddress) {
+    if (
+      storedUser &&
+      storedIsLoggedIn &&
+      storedUserName &&
+      storedEmail &&
+      storedPhone &&
+      storedBirthday &&
+      storedAddress
+    ) {
       setUser(JSON.parse(storedUser));
-      setIsLoggedIn(storedIsLoggedIn === 'true');
+      setIsLoggedIn(storedIsLoggedIn === "true");
       setUserName(storedUserName);
       setEmail(storedEmail ?? "");
       setPhone(storedPhone);
@@ -85,18 +98,38 @@ export const UserProvider = ({ children }: UserProviderProps) => {
               setUser(userData.result);
               setIsLoggedIn(true);
               setUserName(userData.result.name);
-              setEmail(userData.result.email || '');
-              setPhone(userData.result.phone || '');
-              setBirthday(userData.result.birthday.substring(0, 10) || '');
-              setAddress(userData.result.address || { zipcode: 0, detail: '', city: '', county: '' });
+              setEmail(userData.result.email || "");
+              setPhone(userData.result.phone || "");
+              setBirthday(userData.result.birthday.substring(0, 10) || "");
+              setAddress(
+                userData.result.address || {
+                  zipcode: 0,
+                  detail: "",
+                  city: "",
+                  county: "",
+                }
+              );
 
-              localStorage.setItem('user', JSON.stringify(userData.result));
-              localStorage.setItem('isLoggedIn', 'true');
-              localStorage.setItem('userName', userData.result.name);
-              localStorage.setItem('email', userData.result.email);
-              localStorage.setItem('phone', userData.result.phone || '');
-              localStorage.setItem('birthday', userData.result.birthday.substring(0, 10) || '');
-              localStorage.setItem('address', JSON.stringify(userData.result.address || { zipcode: 0, detail: '', city: '', county: '' }));
+              localStorage.setItem("user", JSON.stringify(userData.result));
+              localStorage.setItem("isLoggedIn", "true");
+              localStorage.setItem("userName", userData.result.name);
+              localStorage.setItem("email", userData.result.email);
+              localStorage.setItem("phone", userData.result.phone || "");
+              localStorage.setItem(
+                "birthday",
+                userData.result.birthday.substring(0, 10) || ""
+              );
+              localStorage.setItem(
+                "address",
+                JSON.stringify(
+                  userData.result.address || {
+                    zipcode: 0,
+                    detail: "",
+                    city: "",
+                    county: "",
+                  }
+                )
+              );
             }
           }
         } catch (error) {
@@ -111,66 +144,66 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   const handleSetUser = (user: MemberData | null) => {
     setUser(user);
     if (user) {
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
     } else {
-      localStorage.removeItem('user');
+      localStorage.removeItem("user");
     }
   };
 
   const handleSetIsLoggedIn = (isLoggedIn: boolean) => {
     setIsLoggedIn(isLoggedIn);
-    localStorage.setItem('isLoggedIn', isLoggedIn.toString());
+    localStorage.setItem("isLoggedIn", isLoggedIn.toString());
   };
 
   const handleSetUserName = (userName: string) => {
     setUserName(userName);
-    localStorage.setItem('userName', userName);
+    localStorage.setItem("userName", userName);
   };
 
   const handleSetEmail = (email: string) => {
     setEmail(email);
-    localStorage.setItem('email', email);
+    localStorage.setItem("email", email);
   };
 
   const handleSetPassword = (password: string) => {
     setPassword(password);
-    localStorage.setItem('password', password);
+    localStorage.setItem("password", password);
   };
 
   const handleSetPhone = (phone: string) => {
     setPhone(phone);
-    localStorage.setItem('phone', phone);
+    localStorage.setItem("phone", phone);
   };
 
   const handleSetBirthday = (birthday: string) => {
     setBirthday(birthday);
-    localStorage.setItem('birthday', birthday);
+    localStorage.setItem("birthday", birthday);
   };
 
   const handleSetAddress = (address: Address) => {
     setAddress(address);
-    localStorage.setItem('address', JSON.stringify(address));
+    localStorage.setItem("address", JSON.stringify(address));
   };
 
   return (
-    <UserContext.Provider 
+    <UserContext.Provider
       value={{
-        user, 
-        setUser: handleSetUser, 
-        isLoggedIn, 
-        setIsLoggedIn: handleSetIsLoggedIn, 
-        userName, 
-        setUserName: handleSetUserName, 
-        email, 
-        setEmail: handleSetEmail, 
-        password, 
-        setPassword: handleSetPassword, 
-        phone, 
+        user,
+        setUser: handleSetUser,
+        isLoggedIn,
+        setIsLoggedIn: handleSetIsLoggedIn,
+        userName,
+        setUserName: handleSetUserName,
+        email,
+        setEmail: handleSetEmail,
+        password,
+        setPassword: handleSetPassword,
+        phone,
         setPhone: handleSetPhone,
         birthday,
         setBirthday: handleSetBirthday,
         address,
-        setAddress: handleSetAddress
+        setAddress: handleSetAddress,
       }}
     >
       {children}

@@ -1,34 +1,34 @@
-import SeoHelmet from '@/components/Common/SeoHelmet';
-import { useEffect, useContext } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import { BookingContext } from '@/contexts/BookingContext';
+import SeoHelmet from "@/components/Common/SeoHelmet";
+import { useEffect, useContext } from "react";
+import { useParams, useLocation } from "react-router-dom";
+import { BookingContext } from "@/contexts/BookingContext";
 import RoomDetailInfo from "../components/Room/RoomDetailInfo";
 import RoomDetailBox from "../components/Room/RoomDetailBox";
-import { apiGetRoomType } from "@/assets/api";
-import { IRoom } from '@/types';
-import LoadingModal from '@/components/Common/LoadingModal';
+import { apiGetRoomType } from "@/api";
+import { IRoom } from "@/types";
+import LoadingModal from "@/components/Common/LoadingModal";
 
 const RoomDetail = () => {
   const { id } = useParams<{ id: string }>();
   // console.log('Room ID:', id); // 確認 id 是否正確
   const bookingContext = useContext(BookingContext);
-  const location = useLocation(); 
+  const location = useLocation();
 
   useEffect(() => {
     const getRoomDetail = async () => {
       try {
         if (id) {
-          const token = localStorage.getItem('authToken') || ''; 
-          const data = await apiGetRoomType(id, token); 
+          const token = localStorage.getItem("authToken") || "";
+          const data = await apiGetRoomType(id, token);
 
           if (data && data.status === true && data.result) {
-            bookingContext?.setRoom(data.result as IRoom); 
+            bookingContext?.setRoom(data.result as IRoom);
           } else {
-            console.error('Invalid data structure', data);
+            console.error("Invalid data structure", data);
           }
         }
       } catch (error) {
-        console.error('Failed to fetch room detail:', error); 
+        console.error("Failed to fetch room detail:", error);
       }
     };
 
@@ -68,7 +68,7 @@ const RoomDetail = () => {
                 src={bookingContext.room.imageUrl}
                 alt="Room View"
                 className="w-full h-auto object-cover rounded-lg"
-                loading="lazy" 
+                loading="lazy"
               />
             </div>
             <div className="grid grid-rows-2 grid-flow-col gap-2 w-[45%]">
@@ -78,7 +78,7 @@ const RoomDetail = () => {
                   src={url}
                   alt={`Room View ${index + 1}`}
                   className="w-full h-full object-cover rounded-lg col-span-2"
-                  loading="lazy" 
+                  loading="lazy"
                 />
               ))}
             </div>

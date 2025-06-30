@@ -2,7 +2,9 @@ import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Input from "../components/Common/Input";
-import Line2 from "../assets/icons/Line2.svg";
+
+import registerBg from "@/assets/images/web/register.webp";
+import Line2 from "@/assets/icons/Line2.svg";
 
 const api = import.meta.env.VITE_API_LINK;
 
@@ -57,11 +59,7 @@ const ResetPassword = () => {
       >
         <div
           className="w-[50%] hidden sm:block bg-cover bg-bottom h-auto z-10"
-          style={{
-            backgroundImage: `url(${
-              import.meta.env.BASE_URL
-            }images/web/register.webp')`,
-          }}
+          style={{ backgroundImage: `url(${registerBg})` }}
         ></div>
         <div className="relative sm:w-[50%] w-full flex items-center justify-center">
           <img

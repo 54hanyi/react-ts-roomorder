@@ -1,11 +1,14 @@
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { userLogin } from "../assets/api";
+import { userLogin } from "@/api";
 import { UserLoginData, UserResponse } from "../types/user";
 import SeoHelmet from "@/components/Common/SeoHelmet";
 import Input from "../components/Common/Input";
-import Line2 from "../assets/icons/Line2.svg";
+
+import Line2 from "@/assets/icons/Line2.svg";
+import registerBg from "@/assets/images/web/register.webp";
+
 import UserContext from "@/contexts/UserContext";
 
 export default function Login() {
@@ -102,9 +105,7 @@ export default function Login() {
           <div
             className="w-[50%] hidden sm:block bg-cover bg-bottom h-auto z-10"
             style={{
-              backgroundImage: `url(${
-                import.meta.env.BASE_URL
-              }images/web/register.webp')`,
+              backgroundImage: `url(${registerBg})`,
             }}
           ></div>
           <div className="relative sm:w-[50%] w-full flex items-center justify-center">

@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
-import IconButton from '../Common/IconButton';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { format } from "date-fns";
+import IconButton from "../Common/IconButton";
 import Deco from "@/assets/icons/ic_Deco.svg";
 import Deco_gray from "@/assets/icons/ic_Deco_gray.svg";
 import Button from "../Common/Button";
-import LoadingModal from '../Common/LoadingModal';
-import { deleteOrder, getOrderDetail } from '@/assets/api';
-import { IOrder } from '@/types';
+import LoadingModal from "../Common/LoadingModal";
+import { deleteOrder, getOrderDetail } from "@/api";
+import { IOrder } from "@/types";
 
 interface IFacility {
   title: string;
@@ -20,14 +20,17 @@ interface IAmenity {
 }
 
 interface SoonOrderProps {
-  upcomingOrder: IOrder | null; 
+  upcomingOrder: IOrder | null;
   onOrderDeleted: (orderId: string) => void;
 }
 
-export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderProps) {
+export default function SoonOrder({
+  upcomingOrder,
+  onOrderDeleted,
+}: SoonOrderProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-    
+
   console.log("upcomingOrder in SoonOrder before rendering: ", upcomingOrder);
 
   if (!upcomingOrder) {
@@ -45,9 +48,14 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
       </div>
     );
   }
-  
 
-  const { roomId: selectedRoom, checkInDate, checkOutDate, peopleNum, _id: orderId } = upcomingOrder;
+  const {
+    roomId: selectedRoom,
+    checkInDate,
+    checkOutDate,
+    peopleNum,
+    _id: orderId,
+  } = upcomingOrder;
 
   const calculateDays = (checkIn: string, checkOut: string): number => {
     const date1 = new Date(checkIn);
@@ -61,23 +69,23 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
 
   const handleCancelOrder = async () => {
     if (!orderId) {
-      console.error('Order ID 未定義');
+      console.error("Order ID 未定義");
       return;
     }
 
     setIsLoading(true);
-    const token = localStorage.getItem('authToken') || '';
+    const token = localStorage.getItem("authToken") || "";
     try {
       const response = await deleteOrder(orderId, token);
-      console.log('刪除訂單回應:', response);
+      console.log("刪除訂單回應:", response);
       if (response.status) {
         onOrderDeleted(orderId); // 通知父組件訂單已被刪除
       } else {
-        alert('取消訂單失敗: ' + response.message);
+        alert("取消訂單失敗: " + response.message);
       }
     } catch (error) {
-      console.error('取消訂單失敗:', error);
-      alert('發生錯誤，請稍後再試');
+      console.error("取消訂單失敗:", error);
+      alert("發生錯誤，請稍後再試");
     } finally {
       setIsLoading(false);
       setShowConfirm(false);
@@ -86,52 +94,59 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
 
   const handleViewDetails = async () => {
     if (!orderId) {
-      console.error('Order ID 未定義');
+      console.error("Order ID 未定義");
       return;
     }
 
     setIsLoading(true);
-    const token = localStorage.getItem('authToken') || '';
+    const token = localStorage.getItem("authToken") || "";
     try {
       const response = await getOrderDetail(orderId, token);
       if (response.status) {
-        console.log('訂單詳情:', response.result);
+        console.log("訂單詳情:", response.result);
       } else {
-        alert('無法獲取訂單詳情');
+        alert("無法獲取訂單詳情");
       }
     } catch (error) {
-      console.error('獲取訂單詳情失敗:', error);
-      alert('發生錯誤，請稍後再試');
+      console.error("獲取訂單詳情失敗:", error);
+      alert("發生錯誤，請稍後再試");
     } finally {
       setIsLoading(false);
     }
   };
 
-  const formattedCheckInDate = format(new Date(checkInDate), 'yyyy-MM-dd');
-  const formattedCheckOutDate = format(new Date(checkOutDate), 'yyyy-MM-dd');
+  const formattedCheckInDate = format(new Date(checkInDate), "yyyy-MM-dd");
+  const formattedCheckOutDate = format(new Date(checkOutDate), "yyyy-MM-dd");
 
   return (
     <div className="h-[70rem] lg:h-[66rem] bg-white rounded-[1.2rem] p-8">
       {isLoading && <LoadingModal />}
       {!isLoading && (
         <>
-          <div className='mb-4'>
-            <p className='text-body'>預訂參考編號： {orderId}</p>
-            <p className='text-h4'>即將到來的旅程</p>
+          <div className="mb-4">
+            <p className="text-body">預訂參考編號： {orderId}</p>
+            <p className="text-h4">即將到來的旅程</p>
           </div>
 
           <div className="h-[18rem] overflow-hidden">
             {selectedRoom.imageUrlList && (
-              <img src={selectedRoom.imageUrlList[0]} alt="Room Image" className='rounded-[1.2rem] w-full h-full object-cover max-h-[18rem]' loading="lazy" />
+              <img
+                src={selectedRoom.imageUrlList[0]}
+                alt="Room Image"
+                className="rounded-[1.2rem] w-full h-full object-cover max-h-[18rem]"
+                loading="lazy"
+              />
             )}
           </div>
 
           <div className="flex justify-between py-4 text-h6 font-bold lg:text-h5">
-            <p className="">{selectedRoom.name}，{days}晚</p>
+            <p className="">
+              {selectedRoom.name}，{days}晚
+            </p>
             <p>|</p>
             <p>住宿人數：{peopleNum}人</p>
           </div>
-          
+
           <div className="flex">
             <img src={Deco} alt="" loading="lazy" />
             <p className="ml-3 text-h6">入住：{formattedCheckInDate}</p>
@@ -141,7 +156,7 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
             <p className="ml-3 text-h6">退房：{formattedCheckOutDate}</p>
           </div>
 
-          <p className='text-h6 py-2 lg:py-4'>NT$ {totalPrice}</p>
+          <p className="text-h6 py-2 lg:py-4">NT$ {totalPrice}</p>
 
           <div className="flex flex-col mt-4">
             <div className="flex">
@@ -149,17 +164,22 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
               <p className="ml-3 text-h5">房內設備</p>
             </div>
             <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-40 lg:h-32">
-              {selectedRoom.facilityInfo.filter((item: IFacility) => item.isProvide).map((item: IFacility) => (
-                <div key={item.title} className="flex items-baseline w-[5rem]">
-                  <IconButton
-                    name="ic_check"
-                    svgClass="w-[1.2rem] h-[1.2rem] text-primary-100"
-                    className="mb-2"
-                    disabled={true}
-                  />
-                  <p className="text-body">{item.title}</p>
-                </div>
-              ))}
+              {selectedRoom.facilityInfo
+                .filter((item: IFacility) => item.isProvide)
+                .map((item: IFacility) => (
+                  <div
+                    key={item.title}
+                    className="flex items-baseline w-[5rem]"
+                  >
+                    <IconButton
+                      name="ic_check"
+                      svgClass="w-[1.2rem] h-[1.2rem] text-primary-100"
+                      className="mb-2"
+                      disabled={true}
+                    />
+                    <p className="text-body">{item.title}</p>
+                  </div>
+                ))}
             </div>
           </div>
 
@@ -169,17 +189,22 @@ export default function SoonOrder({ upcomingOrder, onOrderDeleted }: SoonOrderPr
               <p className="ml-3 text-h5">備品提供</p>
             </div>
             <div className="flex flex-wrap items-center gap-10 gap-y-0 border border-neutral-40 rounded-[0.6rem] mt-4 p-2 w-full h-40 lg:h-32">
-              {selectedRoom.amenityInfo.filter((item: IAmenity) => item.isProvide).map((item: IAmenity) => (
-                <div key={item.title} className="flex items-baseline w-[5rem]">
-                  <IconButton
-                    name="ic_check"
-                    svgClass="w-[1.2rem] h-[1.2rem] text-primary-100"
-                    className="mb-2"
-                    disabled={true}
-                  />
-                  <p className="text-body">{item.title}</p>
-                </div>
-              ))}
+              {selectedRoom.amenityInfo
+                .filter((item: IAmenity) => item.isProvide)
+                .map((item: IAmenity) => (
+                  <div
+                    key={item.title}
+                    className="flex items-baseline w-[5rem]"
+                  >
+                    <IconButton
+                      name="ic_check"
+                      svgClass="w-[1.2rem] h-[1.2rem] text-primary-100"
+                      className="mb-2"
+                      disabled={true}
+                    />
+                    <p className="text-body">{item.title}</p>
+                  </div>
+                ))}
             </div>
           </div>
 

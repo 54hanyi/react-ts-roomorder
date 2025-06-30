@@ -4,7 +4,7 @@ import UserContext from "@/contexts/UserContext";
 import Input from "@/components/Common/Input";
 import Button from "../Common/Button";
 import { MemberEditData, MemberUpdateDetailData } from "@/types";
-import { updateUserDetail, updateUserPwd } from "@/assets/api";
+import { updateUserDetail, updateUserPwd } from "@/api";
 
 export default function UserInfo() {
   // 從 UserContext 取得目前登入使用者資料與更新方法

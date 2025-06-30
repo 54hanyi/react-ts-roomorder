@@ -1,11 +1,11 @@
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BookingContext } from '@/contexts/BookingContext';
-import { RoomContext } from '@/contexts/RoomContext';
-import UserContext from '@/contexts/UserContext';
-import { postOrder } from '@/assets/api';
-import { OrderPostData } from '@/types/order';
-import Button from '../Common/Button';
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { BookingContext } from "@/contexts/BookingContext";
+import { RoomContext } from "@/contexts/RoomContext";
+import UserContext from "@/contexts/UserContext";
+import { postOrder } from "@/api";
+import { OrderPostData } from "@/types/order";
+import Button from "../Common/Button";
 
 interface BookingBoxProps {
   setLoading: (loading: boolean) => void;
@@ -18,12 +18,18 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
   const userContext = useContext(UserContext);
   const navigate = useNavigate();
 
-  if (!bookingContext || !roomContext || !roomContext.selectedRoom || !userContext) {
+  if (
+    !bookingContext ||
+    !roomContext ||
+    !roomContext.selectedRoom ||
+    !userContext
+  ) {
     return <div>Loading...</div>;
   }
 
   const { selectedRoom } = roomContext;
-  const { checkInDate, checkOutDate, currentPeople, setOrderId } = bookingContext;
+  const { checkInDate, checkOutDate, currentPeople, setOrderId } =
+    bookingContext;
   const { user } = userContext;
 
   const calculateDays = (checkIn: string, checkOut: string): number => {
@@ -38,12 +44,12 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
 
   const handleConfirmBooking = async () => {
     if (!isValid) {
-      alert('請完整填寫訂房人資訊！');
+      alert("請完整填寫訂房人資訊！");
       return;
     }
 
     if (!user) {
-      console.error('請先登入會員');
+      console.error("請先登入會員");
       return;
     }
 
@@ -66,30 +72,36 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
     };
 
     try {
-      const token = localStorage.getItem('authToken') || '';
+      const token = localStorage.getItem("authToken") || "";
       const response = await postOrder(orderData, token);
       setLoading(false);
       if (response.status && response.result) {
-        console.log('Order confirmed:', response.result);
+        console.log("Order confirmed:", response.result);
         setOrderId(response.result._id); // 儲存返回的 _id 到 BookingContext 中
-        navigate('/successed-booking');
+        navigate("/successed-booking");
       } else {
-        console.error('Order confirmation failed:', response);
+        console.error("Order confirmation failed:", response);
       }
     } catch (error) {
       setLoading(false);
-      console.error('Error confirming order:', error);
+      console.error("Error confirming order:", error);
     }
   };
 
   return (
     <div className="h-[32rem] bg-white rounded-[1.2rem] p-8">
       {selectedRoom.imageUrlList && (
-        <img src={selectedRoom.imageUrlList[0]} alt="Room Image" className='rounded-[1.2rem]' />
+        <img
+          src={selectedRoom.imageUrlList[0]}
+          alt="Room Image"
+          className="rounded-[1.2rem]"
+        />
       )}
       <p className="text-h3 pt-4">價格詳情</p>
       <div className="flex justify-between pt-4 text-h6">
-        <p>NT$ {selectedRoom.price} x {days} 天</p>
+        <p>
+          NT$ {selectedRoom.price} x {days} 天
+        </p>
         <p>NT$ {totalPrice}</p>
       </div>
       <div className="flex justify-between pt-2 text-h6 mb-4">
@@ -103,7 +115,7 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
         <p>總價</p>
         <p>NT$ {totalPrice}</p>
       </div>
-      
+
       <Button
         title="確認訂房"
         buttonStyle="primary"
@@ -113,6 +125,6 @@ const BookingBox = ({ setLoading, isValid }: BookingBoxProps) => {
       />
     </div>
   );
-}
+};
 
 export default BookingBox;

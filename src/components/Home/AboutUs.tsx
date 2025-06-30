@@ -1,4 +1,5 @@
-import DecoLine from "../../assets/icons/DecoLine.svg";
+import DecoLine from "@/assets/icons/DecoLine.svg";
+import aboutImage from "@/assets/images/web/about.webp";
 
 export default function AboutUs() {
   return (
@@ -7,9 +8,7 @@ export default function AboutUs() {
         <div
           className="relative bg-contain bg-no-repeat bg-center h-576 w-full"
           style={{
-            backgroundImage: `url(${
-              import.meta.env.BASE_URL
-            }images/web/about.webp')`,
+            backgroundImage: `url(${aboutImage})`,
           }}
         >
           <div className="absolute bg-gradient-to-b from-neutral-120/80 to-primary-100/80 rounded-br-none rounded-[4rem] border-white border-l border-b mx-4 xl:right-48 xl:top-28 w-full xl:w-752 h-[38rem] xl:h-500">

@@ -7,9 +7,13 @@ import Input from "@/components/Common/Input";
 import UserContext from "@/contexts/UserContext";
 import { IUser } from "../types/user";
 import cityData from "../data/cityData.json";
-import { userRegister } from "@/assets/api";
+import { userRegister } from "@/api";
 
 import Line2 from "../assets/icons/Line2.svg";
+import registerBg from "@/assets/images/web/register.webp";
+import step1_2 from "@/assets/images/web/step1-2.png";
+import stepline from "@/assets/images/web/stepline.png";
+import step2_2 from "@/assets/images/web/step2-2.png";
 
 type FormValues = {
   name?: string;
@@ -103,9 +107,7 @@ const SignUp2 = () => {
           <div
             className="w-[50%] hidden sm:block bg-cover bg-bottom h-auto z-10"
             style={{
-              backgroundImage: `url(${
-                import.meta.env.BASE_URL
-              }images/web/register.webp')`,
+              backgroundImage: `url(${registerBg})`,
             }}
           ></div>
           <div className="relative sm:w-[50%] w-full flex items-center justify-center">
@@ -119,19 +121,19 @@ const SignUp2 = () => {
               <p className="text-h1 text-white">立即註冊</p>
               <div className="flex gap-1 justify-center items-center pt-8">
                 <img
-                  src="./images/web/step1-2.png"
+                  src={step1_2}
                   alt=""
                   className="h-10 w-20"
                   loading="lazy"
                 />
                 <img
-                  src="./images/web/stepline.png"
+                  src={stepline}
                   alt=""
                   className="h-[2px] w-48"
                   loading="lazy"
                 />
                 <img
-                  src="/images/web/step2-2.png"
+                  src={step2_2}
                   alt=""
                   className="h-10 w-20"
                   loading="lazy"
